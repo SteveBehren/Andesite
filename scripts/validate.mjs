@@ -84,6 +84,37 @@ entries.forEach((e) => dashCheck(e.id, e));
 dashCheck('laws.json', laws);
 dashCheck('amendments.json', amendments);
 
+// The ontology overlay may only point at things that exist (entries, laws, its own types).
+{
+  const ontology = await readJson('data/ontology.json');
+  const validateOntology = ajv.compile(await readJson('schemas/ontology.schema.json'));
+  if (!validateOntology(ontology)) report('ontology', validateOntology.errors);
+  const CATEGORY_KEYS = ['press', 'expression', 'assembly', 'information'];
+  for (const [key, actor] of Object.entries(ontology.actors || {})) {
+    if (!ontology.actorKinds[actor.kind]) errors.push(`ontology actor ${key} has unknown kind "${actor.kind}"`);
+    if (actor.parent && !ontology.actors[actor.parent]) errors.push(`ontology actor ${key} has unknown parent "${actor.parent}"`);
+  }
+  for (const [key, action] of Object.entries(ontology.actions || {})) {
+    if (!ontology.mechanisms[action.mechanism]) errors.push(`ontology action ${key} has unknown mechanism "${action.mechanism}"`);
+  }
+  for (const [law, rights] of Object.entries(ontology.provisionRights || {})) {
+    if (!laws[law]) errors.push(`ontology provisionRights names unknown law "${law}"`);
+    for (const r of rights) if (!CATEGORY_KEYS.includes(r)) errors.push(`ontology provisionRights.${law} has unknown right "${r}"`);
+  }
+  for (const key of Object.keys(laws)) {
+    if (!ontology.provisionRights?.[key]) errors.push(`ontology provisionRights is missing law "${key}"`);
+  }
+  for (const [id, note] of Object.entries(ontology.entries || {})) {
+    if (!seen.has(id)) errors.push(`ontology annotates unknown entry ${id}`);
+    for (const a of note.actors) if (!ontology.actors[a]) errors.push(`ontology ${id} names unknown actor "${a}"`);
+    for (const a of note.actions) if (!ontology.actions[a]) errors.push(`ontology ${id} names unknown action "${a}"`);
+    for (const o of note.outcomes) if (!ontology.outcomes[o.type]) errors.push(`ontology ${id} names unknown outcome "${o.type}"`);
+  }
+  const pending = entries.filter((e) => !ontology.entries?.[e.id]).map((e) => e.id);
+  if (pending.length) console.log(`  note: ${pending.length} entr${pending.length === 1 ? 'y is' : 'ies are'} not classified in data/ontology.json yet (${pending.join(', ')})`);
+  dashCheck('ontology.json', ontology);
+}
+
 if (errors.length) {
   for (const e of errors) fail(e);
   console.error(`\n${errors.length} problem(s). Nothing was changed.`);

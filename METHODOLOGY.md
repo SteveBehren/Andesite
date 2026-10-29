@@ -133,3 +133,15 @@ Types: `correction`, `tier_change`, `addition` (more sources), `withdrawn`. Opti
 ## 9. Independence
 
 Andesite is not affiliated with any party, government or organisation and accepts no funding tied to its content. The code, the data and the full history of every change are public.
+
+## 10. The ontology layer
+
+The site's Ontology pages fuse every entry into one model, in three layers:
+
+- **Semantic:** what exists. Events, state actors, legal provisions, instruments, rights, places and sources are typed objects, connected by typed links (`committed_by`, `engages`, `concerns`, `occurred_in`, `documented_by`, `part_of`, `protects`).
+- **Kinetic:** what was done. Each entry is broken into the actions the state took (for example arrest and detention, network throttling, content takedown, prosecution of speech), grouped by mechanism: physical, administrative, digital or legal process. The ledger itself also changes only through defined actions: observe, propose, gate, seal and amend.
+- **Dynamic:** what happened next. Rulings, appeals, apologies, denials, inquiries and sentences are dated outcomes attached to each entry, grouped into remedy or reform, partial response, denied or deflected, and adverse outcome.
+
+Actors, actions and outcomes are an editorial classification in `data/ontology.json`. It sits on top of the sealed ledger and is **not** part of the seal, so it can be corrected by an ordinary pull request without touching an entry. Entries the monitor records before a person classifies them are shown as pending, with actors matched from the entry's `actor` text. An outcome without a reliable date is recorded with `"date": null` and drawn at the date of the act, marked as undated.
+
+The legal map links each actor to the provisions its recorded acts engage and shows the strongest evidence level behind each link. It is not a finding that a law was broken. Only a court can make that finding. Where one did, the entry carries the "Ruled by a court" level, and the ruling concerned the act as a whole, not necessarily every provision the entry cites.

@@ -1,43 +1,42 @@
-// Andesite front end: boot, rendering, filters, live updates.
-import { LANGS, LANG_NAMES, resolveLang, loadLang, lang, t, formatNumber, formatDate, formatRange, today } from './i18n.js';
+// Andesite front end: boot, routing, the application shell and live updates.
+// Each page lives in views/*.js and exports render(root, ctx), which may return a cleanup function.
+import { LANGS, LANG_NAMES, resolveLang, loadLang, lang, t, formatDate } from './i18n.js';
 import { verifyLedger } from './seal.js';
+import { $, qsa, esc, pick, icon, storeSet, copyText, flashLabel, normalise, REPO, catName, reducedMotion } from './util.js';
+import { buildView, buildOntology, counts, latest } from './model.js';
+import { installTooltip, applyDelays } from './charts.js';
+import * as overview from './views/overview.js';
+import * as ledger from './views/ledger.js';
+import * as ontology from './views/ontology.js';
+import * as legal from './views/legal.js';
+import * as field from './views/field.js';
+import * as integrity from './views/integrity.js';
+import * as docs from './views/docs.js';
 
-const REPO = 'https://github.com/SteveBehren/Andesite';
-const TIERS = ['court', 'acknowledged', 'documented', 'alleged', 'unverified'];
-const HEADLINE_TIERS = TIERS.slice(0, 4);
-const CATEGORIES = ['press', 'expression', 'assembly', 'information'];
-const CHECKS = ['date_matches', 'location_geolocated', 'independent_second_angle', 'no_earlier_copy_found', 'account_not_new'];
 const POLL_MS = 2 * 60 * 1000;
+
+// priority 1 pages sit in the top bar from 1024px; priority 2 join them from 1280px.
+const PAGES = [
+  { key: 'overview', icon: 'overview', priority: 1, view: overview },
+  { key: 'ledger', icon: 'ledger', priority: 1, view: ledger },
+  { key: 'ontology', icon: 'ontology', priority: 1, view: ontology, subs: ['semantic', 'kinetic', 'dynamic'] },
+  { key: 'legal', icon: 'legal', priority: 1, view: legal },
+  { key: 'integrity', icon: 'integrity', priority: 1, view: integrity },
+  { key: 'field', icon: 'field', priority: 2, view: field },
+  { key: 'method', icon: 'method', priority: 2, view: docs },
+  { key: 'about', icon: 'about', priority: 2, view: docs },
+];
+const TABBAR = ['overview', 'ledger', 'ontology', 'legal'];
 
 const state = {
   data: null,
   view: [],
+  model: null,
   seal: null,
-  search: '',
-  tiers: new Set(),
-  cats: new Set(),
-  showField: true,
-  law: null,
+  route: { page: 'overview', sub: null, id: null, params: new URLSearchParams() },
+  lastCheck: null,
+  cleanup: null,
 };
-
-const $ = (id) => document.getElementById(id);
-
-function esc(value) {
-  return String(value ?? '').replace(/[&<>"']/g, (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]));
-}
-
-function storeSet(key, value) {
-  try { localStorage.setItem(key, value); } catch (e) { /* storage blocked */ }
-}
-
-function siteUrl() {
-  return location.origin + location.pathname.replace(/index\.html$/, '').replace(/\/$/, '');
-}
-
-function pick(i18nObj) {
-  if (!i18nObj) return '';
-  return i18nObj[lang()] || i18nObj.en || '';
-}
 
 // ---------- Data ----------
 
@@ -48,185 +47,142 @@ async function fetchJson(path) {
 }
 
 async function loadData() {
-  const [entries, lock, amendments, laws] = await Promise.all([
+  const [entries, lock, amendments, laws, ontologyData] = await Promise.all([
     fetchJson('data/entries.json'),
     fetchJson('data/ledger.lock.json'),
     fetchJson('data/amendments.json'),
     fetchJson('data/laws.json'),
+    fetchJson('data/ontology.json'),
   ]);
-  return { entries, lock, amendments, laws };
+  return { entries, lock, amendments, laws, ontology: ontologyData };
 }
 
-// Sealed entries never change; amendments are applied on top for display.
-function buildView(data) {
-  const byEntry = new Map();
-  for (const a of data.amendments) {
-    if (!byEntry.has(a.entry)) byEntry.set(a.entry, []);
-    byEntry.get(a.entry).push(a);
-  }
-  return data.entries.map((entry) => {
-    const amendments = (byEntry.get(entry.id) || []).slice().sort((x, y) => x.date.localeCompare(y.date));
-    let tier = entry.tier;
-    let withdrawn = false;
-    let reviewed = entry.intake !== 'automated';
-    let postsRemoved = false;
-    const extraSources = [];
-    for (const a of amendments) {
-      if (a.type === 'tier_change' && a.toTier) tier = a.toTier;
-      if (a.type === 'withdrawn') withdrawn = true;
-      if (a.reviewed) reviewed = true;
-      if (a.postsRemoved) postsRemoved = true;
-      if (a.sources) extraSources.push(...a.sources);
-    }
-    return { entry, tier, withdrawn, reviewed, postsRemoved, amendments, extraSources };
-  });
+function setData(data) {
+  state.data = data;
+  state.view = buildView(data);
+  state.model = buildOntology(data, state.view);
 }
 
-function counts(view) {
-  const live = view.filter((v) => !v.withdrawn);
-  const byTier = Object.fromEntries(TIERS.map((k) => [k, 0]));
-  for (const v of live) byTier[v.tier] += 1;
-  const lawCounts = {};
-  for (const v of live) for (const ref of v.entry.laws) lawCounts[ref.law] = (lawCounts[ref.law] || 0) + 1;
-  const years = view.map((v) => Number(v.entry.date.slice(0, 4)));
-  const first = years.length ? Math.min(...years) : new Date().getFullYear();
-  return {
-    headline: HEADLINE_TIERS.reduce((n, k) => n + byTier[k], 0),
-    field: byTier.unverified,
-    byTier,
-    lawCounts,
-    lawsCited: Object.keys(lawCounts).length,
-    first,
-    years: new Date().getFullYear() - first + 1,
-  };
+// ---------- Routing ----------
+// Routes: #/page, #/page/sub-or-id, optional ?query. Old single-page anchors keep working.
+
+const LEGACY = { ledger: '/ledger', laws: '/legal', method: '/method', about: '/about', 'field-reports': '/field', top: '/overview', 'about-read': '/about?s=read' };
+
+function parseRoute() {
+  let hash = location.hash.replace(/^#/, '');
+  const legacyEntry = hash.match(/^(AND-\d{4,})$/);
+  if (legacyEntry) hash = `/ledger/${legacyEntry[1]}`;
+  else if (LEGACY[hash]) hash = LEGACY[hash];
+  if (!hash.startsWith('/')) hash = '/overview';
+  const [path, query = ''] = hash.split('?');
+  const [page = 'overview', second = null] = path.split('/').filter(Boolean);
+  const cfg = PAGES.find((p) => p.key === page) || PAGES[0];
+  const route = { page: cfg.key, sub: null, id: null, params: new URLSearchParams(query) };
+  if (cfg.subs) route.sub = cfg.subs.includes(second) ? second : cfg.subs[0];
+  else if (second) route.id = decodeURIComponent(second);
+  return route;
 }
 
-// ---------- Small render helpers ----------
-
-function glyph(tier) {
-  const shapes = {
-    court: '<rect class="g" x="1.5" y="1.5" width="9" height="9"/>',
-    acknowledged: '<path class="g" d="M6 .9 11.1 6 6 11.1.9 6z"/>',
-    documented: '<circle class="g" cx="6" cy="6" r="4.6"/>',
-    alleged: '<path class="g-outline" d="M6 1.4 10.9 10.4H1.1z"/>',
-    unverified: '<circle class="g-dash" cx="6" cy="6" r="4.4"/>',
-  };
-  return `<svg class="tier-glyph c-${tier}" viewBox="0 0 12 12" aria-hidden="true">${shapes[tier]}</svg>`;
+export function go(hash) {
+  if (location.hash === hash) render();
+  else location.hash = hash;
 }
 
-function tierPill(tier) {
-  return `<span class="tier-pill c-${tier}" title="${esc(t(`tiers.${tier}.desc`))}">${glyph(tier)}${esc(t(`tiers.${tier}.name`))}</span>`;
+function pageLabel(key) { return t(`nav.${key}`); }
+
+// ---------- Shell ----------
+
+function renderNav() {
+  const active = state.route.page;
+  $('tb-nav').innerHTML = PAGES.map((p) => `<a class="tb-link" data-priority="${p.priority}" href="#/${p.key}" ${p.key === active ? 'aria-current="page"' : ''}>${icon(p.icon)}<span>${esc(pageLabel(p.key))}</span></a>`).join('');
+  $('tabbar').innerHTML = TABBAR.map((k) => {
+    const p = PAGES.find((x) => x.key === k);
+    return `<a class="tab" href="#/${k}" ${k === active ? 'aria-current="page"' : ''}>${icon(p.icon)}<span>${esc(t(`nav.short.${k}`))}</span></a>`;
+  }).join('') + `<button type="button" class="tab" data-open-menu ${TABBAR.includes(active) ? '' : 'aria-current="page"'}>${icon('menu')}<span>${esc(t('nav.more'))}</span></button>`;
+  renderSubbar();
 }
 
-function shortPinpoint(pinpoint) {
-  if (!pinpoint) return '';
-  const m = pinpoint.match(/\(([^)]+)\)/);
-  return m ? `(${m[1]})` : ` ${pinpoint}`;
+function renderSubbar() {
+  const r = state.route;
+  const cfg = PAGES.find((p) => p.key === r.page);
+  const crumbs = [`<a href="#/overview">Andesite</a>`, `<a href="#/${r.page}" ${!r.sub && !r.id ? 'aria-current="page"' : ''}>${esc(pageLabel(r.page))}</a>`];
+  if (r.id) crumbs.push(`<span aria-current="page" class="mono">${esc(r.id)}</span>`);
+  const tabs = cfg.subs ? `<div class="sub-tabs" role="tablist">${cfg.subs.map((s, i) => `<a role="tab" href="#/${r.page}/${s}" aria-selected="${s === r.sub}" class="sub-tab"><span class="st-n mono">0${i + 1}</span>${esc(t(`ontology.layers.${s}.name`))}</a>`).join('')}</div>` : '';
+  $('subbar').innerHTML = `<nav class="crumbs" aria-label="${esc(t('nav.breadcrumb'))}">${crumbs.join('<span class="sep" aria-hidden="true">/</span>')}</nav>${tabs}
+    <p class="sub-meta mono">${esc(t('nav.objects', { n: state.view.length }))}</p>`;
 }
-
-function waybackUrl(url) {
-  return `https://web.archive.org/web/*/${url}`;
-}
-
-// ---------- Static strings ----------
 
 function renderStatic() {
-  document.title = t('meta.title');
+  document.title = `${pageLabel(state.route.page)} · Andesite`;
   document.querySelector('meta[name="description"]').setAttribute('content', t('meta.description'));
-  for (const el of document.querySelectorAll('[data-i18n]')) el.textContent = t(el.dataset.i18n);
-
+  $('skip-link').textContent = t('nav.skip');
+  $('brand-sub').textContent = t('meta.sub');
+  $('search-label').textContent = t('nav.search');
+  $('open-search').setAttribute('aria-label', t('nav.searchHint'));
+  $('live-label').textContent = t('nav.live');
   $('menu-toggle').setAttribute('aria-label', t('nav.menu'));
   $('menu-close').setAttribute('aria-label', t('nav.close'));
+  $('menu-title').textContent = t('nav.menu');
   $('menu-panel').setAttribute('aria-label', t('nav.menu'));
   $('seal-copy').textContent = t('seal.copy');
+  $('seal-more').textContent = t('seal.open');
   $('seal-head-label').textContent = t('seal.head');
   $('seal-explain').textContent = t('seal.explain');
-
-  $('strip-label').textContent = t('strip.label');
-  $('strip-body').textContent = t('strip.body');
-  $('strip-more').textContent = t('strip.more');
-  $('strip-dismiss').textContent = t('strip.dismiss');
-
-  $('not-court').textContent = t('hero.notCourt');
-  $('tagline').textContent = t('hero.tagline');
-  $('what-is').textContent = t('hero.whatIs');
-  $('stat-years-label').textContent = t('hero.years');
-  $('stat-laws-label').textContent = t('hero.lawsCited');
-
-  $('filters-title').textContent = t('filters.title');
-  $('search-label').textContent = t('filters.searchLabel');
-  $('search').placeholder = t('filters.search');
-  $('tier-chips-label').textContent = t('filters.tiers');
-  $('cat-chips-label').textContent = t('filters.categories');
-  $('year-label').textContent = t('filters.year');
-  $('field-toggle-label').textContent = t('filters.showField');
-  $('filters-reset').textContent = t('filters.reset');
-
-  $('field-title').textContent = t('field.title');
-  $('field-body').textContent = t('field.body');
-  $('field-button').textContent = t('field.button');
-  $('field-safety').textContent = t('field.safety');
-
-  $('laws-title').textContent = t('lawsIndex.title');
-  $('laws-intro').textContent = t('lawsIndex.intro');
-
-  $('method-title').textContent = t('method.title');
-  $('method-lead').textContent = t('method.lead');
-  $('method-body').innerHTML = proseHtml(t('method.sections'));
-  $('about-title').textContent = t('about.title');
-  $('about-body').innerHTML = proseHtml(t('about.sections'), 'about');
-
+  $('palette-input').placeholder = t('palette.placeholder');
+  $('lang-current').textContent = lang().toUpperCase();
+  $('lang-btn').setAttribute('aria-label', `${t('nav.language')}: ${LANG_NAMES[lang()]}`);
+  $('lang-pop').innerHTML = LANGS.map((code) => `<li><a href="?lang=${code}${location.hash}" data-lang="${code}" lang="${code}" hreflang="${code}" ${code === lang() ? 'aria-current="true"' : ''}>${esc(LANG_NAMES[code])}<span class="mono">${code.toUpperCase()}</span></a></li>`).join('');
+  $('footer-notcourt').textContent = t('hero.notCourt');
   $('footer-licences').textContent = t('footer.licences');
   $('footer-repo').textContent = t('footer.repo');
   $('footer-built').textContent = t('footer.builtBy');
-  $('footer-last-label').textContent = t('footer.lastAdded') + ':';
-  $('footer-head-label').textContent = t('footer.head') + ':';
-
-  renderLangList();
+  $('footer-last-label').textContent = `${t('footer.lastAdded')}:`;
+  $('footer-head-label').textContent = `${t('footer.head')}:`;
+  const last = state.data.entries.map((e) => e.addedOn).sort().at(-1);
+  $('footer-last').textContent = last ? formatDate(last) : '';
   renderThemeControls();
+  renderLive();
 }
 
-function linkify(text) {
-  return esc(text).replace(/https:\/\/github\.com\/SteveBehren\b/g, (u) => `<a href="${u}" rel="noopener">${u}</a>`);
-}
-
-function proseHtml(sections, prefix) {
-  if (!Array.isArray(sections)) return '';
-  return sections.map((s, i) => {
-    // The "How to read an entry" section is the target of the first-visit strip link.
-    const id = prefix === 'about' && i === 5 ? ' id="about-read"' : '';
-    return `<h3${id}>${esc(s.h)}</h3>${s.p.map((p) => `<p>${linkify(p)}</p>`).join('')}`;
-  }).join('');
-}
-
-function renderLangList() {
-  $('lang-list').innerHTML = LANGS.map((code) => {
-    const current = code === lang();
-    return `<li><a href="?lang=${code}${location.hash}" data-lang="${code}" lang="${code}" hreflang="${code}"${current ? ' aria-current="true"' : ''}>${esc(LANG_NAMES[code])}</a></li>`;
-  }).join('');
+function renderMenu() {
+  const r = state.route;
+  const pages = PAGES.map((p) => `<li><a class="dm-link" href="#/${p.key}" ${p.key === r.page ? 'aria-current="page"' : ''}>${icon(p.icon)}<span class="dm-text"><span class="dm-name">${esc(pageLabel(p.key))}</span><span class="dm-desc">${esc(t(`nav.desc.${p.key}`))}</span></span>${icon('chevron', 'dm-chev')}</a>
+    ${p.subs ? `<ul class="dm-subs">${p.subs.map((s) => `<li><a href="#/${p.key}/${s}" ${r.page === p.key && r.sub === s ? 'aria-current="page"' : ''}>${esc(t(`ontology.layers.${s}.name`))}</a></li>`).join('')}</ul>` : ''}</li>`).join('');
+  const theme = currentTheme();
+  $('menu-body').innerHTML = `
+    <p class="dm-label">${esc(t('nav.pages'))}</p>
+    <ul class="dm-pages">${pages}</ul>
+    <p class="dm-label">${esc(t('nav.language'))}</p>
+    <ul class="dm-langs">${LANGS.map((code) => `<li><a href="?lang=${code}${location.hash}" data-lang="${code}" lang="${code}" hreflang="${code}" ${code === lang() ? 'aria-current="true"' : ''}>${esc(LANG_NAMES[code])}</a></li>`).join('')}</ul>
+    <p class="dm-label">${esc(t('nav.theme'))}</p>
+    <div class="seg" role="group">${['dark', 'light'].map((k) => `<button type="button" data-theme-set="${k}" aria-pressed="${theme === k}">${esc(t(`nav.${k}`))}</button>`).join('')}</div>
+    <p class="dm-label">${esc(t('nav.contribute'))}</p>
+    <ul class="dm-ext">
+      <li><a href="${REPO}" rel="noopener">${icon('github')}<span>${esc(t('nav.repo'))}</span>${icon('external', 'dm-chev')}</a></li>
+      <li><a href="${REPO}/issues/new/choose" rel="noopener">${icon('plus')}<span>${esc(t('nav.submit'))}</span>${icon('external', 'dm-chev')}</a></li>
+    </ul>
+    <p class="dm-foot small">${esc(t('hero.notCourt'))}</p>`;
 }
 
 // ---------- Theme ----------
 
 function currentTheme() {
-  return document.documentElement.getAttribute('data-theme') === 'dark' ? 'dark' : 'light';
+  return document.documentElement.getAttribute('data-theme') === 'light' ? 'light' : 'dark';
 }
 
 function setTheme(theme) {
   document.documentElement.setAttribute('data-theme', theme);
   storeSet('andesite.theme', theme);
   renderThemeControls();
+  renderMenu();
 }
 
 function renderThemeControls() {
   const theme = currentTheme();
   const btn = $('theme-toggle');
   btn.setAttribute('aria-label', theme === 'dark' ? t('nav.toLight') : t('nav.toDark'));
-  btn.title = btn.getAttribute('aria-label');
-  for (const b of document.querySelectorAll('[data-theme-set]')) {
-    b.setAttribute('aria-pressed', String(b.dataset.themeSet === theme));
-  }
-  document.querySelector('meta[name="theme-color"]').setAttribute('content', theme === 'dark' ? '#141a19' : '#e8eeed');
+  btn.dataset.tip = btn.getAttribute('aria-label');
+  document.querySelector('meta[name="theme-color"]').setAttribute('content', theme === 'dark' ? '#0d1117' : '#f6f7f9');
 }
 
 // ---------- Seal ----------
@@ -242,7 +198,8 @@ function renderSeal() {
     return;
   }
   $('seal-hash').textContent = s.head;
-  $('footer-head').textContent = s.head;
+  $('footer-head').textContent = s.head.slice(0, 16);
+  $('footer-head').dataset.tip = s.head;
   if (s.unavailable) {
     badge.dataset.state = 'pending';
     text.textContent = t('seal.unavailable');
@@ -252,11 +209,8 @@ function renderSeal() {
   if (s.ok) {
     badge.dataset.state = 'ok';
     const full = t('seal.ok', { n: s.verified, total: s.total });
-    const short = t('seal.okShort', { n: s.verified, total: s.total });
-    const narrow = window.matchMedia('(max-width: 420px)').matches;
-    const small = window.matchMedia('(max-width: 640px)').matches;
-    text.textContent = narrow ? `${s.verified}/${s.total}` : small ? short : `${full} · ${s.head.slice(0, 8)}`;
-    badge.title = full;
+    text.innerHTML = `<span class="st-long">${esc(t('seal.okShort', { n: s.verified, total: s.total }))}</span><span class="st-short">${s.verified}/${s.total}</span><span class="st-hash mono">${esc(s.head.slice(0, 8))}</span>`;
+    badge.dataset.tip = full;
     $('seal-sr').textContent = ` ${full}. ${t('seal.head')}: ${s.head}`;
     banner.hidden = true;
   } else {
@@ -268,357 +222,141 @@ function renderSeal() {
   }
 }
 
-// ---------- Hero ----------
-
-function renderHero() {
-  const c = counts(state.view);
-  $('hero-count').textContent = formatNumber(c.headline);
-  $('hero-line').textContent = t('hero.line', { from: c.first });
-  $('stat-years').textContent = formatNumber(c.years);
-  $('stat-laws').textContent = formatNumber(c.lawsCited);
-  $('hero-field').textContent = t('hero.fieldReports', { n: formatNumber(c.field) });
-
-  const total = c.headline || 1;
-  $('tierbar').innerHTML = HEADLINE_TIERS
-    .filter((k) => c.byTier[k] > 0)
-    .map((k) => `<span class="bg-${k}" data-w="${(c.byTier[k] / total) * 100}"></span>`)
-    .join('');
-  // Set widths through the CSSOM so the strict CSP needs no 'unsafe-inline'.
-  for (const span of $('tierbar').children) span.style.width = `${span.dataset.w}%`;
-  $('tierbar').setAttribute('aria-label', `${t('hero.tierBar')}: ` + HEADLINE_TIERS.map((k) => `${t(`tiers.${k}.name`)} ${c.byTier[k]}`).join(', '));
-  $('tier-legend').innerHTML = HEADLINE_TIERS.map((k) =>
-    `<li>${glyph(k)}<span>${esc(t(`tiers.${k}.name`))}</span><span class="n">${formatNumber(c.byTier[k])}</span></li>`
-  ).join('');
+function renderLive() {
+  const when = state.lastCheck ? new Intl.DateTimeFormat(undefined, { hour: '2-digit', minute: '2-digit' }).format(state.lastCheck) : '';
+  $('live').dataset.tip = t('nav.liveTip', { time: when || '…' });
 }
 
-// ---------- Filters ----------
+// ---------- Page rendering ----------
 
-function renderFilterControls() {
-  $('tier-chips').innerHTML = TIERS.map((k) =>
-    `<button type="button" class="chip" data-tier="${k}" aria-pressed="${state.tiers.has(k)}">${glyph(k)}${esc(t(`tiers.${k}.short`))}</button>`
-  ).join('');
-  $('cat-chips').innerHTML = CATEGORIES.map((k) =>
-    `<button type="button" class="chip" data-cat="${k}" aria-pressed="${state.cats.has(k)}">${esc(t(`categories.${k}`))}</button>`
-  ).join('');
-  const years = [...new Set(state.view.map((v) => v.entry.date.slice(0, 4)))].sort().reverse();
-  $('year-jump').innerHTML = `<option value="">${esc(t('filters.allYears'))}</option>` +
-    years.map((y) => `<option value="${y}">${y}</option>`).join('');
-  $('field-toggle').checked = state.showField;
+function ctx() {
+  return { state, go, counts: counts(state.view), rerender: render };
 }
 
-function normalise(s) {
-  return String(s).toLowerCase().normalize('NFD').replace(/[̀-ͯ]/g, '');
-}
-
-function matches(v) {
-  const e = v.entry;
-  if (v.tier === 'unverified' && !state.showField) return false;
-  if (state.tiers.size && !state.tiers.has(v.tier)) return false;
-  if (state.cats.size && !e.category.some((c) => state.cats.has(c))) return false;
-  if (state.law && !e.laws.some((l) => l.law === state.law)) return false;
-  if (state.search) {
-    const hay = normalise([e.id, pick(e.title), pick(e.summary), e.title.en, e.actor, e.location.place, e.location.province].join(' '));
-    const terms = normalise(state.search).split(/\s+/).filter(Boolean);
-    if (!terms.every((term) => hay.includes(term))) return false;
-  }
-  return true;
-}
-
-function filtersActive() {
-  return Boolean(state.search || state.tiers.size || state.cats.size || state.law || !state.showField);
-}
-
-function resetFilters() {
-  state.search = '';
-  state.tiers.clear();
-  state.cats.clear();
-  state.law = null;
-  state.showField = true;
-  $('search').value = '';
-  renderFilterControls();
-  renderTimeline();
-}
-
-// ---------- Timeline ----------
-
-function entryHtml(v) {
-  const e = v.entry;
-  const classes = ['entry', `t-${v.tier}`];
-  if (v.withdrawn) classes.push('is-withdrawn');
-  const cats = e.category.map((c) => `<span class="cat-tag">${esc(t(`categories.${c}`) === `categories.${c}` ? c : t(`categories.${c}`))}</span>`).join('');
-  const auto = e.intake === 'automated' && !v.reviewed
-    ? `<span class="auto-tag" title="${esc(t('entry.autoRecordedNote'))}">${esc(t('entry.autoRecorded'))}</span>` : '';
-  const amended = v.amendments.length ? `<span class="cat-tag">${esc(t('entry.amended'))}</span>` : '';
-  const ctx = e.context ? `<p class="entry-context"><strong>${esc(t('entry.context'))}.</strong> ${esc(pick(e.context))}</p>` : '';
-
-  return `<article class="${classes.join(' ')}" id="${e.id}" tabindex="-1" aria-labelledby="${e.id}-title">
-    <div class="entry-head">
-      <a class="entry-id" href="#${e.id}">${e.id}</a>
-      <time class="entry-date" datetime="${e.date}">${esc(formatRange(e.date, e.dateEnd, e.datePrecision))}</time>
-      ${tierPill(v.tier)}
-      ${auto}${amended}
-      ${cats}
-    </div>
-    <h3 id="${e.id}-title">${esc(pick(e.title))}</h3>
-    <dl class="entry-meta">
-      <div><dt>${esc(t('entry.place'))}</dt><dd>${esc(e.location.place)}</dd></div>
-      <div><dt>${esc(t('entry.actor'))}</dt><dd>${esc(e.actor)}</dd></div>
-    </dl>
-    ${v.withdrawn ? `<p class="withdrawn-note">${esc(t('entry.withdrawnNote'))}</p>` : ''}
-    ${auto ? `<p class="auto-note">${esc(t('entry.autoRecordedNote'))}</p>` : ''}
-    <p class="entry-summary">${esc(pick(e.summary))}</p>
-    ${ctx}
-    ${e.field ? fieldHtml(e, v) : ''}
-    <h4 class="block-title">${esc(t('entry.laws'))}</h4>
-    <div class="laws-list">${e.laws.map(lawHtml).join('')}</div>
-    <h4 class="block-title">${esc(t('entry.sources'))}</h4>
-    <ul class="sources">${[...e.sources, ...v.extraSources].map(sourceHtml).join('')}</ul>
-    ${v.amendments.length ? `<h4 class="block-title">${esc(t('entry.history'))}</h4><ul class="amendments">${v.amendments.map(amendmentHtml).join('')}</ul>` : ''}
-    <div class="entry-actions">
-      <button type="button" class="btn btn-small btn-quiet" data-action="cite" data-id="${e.id}">${esc(t('entry.cite'))}</button>
-      <button type="button" class="btn btn-small btn-quiet" data-action="link" data-id="${e.id}">${esc(t('entry.copyLink'))}</button>
-    </div>
-    <div class="cite-box" id="${e.id}-cite" hidden></div>
-  </article>`;
-}
-
-function lawHtml(ref) {
-  const law = state.data.laws[ref.law];
-  if (!law) return '';
-  const ui = lang();
-  const citation = law.citation.includes('; ratified')
-    ? law.citation.replace(law.article, law.article + (ref.pinpoint ? ` ${ref.pinpoint}` : ''))
-    : law.citation + (ref.pinpoint ? ` ${ref.pinpoint}` : '');
-  const short = law.short + shortPinpoint(ref.pinpoint);
-  const instrument = ui === 'id' ? law.instrument.id : law.instrument.en;
-  let translation = '';
-  if (ui !== law.originalLang && law.translations[ui]) {
-    const official = law.translationNote?.[ui] === 'official';
-    const label = official ? t('entry.officialTranslation') : t('entry.unofficialTranslation');
-    const src = official && law.translationSources?.[ui] ? ` <a href="${esc(law.translationSources[ui])}" rel="noopener">OHCHR</a>` : '';
-    translation = `<p class="law-translation" lang="${ui}"><span class="label">${esc(label)}${src}</span>${esc(law.translations[ui])}</p>`;
-  }
-  return `<details class="law-card">
-    <summary><span class="law-short">${esc(short)}</span><span class="law-instrument">${esc(instrument)}</span></summary>
-    <div class="law-body">
-      <p class="law-citation">${esc(citation)}</p>
-      <span class="law-original-label">${esc(t('entry.original'))}</span>
-      <blockquote class="law-original" lang="${law.originalLang}">${esc(law.text)}</blockquote>
-      ${translation}
-      ${law.note ? `<p class="law-note">${linkifyUrls(law.note)}</p>` : ''}
-      <a href="${esc(law.source)}" rel="noopener">${esc(t('entry.lawSource'))}</a>
-    </div>
-  </details>`;
-}
-
-function linkifyUrls(text) {
-  return esc(text).replace(/https:\/\/[^\s<]+/g, (u) => `<a href="${u}" rel="noopener">${u}</a>`);
-}
-
-function sourceHtml(s) {
-  const typeLabel = t(`entry.sourceTypes.${s.type}`);
-  const date = s.published ? `<span>${esc(formatDate(s.published))}</span>` : '';
-  // Never offer an archive link for social posts: a deleted post must stay deleted.
-  const archived = s.type === 'social' ? '' : `<a href="${esc(waybackUrl(s.url))}" rel="noopener nofollow">${esc(t('entry.archived'))}</a>`;
-  const rel = s.type === 'social' ? 'noopener noreferrer nofollow' : 'noopener';
-  return `<li>
-    <a class="src-title" href="${esc(s.url)}" rel="${rel}">${esc(s.title)}</a>
-    <span class="src-meta"><span>${esc(s.publisher)}</span>${date}<span class="lang" title="${esc(s.lang)}">${esc(s.lang)}</span><span>${esc(typeLabel)}</span>${archived}</span>
-  </li>`;
-}
-
-function fieldHtml(e, v) {
-  const f = e.field;
-  const checks = CHECKS.map((c) => {
-    const ok = f.corroboration.checks.includes(c);
-    return `<li class="${ok ? 'yes' : 'no'}"><span class="mark" aria-hidden="true">${ok ? '✓' : '·'}</span><span>${esc(t(`entry.checkNames.${c}`))}</span><span class="visually-hidden">${ok ? 'yes' : 'no'}</span></li>`;
-  }).join('');
-  const posts = v.postsRemoved
-    ? `<p class="small">${esc(t('entry.originalUnavailable'))}</p>`
-    : `<ul class="sources">${f.postUrls.map((u) => `<li><a href="${esc(u)}" rel="noopener noreferrer nofollow">${esc(new URL(u).hostname)}</a></li>`).join('')}</ul>`;
-  return `<div class="field-block">
-    <h4 class="block-title">${esc(t('entry.shows'))}</h4>
-    <p>${esc(pick(f.shows))}</p>
-    ${posts}
-    <h4 class="block-title">${esc(t('entry.checks'))} · ${esc(t('entry.corroboration', { n: f.corroboration.count }))}</h4>
-    <ul class="checks">${checks}</ul>
-  </div>`;
-}
-
-function amendmentHtml(a) {
-  const head = `${esc(formatDate(a.date))} · ${esc(t(`entry.amendTypes.${a.type}`))}`;
-  const change = a.type === 'tier_change'
-    ? ` (${esc(t('entry.fromTier', { from: t(`tiers.${a.fromTier}.name`), to: t(`tiers.${a.toTier}.name`) }))})` : '';
-  return `<li><span class="a-head">${head}${change}</span><br>${esc(pick(a.note))}</li>`;
-}
-
-function renderTimeline() {
-  const shown = state.view.filter(matches);
-  // Newest first; entries with the same date keep ledger order reversed.
-  shown.sort((a, b) => b.entry.date.localeCompare(a.entry.date) || b.entry.id.localeCompare(a.entry.id));
-  const groups = new Map();
-  for (const v of shown) {
-    const y = v.entry.date.slice(0, 4);
-    if (!groups.has(y)) groups.set(y, []);
-    groups.get(y).push(v);
-  }
-  const html = [...groups].map(([year, items]) => `<section class="year-group" id="year-${year}" aria-label="${year}">
-      <div class="year-rail"><h2 class="year-mark">${year}</h2></div>
-      <div class="year-entries">${items.map(entryHtml).join('')}</div>
-    </section>`).join('');
-  $('timeline').innerHTML = html || `<p class="empty-state">${esc(t('filters.none'))}</p>`;
-  $('timeline').classList.remove('is-loading');
-
-  const lawTag = state.law
-    ? `<span class="law-tag">${esc(t('filters.lawFilter', { law: state.data.laws[state.law]?.short || state.law }))}<button type="button" data-action="clear-law" aria-label="${esc(t('filters.reset'))}">×</button></span>` : '';
-  $('filter-count').innerHTML = esc(t('filters.count', { n: formatNumber(shown.length), total: formatNumber(state.view.length) })) + lawTag;
-  $('filters-reset').hidden = !filtersActive();
-  for (const b of document.querySelectorAll('#tier-chips .chip')) b.setAttribute('aria-pressed', String(state.tiers.has(b.dataset.tier)));
-  for (const b of document.querySelectorAll('#cat-chips .chip')) b.setAttribute('aria-pressed', String(state.cats.has(b.dataset.cat)));
-}
-
-// ---------- Laws index, field section, footer ----------
-
-function renderLawsIndex() {
-  const c = counts(state.view);
-  const ui = lang();
-  const keys = Object.keys(state.data.laws).sort((a, b) => (c.lawCounts[b] || 0) - (c.lawCounts[a] || 0) || a.localeCompare(b));
-  $('laws-index').innerHTML = keys.map((key) => {
-    const law = state.data.laws[key];
-    const n = c.lawCounts[key] || 0;
-    return `<li class="${n ? '' : 'unused'}">
-      <div class="li-top"><span class="law-short">${esc(law.short)}</span><span class="li-count">${esc(n ? t('lawsIndex.count', { n }) : t('lawsIndex.none'))}</span></div>
-      <span class="li-name">${esc(ui === 'id' ? law.instrument.id : law.instrument.en)}, ${esc(law.article)}</span>
-      ${n ? `<button type="button" class="btn btn-small btn-quiet" data-action="filter-law" data-law="${key}">${esc(t('lawsIndex.filter'))}</button>` : ''}
-    </li>`;
-  }).join('');
-}
-
-function renderFieldSection() {
-  const c = counts(state.view);
-  $('field-empty').textContent = c.field ? '' : t('field.empty');
-  $('field-empty').hidden = Boolean(c.field);
-}
-
-function renderFooter() {
-  const last = state.data.entries.map((e) => e.addedOn).sort().at(-1);
-  $('footer-last').textContent = last ? formatDate(last) : '';
-}
-
-function renderAll() {
+function render() {
+  state.route = parseRoute();
+  if (typeof state.cleanup === 'function') { try { state.cleanup(); } catch (e) { console.error(e); } }
+  state.cleanup = null;
+  const cfg = PAGES.find((p) => p.key === state.route.page);
   renderStatic();
-  renderSeal();
-  renderHero();
-  renderFilterControls();
-  renderTimeline();
-  renderLawsIndex();
-  renderFieldSection();
-  renderFooter();
+  renderNav();
+  renderMenu();
+  const main = $('main');
+  main.className = `view page-${cfg.key}`;
+  main.innerHTML = '';
+  state.cleanup = cfg.view.render(main, { ...ctx(), page: cfg.key });
+  applyDelays(main);
+  // Restart the entry animation on every navigation.
+  void main.offsetWidth;
+  main.classList.add('view-enter');
 }
 
-// ---------- Interactions ----------
-
-async function copyText(text) {
-  try {
-    await navigator.clipboard.writeText(text);
-    return true;
-  } catch (e) {
-    return false;
-  }
+function onRouteChange() {
+  const prev = state.route;
+  const next = parseRoute();
+  closeMenu(false);
+  closePalette(false);
+  // Selecting an object inside the same page should not throw the visitor back to the top.
+  const samePage = prev.page === next.page && prev.sub === next.sub;
+  render();
+  if (!samePage) window.scrollTo({ top: 0, behavior: 'auto' });
+  if (!samePage) $('main').focus({ preventScroll: true });
 }
 
-function entryUrl(id) {
-  return `${siteUrl()}/${lang() === 'en' ? '' : `?lang=${lang()}`}#${id}`;
-}
+// ---------- Menu drawer ----------
 
-function citeText(id) {
-  const v = state.view.find((x) => x.entry.id === id);
-  const year = v.entry.addedOn.slice(0, 4);
-  return `Andesite. (${year}). ${pick(v.entry.title)}. ${t('entry.ledgerEntry')} ${id}. ${siteUrl()}/#${id}. ${t('entry.accessed')} ${today()}.`;
-}
-
-function showCopyFallback(id, text) {
-  const box = $(`${id}-cite`);
-  box.hidden = false;
-  box.innerHTML = `<p class="small">${esc(t('entry.copyFailed'))}</p><textarea readonly>${esc(text)}</textarea>`;
-  const ta = box.querySelector('textarea');
-  ta.focus();
-  ta.select();
-}
-
-async function onAction(event) {
-  const btn = event.target.closest('[data-action]');
-  if (!btn) return;
-  const { action, id } = btn.dataset;
-  if (action === 'cite') {
-    const text = citeText(id);
-    const box = $(`${id}-cite`);
-    const ok = await copyText(text);
-    box.hidden = false;
-    box.innerHTML = `<p class="small">${ok ? esc(t('entry.copied')) : esc(t('entry.copyFailed'))}</p><textarea readonly>${esc(text)}</textarea>`;
-    if (!ok) { const ta = box.querySelector('textarea'); ta.focus(); ta.select(); }
-  } else if (action === 'link') {
-    const url = entryUrl(id);
-    if (await copyText(url)) flashLabel(btn, t('entry.copied'));
-    else showCopyFallback(id, url);
-  } else if (action === 'filter-law') {
-    state.law = btn.dataset.law;
-    renderTimeline();
-    $('ledger').scrollIntoView({ behavior: prefersReducedMotion() ? 'auto' : 'smooth' });
-  } else if (action === 'clear-law') {
-    state.law = null;
-    renderTimeline();
-  }
-}
-
-function flashLabel(btn, label) {
-  const original = btn.textContent;
-  btn.textContent = label;
-  setTimeout(() => { btn.textContent = original; }, 1600);
-}
-
-function prefersReducedMotion() {
-  return window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-}
-
-function focusEntryFromHash() {
-  const m = location.hash.match(/^#(AND-\d{4,})$/);
-  if (!m) return;
-  let el = document.getElementById(m[1]);
-  if (!el && state.view.some((v) => v.entry.id === m[1])) {
-    resetFilters();
-    el = document.getElementById(m[1]);
-  }
-  if (!el) return;
-  el.scrollIntoView({ block: 'start', behavior: prefersReducedMotion() ? 'auto' : 'smooth' });
-  el.classList.remove('highlight');
-  void el.offsetWidth; // restart the animation
-  el.classList.add('highlight');
-  el.focus({ preventScroll: true });
-}
-
-// Menu panel with a minimal focus trap.
 function openMenu() {
+  renderMenu();
   $('menu-panel').hidden = false;
   $('menu-scrim').hidden = false;
+  document.body.classList.add('has-drawer');
   $('menu-toggle').setAttribute('aria-expanded', 'true');
-  ($('lang-list').querySelector('[aria-current="true"]') || $('menu-close')).focus();
+  requestAnimationFrame(() => $('menu-panel').classList.add('is-open'));
+  ($('menu-panel').querySelector('.dm-pages [aria-current="page"]') || $('menu-close')).focus();
 }
+
 function closeMenu(returnFocus = true) {
   if ($('menu-panel').hidden) return;
-  $('menu-panel').hidden = true;
+  $('menu-panel').classList.remove('is-open');
   $('menu-scrim').hidden = true;
+  document.body.classList.remove('has-drawer');
   $('menu-toggle').setAttribute('aria-expanded', 'false');
+  const done = () => { $('menu-panel').hidden = true; };
+  if (reducedMotion()) done(); else setTimeout(done, 220);
   if (returnFocus) $('menu-toggle').focus();
 }
-function trapFocus(event) {
-  if (event.key !== 'Tab' || $('menu-panel').hidden) return;
-  const items = [...$('menu-panel').querySelectorAll('a, button')].filter((el) => !el.disabled);
+
+function trapFocus(event, container) {
+  if (event.key !== 'Tab') return;
+  const items = qsa('a, button, input', container).filter((el) => !el.disabled && el.offsetParent !== null);
+  if (!items.length) return;
   const first = items[0];
   const last = items.at(-1);
   if (event.shiftKey && document.activeElement === first) { event.preventDefault(); last.focus(); }
   else if (!event.shiftKey && document.activeElement === last) { event.preventDefault(); first.focus(); }
 }
+
+// ---------- Command palette ----------
+
+let paletteItems = [];
+let paletteIndex = 0;
+
+function paletteSource() {
+  const items = [];
+  for (const p of PAGES) {
+    items.push({ group: t('palette.pages'), label: pageLabel(p.key), sub: t(`nav.desc.${p.key}`), href: `#/${p.key}`, icon: p.icon });
+    for (const s of p.subs || []) items.push({ group: t('palette.pages'), label: `${pageLabel(p.key)} / ${t(`ontology.layers.${s}.name`)}`, sub: t(`ontology.layers.${s}.tag`), href: `#/${p.key}/${s}`, icon: p.icon });
+  }
+  for (const v of latest(state.view)) {
+    items.push({ group: t('palette.entries'), label: pick(v.entry.title), sub: `${v.entry.id} · ${v.entry.location.place}`, href: `#/ledger/${v.entry.id}`, icon: 'ledger', hay: `${v.entry.id} ${v.entry.title.en} ${v.entry.actor}` });
+  }
+  for (const [key, a] of Object.entries(state.data.ontology.actors)) {
+    if (!state.model.objects.has(`actor:${key}`)) continue;
+    items.push({ group: t('palette.actors'), label: pick(a.name), sub: a.short, href: `#/ledger?actor=${key}`, icon: 'ontology', hay: a.aliases.join(' ') });
+  }
+  for (const [key, law] of Object.entries(state.data.laws)) {
+    items.push({ group: t('palette.laws'), label: law.short, sub: lang() === 'id' ? law.instrument.id : law.instrument.en, href: `#/legal/${key}`, icon: 'legal', hay: law.citation });
+  }
+  for (const c of ['press', 'expression', 'assembly', 'information']) {
+    items.push({ group: t('palette.rights'), label: catName(c), sub: t('palette.filterLedger'), href: `#/ledger?cat=${c}`, icon: 'filter' });
+  }
+  return items;
+}
+
+function renderPalette() {
+  const q = normalise($('palette-input').value.trim());
+  const all = paletteSource();
+  paletteItems = q ? all.filter((i) => normalise(`${i.label} ${i.sub} ${i.hay || ''}`).includes(q)).slice(0, 40) : all.slice(0, 18);
+  paletteIndex = Math.min(paletteIndex, Math.max(0, paletteItems.length - 1));
+  let group = '';
+  $('palette-list').innerHTML = paletteItems.length ? paletteItems.map((it, i) => {
+    const head = it.group !== group ? `<li class="pal-group" role="presentation">${esc(it.group)}</li>` : '';
+    group = it.group;
+    return `${head}<li role="option" id="pal-${i}" aria-selected="${i === paletteIndex}"><a href="${esc(it.href)}" data-i="${i}">${icon(it.icon)}<span class="pal-text"><span class="pal-label">${esc(it.label)}</span><span class="pal-sub">${esc(it.sub || '')}</span></span>${icon('arrow', 'pal-go')}</a></li>`;
+  }).join('') : `<li class="pal-empty">${esc(t('palette.none'))}</li>`;
+  $('palette-input').setAttribute('aria-activedescendant', paletteItems.length ? `pal-${paletteIndex}` : '');
+  $('palette-list').querySelector('[aria-selected="true"]')?.scrollIntoView({ block: 'nearest' });
+}
+
+function openPalette() {
+  $('palette').hidden = false;
+  $('palette-scrim').hidden = false;
+  $('palette-input').value = '';
+  paletteIndex = 0;
+  renderPalette();
+  requestAnimationFrame(() => $('palette').classList.add('is-open'));
+  $('palette-input').focus();
+}
+
+function closePalette(returnFocus = true) {
+  if ($('palette').hidden) return;
+  $('palette').classList.remove('is-open');
+  $('palette').hidden = true;
+  $('palette-scrim').hidden = true;
+  if (returnFocus) $('open-search').focus();
+}
+
+// ---------- Language ----------
 
 async function switchLang(code) {
   if (code === lang()) return;
@@ -626,52 +364,66 @@ async function switchLang(code) {
   const url = new URL(location.href);
   if (code === 'en') url.searchParams.delete('lang'); else url.searchParams.set('lang', code);
   history.replaceState(null, '', url);
-  renderAll();
+  render();
+  renderSeal();
 }
 
-function toggleSealPanel(force) {
-  const panel = $('seal-panel');
-  const open = force ?? panel.hidden;
-  panel.hidden = !open;
-  $('seal-badge').setAttribute('aria-expanded', String(open));
+function togglePop(btnId, popId, force) {
+  const pop = $(popId);
+  const open = force ?? pop.hidden;
+  pop.hidden = !open;
+  $(btnId).setAttribute('aria-expanded', String(open));
 }
 
-// Visibility is decided before first paint by the inline script in index.html.
-function setupStrip() {
-  $('strip-dismiss').addEventListener('click', () => {
-    document.documentElement.classList.add('strip-off');
-    storeSet('andesite.stripDismissed', '1');
-  });
-}
+// ---------- Events ----------
 
 function bindEvents() {
-  document.addEventListener('click', onAction);
+  window.addEventListener('hashchange', onRouteChange);
   $('theme-toggle').addEventListener('click', () => setTheme(currentTheme() === 'dark' ? 'light' : 'dark'));
-  $('theme-switch').addEventListener('click', (e) => {
-    const b = e.target.closest('[data-theme-set]');
-    if (b) setTheme(b.dataset.themeSet);
-  });
   $('menu-toggle').addEventListener('click', openMenu);
   $('menu-close').addEventListener('click', () => closeMenu());
   $('menu-scrim').addEventListener('click', () => closeMenu());
-  $('menu-panel').addEventListener('keydown', trapFocus);
-  $('menu-panel').addEventListener('click', async (e) => {
+  $('menu-panel').addEventListener('keydown', (e) => trapFocus(e, $('menu-panel')));
+  $('palette').addEventListener('keydown', (e) => trapFocus(e, $('palette')));
+  $('tabbar').addEventListener('click', (e) => { if (e.target.closest('[data-open-menu]')) openMenu(); });
+
+  document.addEventListener('click', async (e) => {
     const langLink = e.target.closest('[data-lang]');
     if (langLink) {
       e.preventDefault();
+      togglePop('lang-btn', 'lang-pop', false);
       await switchLang(langLink.dataset.lang);
-      $('lang-list').querySelector('[aria-current="true"]')?.focus();
+      if (!$('menu-panel').hidden) { renderMenu(); $('menu-body').querySelector('.dm-langs [aria-current="true"]')?.focus(); }
       return;
     }
-    if (e.target.closest('.menu-links a')) closeMenu(false);
+    const themeBtn = e.target.closest('[data-theme-set]');
+    if (themeBtn) { setTheme(themeBtn.dataset.themeSet); return; }
+    if (e.target.closest('#menu-panel a[href^="#"]')) closeMenu(false);
+    // Chart marks that carry a destination behave like links.
+    const href = e.target.closest('[data-href]');
+    if (href && !e.target.closest('a')) go(href.dataset.href);
+    if (!$('seal-panel').hidden && !e.target.closest('.seal-wrap')) togglePop('seal-badge', 'seal-panel', false);
+    if (!$('lang-pop').hidden && !e.target.closest('.lang-wrap')) togglePop('lang-btn', 'lang-pop', false);
   });
   document.addEventListener('keydown', (e) => {
-    if (e.key === 'Escape') { closeMenu(); toggleSealPanel(false); }
+    const typing = /^(INPUT|TEXTAREA|SELECT)$/.test(document.activeElement?.tagName);
+    if ((e.key === 'k' && (e.metaKey || e.ctrlKey)) || (e.key === '/' && !typing)) {
+      e.preventDefault();
+      if ($('palette').hidden) openPalette(); else closePalette();
+      return;
+    }
+    if (e.key === 'Escape') {
+      closePalette();
+      closeMenu();
+      togglePop('seal-badge', 'seal-panel', false);
+      togglePop('lang-btn', 'lang-pop', false);
+    }
+    const href = e.target.closest?.('[data-href]');
+    if (href && (e.key === 'Enter' || e.key === ' ') && !e.target.closest('a')) { e.preventDefault(); go(href.dataset.href); }
   });
-  $('seal-badge').addEventListener('click', () => toggleSealPanel());
-  document.addEventListener('click', (e) => {
-    if (!$('seal-panel').hidden && !e.target.closest('.seal-wrap')) toggleSealPanel(false);
-  });
+
+  $('seal-badge').addEventListener('click', () => togglePop('seal-badge', 'seal-panel'));
+  $('lang-btn').addEventListener('click', () => togglePop('lang-btn', 'lang-pop'));
   $('seal-copy').addEventListener('click', async () => {
     if (await copyText(state.seal?.head || '')) flashLabel($('seal-copy'), t('seal.copied'));
     else {
@@ -681,38 +433,25 @@ function bindEvents() {
       getSelection().addRange(range);
     }
   });
+  $('seal-more').addEventListener('click', () => togglePop('seal-badge', 'seal-panel', false));
 
-  let searchTimer;
-  $('search').addEventListener('input', (e) => {
-    clearTimeout(searchTimer);
-    searchTimer = setTimeout(() => { state.search = e.target.value.trim(); renderTimeline(); }, 120);
+  $('open-search').addEventListener('click', openPalette);
+  $('palette-scrim').addEventListener('click', () => closePalette());
+  $('palette-input').addEventListener('input', () => { paletteIndex = 0; renderPalette(); });
+  $('palette-input').addEventListener('keydown', (e) => {
+    if (e.key === 'ArrowDown') { e.preventDefault(); paletteIndex = Math.min(paletteItems.length - 1, paletteIndex + 1); renderPalette(); }
+    else if (e.key === 'ArrowUp') { e.preventDefault(); paletteIndex = Math.max(0, paletteIndex - 1); renderPalette(); }
+    else if (e.key === 'Enter' && paletteItems[paletteIndex]) { e.preventDefault(); closePalette(false); go(paletteItems[paletteIndex].href); }
   });
-  $('tier-chips').addEventListener('click', (e) => {
-    const b = e.target.closest('[data-tier]');
-    if (!b) return;
-    const k = b.dataset.tier;
-    state.tiers.has(k) ? state.tiers.delete(k) : state.tiers.add(k);
-    renderTimeline();
-  });
-  $('cat-chips').addEventListener('click', (e) => {
-    const b = e.target.closest('[data-cat]');
-    if (!b) return;
-    const k = b.dataset.cat;
-    state.cats.has(k) ? state.cats.delete(k) : state.cats.add(k);
-    renderTimeline();
-  });
-  $('field-toggle').addEventListener('change', (e) => { state.showField = e.target.checked; renderTimeline(); });
-  $('filters-reset').addEventListener('click', resetFilters);
-  $('year-jump').addEventListener('change', (e) => {
-    const y = e.target.value;
-    if (!y) return;
-    const target = document.getElementById(`year-${y}`);
-    if (target) target.scrollIntoView({ behavior: prefersReducedMotion() ? 'auto' : 'smooth' });
-    e.target.value = '';
-  });
-  window.addEventListener('hashchange', focusEntryFromHash);
-  window.matchMedia('(max-width: 640px)').addEventListener('change', renderSeal);
-  window.matchMedia('(max-width: 420px)').addEventListener('change', renderSeal);
+  $('palette-list').addEventListener('click', (e) => { if (e.target.closest('a')) closePalette(false); });
+
+  // Keep the header compact once the page scrolls.
+  let ticking = false;
+  window.addEventListener('scroll', () => {
+    if (ticking) return;
+    ticking = true;
+    requestAnimationFrame(() => { document.body.classList.toggle('is-scrolled', window.scrollY > 4); ticking = false; });
+  }, { passive: true });
 }
 
 // ---------- Live updates ----------
@@ -720,7 +459,7 @@ function bindEvents() {
 
 function showToast(message, onShow) {
   const toast = $('toast');
-  toast.innerHTML = `<span>${esc(message)}</span>` + (onShow ? `<button type="button">${esc(t('live.show'))}</button>` : '');
+  toast.innerHTML = `<span class="live-dot" aria-hidden="true"></span><span>${esc(message)}</span>` + (onShow ? `<button type="button" class="btn btn-small">${esc(t('live.show'))}</button>` : '');
   toast.hidden = false;
   if (onShow) toast.querySelector('button').addEventListener('click', () => { toast.hidden = true; onShow(); });
   clearTimeout(showToast.timer);
@@ -729,40 +468,35 @@ function showToast(message, onShow) {
 
 async function refresh() {
   let lock;
+  let amendments;
   try {
-    lock = await fetchJson('data/ledger.lock.json');
+    [lock, amendments] = await Promise.all([fetchJson('data/ledger.lock.json'), fetchJson('data/amendments.json')]);
   } catch (e) {
     return;
   }
-  const amendmentsChanged = await amendmentsDiffer();
-  const head = lock.at(-1)?.hash;
-  if (head === state.data.lock.at(-1)?.hash && !amendmentsChanged) return;
+  state.lastCheck = new Date();
+  renderLive();
+  const amendmentsChanged = JSON.stringify(amendments) !== JSON.stringify(state.data.amendments);
+  if (lock.at(-1)?.hash === state.data.lock.at(-1)?.hash && !amendmentsChanged) return;
+  $('progress').classList.add('is-on');
   const before = new Set(state.data.entries.map((e) => e.id));
-  const data = await loadData();
-  state.data = data;
-  state.view = buildView(data);
-  state.seal = await verifyLedger(data.entries, data.lock);
-  renderAll();
-  const added = data.entries.filter((e) => !before.has(e.id));
+  setData(await loadData());
+  state.seal = await verifyLedger(state.data.entries, state.data.lock);
+  render();
+  renderSeal();
+  $('progress').classList.remove('is-on');
+  const added = state.data.entries.filter((e) => !before.has(e.id));
   if (added.length) {
     const key = added.length === 1 ? 'live.new' : 'live.newPlural';
-    const newest = added.at(-1).id;
-    showToast(t(key, { n: added.length }), () => { location.hash = newest; });
+    showToast(t(key, { n: added.length }), () => go(`#/ledger/${added.at(-1).id}`));
   } else {
     showToast(t('live.updated'));
   }
 }
 
-async function amendmentsDiffer() {
-  try {
-    const amendments = await fetchJson('data/amendments.json');
-    return JSON.stringify(amendments) !== JSON.stringify(state.data.amendments);
-  } catch (e) {
-    return false;
-  }
-}
-
 function startPolling() {
+  state.lastCheck = new Date();
+  renderLive();
   setInterval(() => { if (document.visibilityState === 'visible') refresh(); }, POLL_MS);
   document.addEventListener('visibilitychange', () => { if (document.visibilityState === 'visible') refresh(); });
 }
@@ -770,20 +504,22 @@ function startPolling() {
 // ---------- Boot ----------
 
 async function boot() {
-  const initialLang = resolveLang();
-  const [, data] = await Promise.all([loadLang(initialLang), loadData()]);
-  state.data = data;
-  state.view = buildView(data);
+  $('progress').classList.add('is-on');
+  const [, data] = await Promise.all([loadLang(resolveLang()), loadData()]);
+  setData(data);
+  installTooltip();
   bindEvents();
-  setupStrip();
-  renderAll();
+  render();
+  $('progress').classList.remove('is-on');
   state.seal = await verifyLedger(data.entries, data.lock);
   renderSeal();
-  focusEntryFromHash();
+  // Pages that visualise the seal update in place once the result is in.
+  const cfg = PAGES.find((p) => p.key === state.route.page);
+  cfg.view.onSeal?.($('main'), { ...ctx(), page: cfg.key });
   startPolling();
 }
 
 boot().catch((err) => {
   console.error(err);
-  $('timeline').innerHTML = `<p class="empty-state">The ledger could not be loaded. The raw data is in <a href="data/entries.json">data/entries.json</a>.</p>`;
+  $('main').innerHTML = `<p class="noscript">The ledger could not be loaded. The raw data is in <a href="data/entries.json">data/entries.json</a>.</p>`;
 });

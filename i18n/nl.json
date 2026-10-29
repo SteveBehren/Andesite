@@ -3,15 +3,15 @@
     "lang": "nl",
     "name": "Nederlands",
     "title": "Andesite: het archief dat ze niet kunnen wissen",
-    "description": "Een permanent, open source register van gedocumenteerde en vermeende schendingen van persvrijheid en burgerlijke vrijheden door de Indonesische staat."
+    "description": "Een permanent, open source register van gedocumenteerde en vermeende schendingen van persvrijheid en burgerlijke vrijheden door de Indonesische staat.",
+    "sub": "Register van burgerrechten · Indonesië"
   },
   "nav": {
-    "skip": "Direct naar het register",
+    "skip": "Direct naar de inhoud",
     "ledger": "Register",
-    "laws": "Wetten",
     "method": "Methode",
     "about": "Over",
-    "contribute": "Bijdragen op GitHub",
+    "contribute": "Bijdragen",
     "submit": "Melding doen",
     "menu": "Menu",
     "close": "Menu sluiten",
@@ -20,7 +20,37 @@
     "toLight": "Naar lichte modus",
     "toDark": "Naar donkere modus",
     "light": "Licht",
-    "dark": "Donker"
+    "dark": "Donker",
+    "overview": "Overzicht",
+    "ontology": "Ontologie",
+    "legal": "Recht",
+    "integrity": "Integriteit",
+    "field": "Veldmeldingen",
+    "short": {
+      "overview": "Overzicht",
+      "ledger": "Register",
+      "ontology": "Ontologie",
+      "legal": "Recht"
+    },
+    "more": "Meer",
+    "search": "Zoeken",
+    "searchHint": "Zoek in items, actoren en wetten (druk op /)",
+    "live": "Live",
+    "liveTip": "Controleert elke 2 minuten op nieuwe items. Laatste controle {time}.",
+    "breadcrumb": "Kruimelpad",
+    "objects": "{n} items",
+    "pages": "Pagina's",
+    "repo": "Broncode op GitHub",
+    "desc": {
+      "overview": "Nieuwste item en de vorm van het register",
+      "ledger": "Elk item, filterbaar, met alle bronnen",
+      "ontology": "Objecten, handelingen en uitkomsten in één model",
+      "legal": "Welke wetten de staat volgens het register schendt",
+      "integrity": "Het hashzegel, gecontroleerd in je browser",
+      "field": "Onbevestigde berichten, apart geteld",
+      "method": "Hoe bewijs wordt gewogen",
+      "about": "Waarom Andesite bestaat"
+    }
   },
   "seal": {
     "verifying": "Zegel wordt gecontroleerd",
@@ -32,7 +62,8 @@
     "head": "Laatste hash",
     "copy": "Hash kopiëren",
     "copied": "Gekopieerd",
-    "explain": "Elk item is met SHA-256 aan het vorige gekoppeld. Uw browser heeft zojuist de hele keten opnieuw berekend en vergeleken met het gepubliceerde lockbestand."
+    "explain": "Elk item is met SHA-256 aan het vorige gekoppeld. Uw browser heeft zojuist de hele keten opnieuw berekend en vergeleken met het gepubliceerde lockbestand.",
+    "open": "Integriteitsweergave openen"
   },
   "strip": {
     "label": "Lees dit eerst",
@@ -43,12 +74,8 @@
   "hero": {
     "line": "items in het register, {from} → nu",
     "fieldReports": "{n} onbevestigde veldmeldingen, apart geteld",
-    "lawsCited": "wetsartikelen aangehaald",
-    "years": "jaren bestreken",
     "notCourt": "Andesite legt gedocumenteerde en vermeende gebeurtenissen vast. Het is geen rechtbank en doet geen uitspraken.",
-    "tagline": "Het archief dat ze niet kunnen wissen.",
-    "whatIs": "Wat is dit?",
-    "tierBar": "Items per bewijsniveau"
+    "tagline": "Het archief dat ze niet kunnen wissen."
   },
   "tiers": {
     "court": {
@@ -84,7 +111,6 @@
     "information": "Recht op informatie"
   },
   "filters": {
-    "title": "Register filteren",
     "search": "Zoek in titels, samenvattingen, actoren en plaatsen",
     "searchLabel": "Zoeken",
     "tiers": "Bewijsniveau",
@@ -94,8 +120,7 @@
     "showField": "Veldmeldingen tonen",
     "reset": "Filters wissen",
     "count": "{n} van {total} items getoond",
-    "none": "Geen items die aan deze filters voldoen.",
-    "lawFilter": "Verwijst naar {law}"
+    "none": "Geen items die aan deze filters voldoen."
   },
   "entry": {
     "laws": "Ingeroepen wetsartikelen",
@@ -147,17 +172,49 @@
       "official": "Officieel",
       "academic": "Onderzoek",
       "social": "Bericht op sociale media"
-    }
+    },
+    "new": "Nieuw",
+    "summary": "Samenvatting",
+    "properties": "Eigenschappen",
+    "evidence": "Bewijs",
+    "date": "Datum",
+    "province": "Provincie",
+    "categories": "Rechten",
+    "intake": "Herkomst",
+    "intakeTypes": {
+      "manual": "Door een mens gecontroleerd",
+      "automated": "Automatische monitor"
+    },
+    "addedOn": "Toegevoegd op",
+    "links": "Gekoppelde objecten",
+    "egoLabel": "Objecten gekoppeld aan dit item",
+    "inGraph": "In de graaf tonen",
+    "lifecycle": "Wat er daarna gebeurde",
+    "lawsNote": "Artikelen die deze handeling raakt. Of ze geschonden zijn, is aan de rechter; het bewijsniveau zegt hoe sterk het openbare verslag is.",
+    "sealTitle": "Zegel",
+    "chainIndex": "Positie in de keten",
+    "prevHash": "Vorige hash",
+    "thisHash": "Hash van dit item",
+    "notSealed": "Dit item is nog niet verzegeld."
   },
   "field": {
     "title": "Veldmeldingen",
     "body": "Bij harde repressie is het eerste verslag van wat er gebeurde vaak een openbaar bericht op TikTok, Instagram, X of Threads. Andesite accepteert die als onbevestigde veldmeldingen. Ze worden duidelijk gemarkeerd, alleen gelinkt en nooit gekopieerd, op stadsniveau gehouden en nooit meegeteld in het hoofdgetal. Een veldmelding kan een hoger bewijsniveau krijgen zodra onafhankelijke bronnen haar bevestigen.",
     "empty": "Er staan nog geen veldmeldingen in het register.",
     "button": "Veldmelding doen",
-    "safety": "Issues op GitHub zijn openbaar. Lees de veiligheidswaarschuwing op het formulier voordat u iets instuurt."
+    "safety": "Issues op GitHub zijn openbaar. Lees de veiligheidswaarschuwing op het formulier voordat u iets instuurt.",
+    "listTitle": "Veldmeldingen in het register",
+    "listSub": "{n} meldingen, nooit meegeteld in het hoofdgetal",
+    "checksSub": "Wat een beheerder controleert voordat een melding wordt vastgelegd",
+    "safetyTitle": "Veiligheid",
+    "rules": {
+      "r1": "Alleen links. Berichten worden nooit ingesloten of opnieuw geüpload.",
+      "r2": "Geen archieflinks voor berichten op sociale media: een verwijderd bericht blijft verwijderd.",
+      "r3": "Locaties op stadsniveau, nooit preciezer.",
+      "r4": "Geen privépersonen genoemd."
+    }
   },
   "lawsIndex": {
-    "title": "Aangehaalde wetsartikelen",
     "intro": "Elk wetsartikel dat Andesite aanhaalt, met het aantal items dat ernaar verwijst. Kies een artikel om het register te filteren.",
     "count": "{n} items",
     "none": "Nog niet aangehaald",
@@ -237,6 +294,14 @@
         "p": [
           "Andesite is niet verbonden aan een partij, regering of organisatie en neemt geen financiering aan die aan de inhoud is gekoppeld. De bronnen, de code en de volledige geschiedenis van elke wijziging zijn openbaar."
         ]
+      },
+      {
+        "h": "De ontologielaag",
+        "p": [
+          "De Ontologie-pagina's voegen elk item samen tot één model: objecten zoals gebeurtenissen, staatsactoren en wetsartikelen (semantisch), de handelingen van de staat en de mechanismen die hij gebruikte (kinetisch), en de reacties die in de tijd volgden (dynamisch).",
+          "Actoren, handelingen en uitkomsten zijn een redactionele classificatie in data/ontology.json. Die ligt bovenop het verzegelde register en valt buiten het zegel, zodat ze gecorrigeerd kan worden zonder een item aan te raken. Items die de monitor vastlegt voordat een mens ze classificeert, staan als wachtend op classificatie, met actoren herkend uit de tekst van het item.",
+          "De juridische kaart koppelt elke actor aan de artikelen die de vastgelegde handelingen raken en toont het sterkste bewijsniveau achter elke koppeling. Dat is geen vaststelling dat een wet is geschonden. Alleen een rechter kan dat vaststellen, en waar een rechter dat deed, staat het in het item."
+        ]
       }
     ]
   },
@@ -304,5 +369,336 @@
         ]
       }
     ]
+  },
+  "palette": {
+    "placeholder": "Zoek items, actoren, wetten, pagina's",
+    "pages": "Pagina's",
+    "entries": "Items",
+    "actors": "Staatsactoren",
+    "laws": "Wetten",
+    "rights": "Rechten",
+    "filterLedger": "Register filteren",
+    "none": "Niets gevonden."
+  },
+  "overview": {
+    "title": "Overzicht",
+    "lead": "Een actueel beeld van wat het register bevat, nieuwste eerst.",
+    "latest": "Laatst vastgelegd",
+    "latestSub": "Toegevoegd op {date}",
+    "allRecords": "Alle items",
+    "open": "Item openen",
+    "kpi": {
+      "title": "Kerncijfers",
+      "entries": "Items",
+      "court": "Uitspraak of erkend",
+      "courtSub": "Uitspraak van de rechter of erkend door de autoriteit",
+      "laws": "Betrokken wetsartikelen",
+      "lawsSub": "van {n} artikelen in de bibliotheek",
+      "remedy": "Hersteld",
+      "remedySub": "van {n} items leidden tot herstel of hervorming",
+      "field": "Veldmeldingen",
+      "fieldSub": "Onbevestigd, niet in het hoofdgetal",
+      "years": "Jaren bestreken",
+      "seal": "Zegel"
+    },
+    "verified": "gecontroleerd",
+    "timeline": "Items per jaar",
+    "timelineSub": "Gestapeld per bewijsniveau. Kies een jaar om het register te filteren.",
+    "evidence": "Bewijsniveaus",
+    "evidenceSub": "Hoe sterk het openbare verslag is",
+    "records": "items",
+    "map": "Waar het gebeurde",
+    "mapSub": "Op provincieniveau. Grotere punten bevatten meer items.",
+    "rights": "Getroffen rechten",
+    "rightsSub": "Items per recht; één item kan meerdere rechten raken",
+    "accountability": "Verantwoording",
+    "accountabilitySub": "De beste reactie die elk item tot nu toe kreeg",
+    "noAccountability": "van {n} items hebben helemaal geen vastgelegde verantwoording",
+    "explore": "Verkennen",
+    "provisions": "Vaakst betrokken artikelen",
+    "provisionsSub": "Wetten die door de meeste items worden aangehaald",
+    "breachMap": "Schendingenkaart",
+    "ontology": "Ontologielagen",
+    "ontologySub": "Hetzelfde register gezien als objecten, als handelingen en als uitkomsten in de tijd",
+    "actors": "Staatsactoren",
+    "actorsSub": "Instellingen die in de meeste items worden genoemd",
+    "about": "Lees dit voor je deelt",
+    "aboutBody": "Elk item heeft een bewijsniveau. Controleer het voordat je een item deelt, en lees de methode om te zien hoe niveaus worden toegekend."
+  },
+  "ledger": {
+    "title": "Register",
+    "lead": "Elk item, nieuwste eerst. Filters staan in de adresbalk, zodat je een gefilterde weergave kunt delen.",
+    "back": "Terug naar de lijst",
+    "notFound": "Er is geen item {id} in dit register.",
+    "pick": "Kies een item om het te openen",
+    "pickHint": "Gebruik de zoekfunctie, de filters of druk op / om overal heen te springen.",
+    "lawsCount": "{n} wetsartikelen aangehaald",
+    "facets": {
+      "actor": "Actor",
+      "action": "Handeling",
+      "outcome": "Uitkomst",
+      "law": "Wet",
+      "cls": "Verantwoording"
+    }
+  },
+  "ontology": {
+    "eyebrow": "Fusielaag",
+    "title": "Ontologie",
+    "lead": "Eén model dat elk item samenvoegt tot getypeerde objecten, de handelingen die ze verbinden en de uitkomsten die volgden. Het leent de manier waarop operationele platforms een wereld modelleren: semantisch, kinetisch en dynamisch.",
+    "pending": "Wacht op classificatie",
+    "layers": {
+      "semantic": {
+        "name": "Semantisch",
+        "short": "SEM",
+        "tag": "Objecten, eigenschappen en koppelingen",
+        "desc": "Wat er bestaat. Elk item, elke staatsactor, elk wetsartikel, instrument, recht, plaats en elke bron is een getypeerd object met eigenschappen. Koppelingen zeggen hoe ze samenhangen: een gebeurtenis wordt gepleegd door een actor, raakt een artikel, betreft een recht, vond plaats op een plek en is gedocumenteerd door een bron."
+      },
+      "kinetic": {
+        "name": "Kinetisch",
+        "short": "KIN",
+        "tag": "Handelingen en mechanismen",
+        "desc": "Wat er gedaan is. Elk item wordt opgesplitst in de handelingen van de staat, van arrestaties tot netwerkafsluitingen, gegroepeerd per mechanisme. Ook het register zelf verandert alleen via vaste handelingen: waarnemen, voorstellen, toetsen, verzegelen en wijzigen."
+      },
+      "dynamic": {
+        "name": "Dynamisch",
+        "short": "DYN",
+        "tag": "Uitkomsten in de tijd",
+        "desc": "Wat er daarna gebeurde. Uitspraken, excuses, ontkenningen en vonnissen zijn gedateerde uitkomsten bij elk item, zodat je het register jaar voor jaar kunt afspelen en ziet hoe vaak misbruik tot enige verantwoording leidt."
+      }
+    },
+    "types": {
+      "event": "Gebeurtenis",
+      "actor": "Staatsactor",
+      "action": "Handeling",
+      "provision": "Wetsartikel",
+      "instrument": "Instrument",
+      "right": "Recht",
+      "place": "Plaats",
+      "outcome": "Uitkomst",
+      "source": "Bron"
+    },
+    "kinds": {
+      "ministry": "Ministerie",
+      "police": "Politie",
+      "military": "Krijgsmacht",
+      "security": "Veiligheidstroepen",
+      "executive": "Uitvoerende macht",
+      "judiciary": "Justitie",
+      "unknown": "Niet vastgesteld"
+    },
+    "links": {
+      "committed_by": "Gepleegd door",
+      "engages": "Raakt",
+      "concerns": "Betreft",
+      "occurred_in": "Vond plaats in",
+      "documented_by": "Gedocumenteerd door",
+      "performed": "Voerde uit",
+      "resulted_in": "Leidde tot",
+      "part_of": "Deel van",
+      "protects": "Beschermt",
+      "unit_of": "Onderdeel van"
+    }
+  },
+  "semantic": {
+    "catalog": "Objecttypen",
+    "catalogSub": "Zet typen aan of uit om de graaf te veranderen",
+    "layersLabel": "Andere lagen samenvoegen",
+    "fusionNote": "Voeg de kinetische en dynamische laag toe om handelingen en uitkomsten in dezelfde graaf te zien.",
+    "graph": "Objectgraaf",
+    "count2": "{n} objecten · {l} koppelingen",
+    "zoomIn": "Inzoomen",
+    "zoomOut": "Uitzoomen",
+    "fit": "Passend maken",
+    "relayout": "Indeling opnieuw schudden",
+    "gestures": "Sleep om te verplaatsen · kies om te bekijken · klik erin en scrol of knijp om te zoomen",
+    "inspector": "Inspector",
+    "pick": "Kies een object in de graaf om de eigenschappen en koppelingen te zien.",
+    "objects": "Objecten",
+    "linksN": "Koppelingen",
+    "types": "Objecttypen",
+    "hint": "Beweeg over een object om alles op te lichten waarmee het verbonden is.",
+    "kind": "Soort",
+    "fullName": "Volledige naam",
+    "parent": "Deel van",
+    "note": "Opmerking",
+    "host": "Host",
+    "sourceType": "Soort bron",
+    "degree": "Koppelingen",
+    "linked": "{n} gekoppelde objecten",
+    "open": "Openen",
+    "linkTypes": "Koppelingstypen",
+    "linkTypesSub": "Elke relatie in het model, met aantallen",
+    "linkType": "Koppeling",
+    "from": "Van",
+    "to": "Naar",
+    "count": "Aantal"
+  },
+  "kinetic": {
+    "summary": "Kinetisch overzicht",
+    "actionTypes": "Handelingstypen",
+    "acts": "Vastgelegde handelingen",
+    "mechanisms": "Mechanismen",
+    "mechanism": "Mechanisme",
+    "pipeline": "Hoe het register verandert",
+    "pipelineSub": "Het register zelf kan alleen via deze handelingen veranderen, in deze volgorde",
+    "steps": {
+      "observe": {
+        "name": "Waarnemen",
+        "desc": "Bronnen aangehaald in alle items"
+      },
+      "propose": {
+        "name": "Voorstellen",
+        "desc": "Items opgesteld door de automatische monitor"
+      },
+      "gate": {
+        "name": "Toetsen",
+        "desc": "Items die door de validatie en de verzegelregels kwamen"
+      },
+      "seal": {
+        "name": "Verzegelen",
+        "desc": "Items die in het SHA-256-zegel zijn geketend"
+      },
+      "amend": {
+        "name": "Wijzigen",
+        "desc": "Zichtbare wijzigingen; er wordt nooit iets verwijderd"
+      }
+    },
+    "flow": "Actor → handeling → wetsartikel",
+    "flowSub": "Wie deed wat, en welke wetten het raakt. Beweeg over een knoop of band om die te volgen; kies een knoop om hem te openen.",
+    "flowNote": "De bandbreedte telt paren van items en actoren. Eén item kan meerdere actoren, handelingen en artikelen omvatten.",
+    "catalog": "Handelingstypen",
+    "openFiltered": "Deze items openen",
+    "log": "Handelingslogboek",
+    "logSub": "Elke vastgelegde handeling, nieuwste eerst"
+  },
+  "dynamic": {
+    "replay": "Het register afspelen",
+    "replaySub": "Versleep het jaar of druk op afspelen om het register in de tijd te zien groeien",
+    "play": "Afspelen",
+    "pause": "Pauzeren",
+    "asOf": "Toon het register per jaar",
+    "cumulative": "Cumulatieve items per bewijsniveau",
+    "stats": {
+      "entries": "Items",
+      "actors": "Staatsactoren",
+      "provisions": "Betrokken artikelen",
+      "responses": "Reacties",
+      "remedies": "Herstel"
+    },
+    "flow": "Bewijs → mechanisme → verantwoording",
+    "flowSub": "Hoe sterk het verslag is, hoe de handeling werd uitgevoerd en de beste reactie die erop volgde",
+    "class": "Verantwoording",
+    "classes": {
+      "remedy": "Herstel of hervorming",
+      "partial": "Gedeeltelijke reactie",
+      "deflected": "Ontkend of afgeschoven",
+      "adverse": "Nadelige uitkomst",
+      "none": "Niets vastgelegd"
+    },
+    "gap": "Verantwoordingskloof",
+    "gapSub": "Items zonder vastgelegde reactie, en hoe lang reacties duren",
+    "noneLabel": "Geen reactie vastgelegd",
+    "ofN": "van {n} items",
+    "median": "Mediaan dagen tot eerste reactie",
+    "medianSub": "Over {n} items met een gedateerde reactie",
+    "lanes": "Reactiebanen",
+    "lanesSub": "Elk item op één tijdas: de handeling, dan elke gedateerde reactie",
+    "lanesNote": "Gestippelde punten zijn reacties zonder betrouwbare datum; ze staan op de datum van de handeling.",
+    "event": "Handeling",
+    "noOutcome": "Voor dit item is nog geen reactie vastgelegd.",
+    "undated": "datum niet vastgesteld",
+    "days": "{n} d",
+    "responses": "Vastgelegde reacties"
+  },
+  "legal": {
+    "eyebrow": "Juridische kaart",
+    "title": "Welke wetten schond de staat?",
+    "lead": "Elke cel koppelt een staatsactor aan een artikel dat de vastgelegde handelingen raken, en het teken toont het sterkste bewijs erachter. Andesite is geen rechtbank: alleen een cel met Uitspraak van de rechter berust op een rechterlijk oordeel, en ook dan ging de uitspraak over de handeling, niet per se over elk genoemd artikel.",
+    "kpi": {
+      "engaged": "Betrokken artikelen",
+      "engagedSub": "van {n} in de bibliotheek",
+      "pairs": "Paren van actor en wet",
+      "pairsSub": "Verschillende combinaties van actor en artikel",
+      "court": "Rechterlijke oordelen",
+      "courtSub": "Paren gedragen door een uitspraak tegen de handeling",
+      "ack": "Erkend",
+      "ackSub": "Paren waarbij de autoriteit de handeling erkende"
+    },
+    "matrix": "Schendingenmatrix",
+    "matrixSub": "Staatsactoren omlaag, artikelen opzij, gegroepeerd naar hoe bindend de wet is. Kies een cel om de items erachter te openen.",
+    "matrixNote": "Veldmeldingen en ingetrokken items blijven buiten de matrix.",
+    "actorsDown": "Actoren ↓",
+    "lawsAcross": "Wetten →",
+    "cellTip": "{n} items, sterkste bewijs: {tier}",
+    "stack": "Rechtshiërarchie",
+    "stackSub": "Van de Grondwet tot verklaringen, met het aantal items dat elk artikel raakt",
+    "library": "Artikelbibliotheek",
+    "bindingLevels": {
+      "constitution": "Grondwet",
+      "statute": "Wet",
+      "treaty": "Geratificeerd verdrag",
+      "declaration": "Verklaring"
+    },
+    "bindingDesc": {
+      "constitution": "UUD 1945, de hoogste wet van Indonesië",
+      "statute": "Wetten aangenomen door de DPR (Undang-Undang)",
+      "treaty": "Internationale verdragen die Indonesië in zijn recht heeft geratificeerd",
+      "declaration": "Internationale normen die geen verdrag zijn"
+    },
+    "binding": "Bindend niveau",
+    "jurisdiction": "Rechtsgebied",
+    "domestic": "Indonesisch recht",
+    "international": "Internationaal recht",
+    "citation": "Vindplaats",
+    "openDossier": "Artikeldossier openen",
+    "backAll": "Alle wetten",
+    "text": "Tekst",
+    "protects": "Beschermt",
+    "network": "Wie het raakte",
+    "networkSub": "Items in de binnenste ring, staatsactoren in de buitenste",
+    "strength": "Sterkte van het verslag",
+    "strengthSub": "Items die dit artikel raken, per bewijsniveau",
+    "recordedActs": "vastgelegde handelingen raken dit artikel",
+    "courtNote": "Ten minste één item achter dit artikel is door een rechter onrechtmatig verklaard. De uitspraak ging over de handeling als geheel.",
+    "entries": "Items",
+    "unknown": "Er is geen artikel {id} in de bibliotheek.",
+    "radialLabel": "Items en actoren gekoppeld aan {law}"
+  },
+  "integrity": {
+    "eyebrow": "Zegel",
+    "title": "Integriteit",
+    "lead": "Elk item is met SHA-256 aan het vorige geketend. Je browser heeft zojuist de hele keten opnieuw berekend en vergeleken met het gepubliceerde lockbestand. Verander één teken in een oud item en de keten breekt vanaf dat punt.",
+    "chain": "Hashketen",
+    "rerun": "Opnieuw controleren",
+    "how": "Hoe het zegel werkt",
+    "steps": {
+      "s1": "Elk item wordt omgezet in één canonieke JSON-tekenreeks met gesorteerde sleutels.",
+      "s2": "Die tekenreeks wordt gehasht samen met de hash van het vorige item.",
+      "s3": "De hashes staan in data/ledger.lock.json en worden bij elk pull request door CI gecontroleerd.",
+      "s4": "Correcties wijzigen nooit een verzegeld item. Ze verschijnen als zichtbare wijzigingen."
+    },
+    "head": "Laatste hash",
+    "lockFile": "Lockbestand",
+    "sealed": "Verzegelde items",
+    "amendments": "Wijzigingen",
+    "automated": "Automatische items",
+    "monitor": "Automatische monitor",
+    "monitorBody": "Elke zes uur leest een GitHub Action nieuws en ngo-feeds en kan items voorstellen. Code, niet het model, beslist wat verzegeld wordt:",
+    "rules": {
+      "r1": "Ten minste twee onafhankelijke uitgevers",
+      "r2": "Elke bronlink laadt",
+      "r3": "De gebeurtenis is recent en geen dubbeling",
+      "r4": "Alleen wetten uit de bibliotheek",
+      "r5": "Geen privépersonen genoemd",
+      "r6": "Bewijsniveau nooit hoger dan Gedocumenteerd"
+    },
+    "amendLog": "Wijzigingen",
+    "noAmendments": "Er zijn nog geen wijzigingen gepubliceerd.",
+    "amendHow": "Correcties, nieuwe bronnen en wijzigingen van het bewijsniveau worden als wijziging toegevoegd en bij het item getoond. De verzegelde tekst verandert nooit.",
+    "requestCorrection": "Correctie aanvragen"
+  },
+  "docs": {
+    "eyebrow": "Documentatie",
+    "toc": "Op deze pagina"
   }
 }

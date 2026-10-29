@@ -52,7 +52,19 @@ Labels used: `new-entry`, `field-report`, `correction`.
 
    Field reports use `"tier": "unverified"`, sources of type `social`, and a `field` block (see `schemas/entry.schema.json`).
 
-4. Run the checks and seal:
+4. Classify the entry in `data/ontology.json` under `entries` (this file is not sealed, so it can be refined later):
+
+   ```json
+   "AND-0014": {
+     "actors": ["polri"],
+     "actions": ["violence", "detention"],
+     "outcomes": [{ "type": "public_apology", "date": "2026-11-05" }]
+   }
+   ```
+
+   Use existing keys from `actors`, `actions` and `outcomes` in the same file, or add new ones with names in all four languages. An outcome whose date is not established takes `"date": null`. `validate.mjs` checks every reference.
+
+5. Run the checks and seal:
 
    ```bash
    npm ci
@@ -61,7 +73,7 @@ Labels used: `new-entry`, `field-report`, `correction`.
    npm test
    ```
 
-5. Commit `data/entries.json` and `data/ledger.lock.json` together and open a pull request that links the issue.
+6. Commit `data/entries.json`, `data/ledger.lock.json` and `data/ontology.json` together and open a pull request that links the issue.
 
 CI (`.github/workflows/ledger.yml`) fails the pull request if any sealed entry was edited, reordered or removed.
 
