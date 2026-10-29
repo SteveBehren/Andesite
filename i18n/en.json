@@ -3,15 +3,15 @@
     "lang": "en",
     "name": "English",
     "title": "Andesite: the record they can't erase",
-    "description": "A permanent, open source ledger of documented and alleged violations of press freedom and civil liberties by the Indonesian state."
+    "description": "A permanent, open source ledger of documented and alleged violations of press freedom and civil liberties by the Indonesian state.",
+    "sub": "Civil liberties ledger · Indonesia"
   },
   "nav": {
-    "skip": "Skip to the ledger",
+    "skip": "Skip to content",
     "ledger": "Ledger",
-    "laws": "Laws",
     "method": "Method",
     "about": "About",
-    "contribute": "Contribute on GitHub",
+    "contribute": "Contribute",
     "submit": "Submit a report",
     "menu": "Menu",
     "close": "Close menu",
@@ -20,7 +20,37 @@
     "toLight": "Switch to light mode",
     "toDark": "Switch to dark mode",
     "light": "Light",
-    "dark": "Dark"
+    "dark": "Dark",
+    "overview": "Overview",
+    "ontology": "Ontology",
+    "legal": "Legal",
+    "integrity": "Integrity",
+    "field": "Field reports",
+    "short": {
+      "overview": "Overview",
+      "ledger": "Ledger",
+      "ontology": "Ontology",
+      "legal": "Legal"
+    },
+    "more": "More",
+    "search": "Search",
+    "searchHint": "Search entries, actors and laws (press /)",
+    "live": "Live",
+    "liveTip": "Checks for new entries every 2 minutes. Last check {time}.",
+    "breadcrumb": "Breadcrumb",
+    "objects": "{n} entries",
+    "pages": "Pages",
+    "repo": "Source on GitHub",
+    "desc": {
+      "overview": "Latest entry and the shape of the ledger",
+      "ledger": "Every entry, filterable, with full sources",
+      "ontology": "Objects, actions and outcomes fused into one model",
+      "legal": "Which laws the state is recorded as breaching",
+      "integrity": "The hash seal, verified in your browser",
+      "field": "Unverified posts, counted separately",
+      "method": "How evidence is weighed",
+      "about": "Why Andesite exists"
+    }
   },
   "seal": {
     "verifying": "Verifying seal",
@@ -32,7 +62,8 @@
     "head": "Final hash",
     "copy": "Copy hash",
     "copied": "Copied",
-    "explain": "Every entry is chained to the one before it with SHA-256. Your browser just recomputed the whole chain and compared it with the published lock file."
+    "explain": "Every entry is chained to the one before it with SHA-256. Your browser just recomputed the whole chain and compared it with the published lock file.",
+    "open": "Open integrity view"
   },
   "strip": {
     "label": "Read this first",
@@ -43,12 +74,8 @@
   "hero": {
     "line": "entries in the ledger, {from} → today",
     "fieldReports": "{n} unverified field reports, counted separately",
-    "lawsCited": "laws cited",
-    "years": "years covered",
     "notCourt": "Andesite records documented and alleged events. It is not a court and it does not issue verdicts.",
-    "tagline": "The record they can't erase.",
-    "whatIs": "What is this?",
-    "tierBar": "Entries by evidence level"
+    "tagline": "The record they can't erase."
   },
   "tiers": {
     "court": {
@@ -84,7 +111,6 @@
     "information": "Right to information"
   },
   "filters": {
-    "title": "Filter the ledger",
     "search": "Search titles, summaries, actors and places",
     "searchLabel": "Search",
     "tiers": "Evidence level",
@@ -94,8 +120,7 @@
     "showField": "Show field reports",
     "reset": "Clear filters",
     "count": "{n} of {total} entries shown",
-    "none": "No entries match these filters.",
-    "lawFilter": "Citing {law}"
+    "none": "No entries match these filters."
   },
   "entry": {
     "laws": "Laws invoked",
@@ -147,17 +172,49 @@
       "official": "Official",
       "academic": "Research",
       "social": "Social post"
-    }
+    },
+    "new": "New",
+    "summary": "Summary",
+    "properties": "Properties",
+    "evidence": "Evidence",
+    "date": "Date",
+    "province": "Province",
+    "categories": "Rights",
+    "intake": "Intake",
+    "intakeTypes": {
+      "manual": "Reviewed by a person",
+      "automated": "Automated monitor"
+    },
+    "addedOn": "Added on",
+    "links": "Linked objects",
+    "egoLabel": "Objects linked to this entry",
+    "inGraph": "Show in graph",
+    "lifecycle": "What happened next",
+    "lawsNote": "Provisions this act engages. Whether it breached them is for a court to decide; the evidence level says how strong the public record is.",
+    "sealTitle": "Seal",
+    "chainIndex": "Position in chain",
+    "prevHash": "Previous hash",
+    "thisHash": "Hash of this entry",
+    "notSealed": "This entry is not sealed yet."
   },
   "field": {
     "title": "Field reports",
     "body": "During crackdowns the first record of what happened is often a public post on TikTok, Instagram, X or Threads. Andesite accepts those as unverified field reports. They are marked clearly, linked but never copied, kept at city level, and never added to the headline number. A field report can be promoted to a higher evidence level when independent sources confirm it.",
     "empty": "There are no field reports in the ledger yet.",
     "button": "Submit a field report",
-    "safety": "GitHub issues are public. Read the safety notice on the form before you submit."
+    "safety": "GitHub issues are public. Read the safety notice on the form before you submit.",
+    "listTitle": "Field reports in the ledger",
+    "listSub": "{n} reports, never counted in the headline number",
+    "checksSub": "What a maintainer checks before a report is filed",
+    "safetyTitle": "Safety",
+    "rules": {
+      "r1": "Links only. Posts are never embedded or uploaded again.",
+      "r2": "No archive links for social posts: a deleted post stays deleted.",
+      "r3": "Locations at city level, never more precise.",
+      "r4": "No private individuals named."
+    }
   },
   "lawsIndex": {
-    "title": "Laws cited",
     "intro": "Every law Andesite cites, with the number of entries that invoke it. Select a law to filter the ledger.",
     "count": "{n} entries",
     "none": "Not cited yet",
@@ -237,6 +294,14 @@
         "p": [
           "Andesite is not affiliated with any party, government or organisation, and it accepts no funding tied to its content. The sources, the code and the full history of every change are public."
         ]
+      },
+      {
+        "h": "The ontology layer",
+        "p": [
+          "The Ontology pages fuse every entry into one model: objects such as events, state actors and legal provisions (semantic), the actions the state took and the mechanisms it used (kinetic), and the responses that followed in time (dynamic).",
+          "Actors, actions and outcomes are an editorial classification kept in data/ontology.json. It sits on top of the sealed ledger and is not part of the seal, so it can be corrected without touching an entry. Entries the monitor records before a person classifies them are shown as pending, with actors matched from the entry text.",
+          "The legal map links each actor to the provisions its recorded acts engage and shows the strongest evidence level behind each link. It is not a finding that a law was broken. Only a court can make that finding, and where one did, the entry says so."
+        ]
       }
     ]
   },
@@ -304,5 +369,336 @@
         ]
       }
     ]
+  },
+  "palette": {
+    "placeholder": "Search entries, actors, laws, pages",
+    "pages": "Pages",
+    "entries": "Entries",
+    "actors": "State actors",
+    "laws": "Laws",
+    "rights": "Rights",
+    "filterLedger": "Filter the ledger",
+    "none": "Nothing matches."
+  },
+  "overview": {
+    "title": "Overview",
+    "lead": "A live picture of what the ledger holds, newest first.",
+    "latest": "Latest recorded",
+    "latestSub": "Added {date}",
+    "allRecords": "All entries",
+    "open": "Open entry",
+    "kpi": {
+      "title": "Key figures",
+      "entries": "Entries",
+      "court": "Ruled or admitted",
+      "courtSub": "Ruled by a court or acknowledged by the authority",
+      "laws": "Laws engaged",
+      "lawsSub": "of {n} provisions in the library",
+      "remedy": "Remedied",
+      "remedySub": "of {n} entries reached a remedy or reform",
+      "field": "Field reports",
+      "fieldSub": "Unverified, not in the headline count",
+      "years": "Years covered",
+      "seal": "Seal"
+    },
+    "verified": "verified",
+    "timeline": "Entries by year",
+    "timelineSub": "Stacked by evidence level. Select a year to filter the ledger.",
+    "evidence": "Evidence levels",
+    "evidenceSub": "How strong the public record is",
+    "records": "entries",
+    "map": "Where it happened",
+    "mapSub": "Province level. Larger points hold more entries.",
+    "rights": "Rights affected",
+    "rightsSub": "Entries per right; one entry can touch several",
+    "accountability": "Accountability",
+    "accountabilitySub": "The best response each entry has received so far",
+    "noAccountability": "of {n} entries have no recorded accountability at all",
+    "explore": "Explore",
+    "provisions": "Most engaged provisions",
+    "provisionsSub": "Laws cited by the most entries",
+    "breachMap": "Breach map",
+    "ontology": "Ontology layers",
+    "ontologySub": "The same record seen as objects, as actions and as outcomes in time",
+    "actors": "State actors",
+    "actorsSub": "Institutions named in the most entries",
+    "about": "Read this before sharing",
+    "aboutBody": "Every entry carries an evidence level. Check it before you share an entry, and read the method for how levels are assigned."
+  },
+  "ledger": {
+    "title": "Ledger",
+    "lead": "Every entry, newest first. Filters live in the address bar, so a filtered view can be shared.",
+    "back": "Back to the list",
+    "notFound": "There is no entry {id} in this ledger.",
+    "pick": "Select an entry to open it",
+    "pickHint": "Use the search, the filters, or press / to jump to anything.",
+    "lawsCount": "{n} laws cited",
+    "facets": {
+      "actor": "Actor",
+      "action": "Action",
+      "outcome": "Outcome",
+      "law": "Law",
+      "cls": "Accountability"
+    }
+  },
+  "ontology": {
+    "eyebrow": "Fusion layer",
+    "title": "Ontology",
+    "lead": "One model that fuses every entry into typed objects, the actions that connect them, and the outcomes that followed. It borrows the way operational platforms model a world: semantic, kinetic and dynamic.",
+    "pending": "Pending classification",
+    "layers": {
+      "semantic": {
+        "name": "Semantic",
+        "short": "SEM",
+        "tag": "Objects, properties and links",
+        "desc": "What exists. Every entry, state actor, legal provision, instrument, right, place and source is a typed object with properties. Links say how they relate: an event is committed by an actor, engages a provision, concerns a right, occurred in a place and is documented by a source."
+      },
+      "kinetic": {
+        "name": "Kinetic",
+        "short": "KIN",
+        "tag": "Actions and mechanisms",
+        "desc": "What was done. Each entry is broken into the actions the state took, from arrests to network shutdowns, grouped by mechanism. The record itself also changes only through defined actions: observe, propose, gate, seal and amend."
+      },
+      "dynamic": {
+        "name": "Dynamic",
+        "short": "DYN",
+        "tag": "Outcomes through time",
+        "desc": "What happened next. Rulings, apologies, denials and sentences are dated outcomes attached to each entry, so you can replay the ledger year by year and see how often abuse meets any accountability."
+      }
+    },
+    "types": {
+      "event": "Event",
+      "actor": "State actor",
+      "action": "Action",
+      "provision": "Provision",
+      "instrument": "Instrument",
+      "right": "Right",
+      "place": "Place",
+      "outcome": "Outcome",
+      "source": "Source"
+    },
+    "kinds": {
+      "ministry": "Ministry",
+      "police": "Police",
+      "military": "Military",
+      "security": "Security forces",
+      "executive": "Executive",
+      "judiciary": "Justice system",
+      "unknown": "Not established"
+    },
+    "links": {
+      "committed_by": "Committed by",
+      "engages": "Engages",
+      "concerns": "Concerns",
+      "occurred_in": "Occurred in",
+      "documented_by": "Documented by",
+      "performed": "Performed",
+      "resulted_in": "Resulted in",
+      "part_of": "Part of",
+      "protects": "Protects",
+      "unit_of": "Unit of"
+    }
+  },
+  "semantic": {
+    "catalog": "Object types",
+    "catalogSub": "Toggle types to reshape the graph",
+    "layersLabel": "Fuse other layers",
+    "fusionNote": "Add the kinetic and dynamic layers to see actions and outcomes join the same graph.",
+    "graph": "Object graph",
+    "count2": "{n} objects · {l} links",
+    "zoomIn": "Zoom in",
+    "zoomOut": "Zoom out",
+    "fit": "Fit to view",
+    "relayout": "Shake the layout",
+    "gestures": "Drag to move · select to inspect · click inside, then scroll or pinch to zoom",
+    "inspector": "Inspector",
+    "pick": "Select any object in the graph to see its properties and links.",
+    "objects": "Objects",
+    "linksN": "Links",
+    "types": "Object types",
+    "hint": "Hover an object to light up everything it connects to.",
+    "kind": "Kind",
+    "fullName": "Full name",
+    "parent": "Part of",
+    "note": "Note",
+    "host": "Host",
+    "sourceType": "Source type",
+    "degree": "Links",
+    "linked": "{n} linked objects",
+    "open": "Open",
+    "linkTypes": "Link types",
+    "linkTypesSub": "Every relation in the model, with counts",
+    "linkType": "Link",
+    "from": "From",
+    "to": "To",
+    "count": "Count"
+  },
+  "kinetic": {
+    "summary": "Kinetic summary",
+    "actionTypes": "Action types",
+    "acts": "Acts recorded",
+    "mechanisms": "Mechanisms",
+    "mechanism": "Mechanism",
+    "pipeline": "How the record changes",
+    "pipelineSub": "The ledger itself can only change through these actions, in this order",
+    "steps": {
+      "observe": {
+        "name": "Observe",
+        "desc": "Sources cited across all entries"
+      },
+      "propose": {
+        "name": "Propose",
+        "desc": "Entries drafted by the automated monitor"
+      },
+      "gate": {
+        "name": "Gate",
+        "desc": "Entries that passed validation and the sealing rules"
+      },
+      "seal": {
+        "name": "Seal",
+        "desc": "Entries chained into the SHA-256 seal"
+      },
+      "amend": {
+        "name": "Amend",
+        "desc": "Visible amendments; nothing is ever deleted"
+      }
+    },
+    "flow": "Actor → action → provision",
+    "flowSub": "Who did what, and which laws it engages. Hover a node or band to trace it; select a node to open it.",
+    "flowNote": "Band width counts pairs of entries and actors. One entry can involve several actors, actions and provisions.",
+    "catalog": "Action types",
+    "openFiltered": "Open these entries",
+    "log": "Action log",
+    "logSub": "Every recorded act, newest first"
+  },
+  "dynamic": {
+    "replay": "Replay the ledger",
+    "replaySub": "Drag the year or press play to watch the record build up over time",
+    "play": "Play",
+    "pause": "Pause",
+    "asOf": "Show the ledger as of year",
+    "cumulative": "Cumulative entries by evidence level",
+    "stats": {
+      "entries": "Entries",
+      "actors": "State actors",
+      "provisions": "Provisions engaged",
+      "responses": "Responses",
+      "remedies": "Remedies"
+    },
+    "flow": "Evidence → mechanism → accountability",
+    "flowSub": "How strong the record is, how the act was carried out, and the best response it has received",
+    "class": "Accountability",
+    "classes": {
+      "remedy": "Remedy or reform",
+      "partial": "Partial response",
+      "deflected": "Denied or deflected",
+      "adverse": "Adverse outcome",
+      "none": "Nothing recorded"
+    },
+    "gap": "Accountability gap",
+    "gapSub": "Entries with no recorded response, and how long responses take",
+    "noneLabel": "No response recorded",
+    "ofN": "of {n} entries",
+    "median": "Median days to first response",
+    "medianSub": "Across {n} entries with a dated response",
+    "lanes": "Response lanes",
+    "lanesSub": "Each entry on one time axis: the act, then every dated response",
+    "lanesNote": "Dashed points are responses without a reliable date; they are placed at the date of the act.",
+    "event": "Act",
+    "noOutcome": "No response has been recorded for this entry yet.",
+    "undated": "date not established",
+    "days": "{n} d",
+    "responses": "Responses recorded"
+  },
+  "legal": {
+    "eyebrow": "Legal map",
+    "title": "Which laws did the state breach?",
+    "lead": "Each cell links a state actor to a provision its recorded acts engage, and the mark shows the strongest evidence behind it. Andesite is not a court: only a cell marked Ruled by a court rests on a judicial finding, and even then the ruling concerned the act, not necessarily every provision listed.",
+    "kpi": {
+      "engaged": "Provisions engaged",
+      "engagedSub": "of {n} in the library",
+      "pairs": "Actor and law pairs",
+      "pairsSub": "Distinct combinations of actor and provision",
+      "court": "Court findings",
+      "courtSub": "Pairs backed by a court ruling against the act",
+      "ack": "Admitted",
+      "ackSub": "Pairs where the authority acknowledged the act"
+    },
+    "matrix": "Breach matrix",
+    "matrixSub": "State actors down, provisions across, grouped by how binding the law is. Select a cell to open the entries behind it.",
+    "matrixNote": "Field reports and withdrawn entries are left out of the matrix.",
+    "actorsDown": "Actors ↓",
+    "lawsAcross": "Laws →",
+    "cellTip": "{n} entries, strongest evidence: {tier}",
+    "stack": "Legal hierarchy",
+    "stackSub": "From the Constitution down to declarations, with the number of entries engaging each provision",
+    "library": "Provision library",
+    "bindingLevels": {
+      "constitution": "Constitution",
+      "statute": "Statute",
+      "treaty": "Ratified treaty",
+      "declaration": "Declaration"
+    },
+    "bindingDesc": {
+      "constitution": "UUD 1945, the supreme law of Indonesia",
+      "statute": "Laws passed by the DPR (Undang-Undang)",
+      "treaty": "International treaties Indonesia has ratified into its law",
+      "declaration": "International standards that are not a treaty"
+    },
+    "binding": "Binding level",
+    "jurisdiction": "Jurisdiction",
+    "domestic": "Indonesian law",
+    "international": "International law",
+    "citation": "Citation",
+    "openDossier": "Open provision dossier",
+    "backAll": "All laws",
+    "text": "Text",
+    "protects": "Protects",
+    "network": "Who engaged it",
+    "networkSub": "Entries on the inner ring, state actors on the outer ring",
+    "strength": "Strength of the record",
+    "strengthSub": "Entries engaging this provision, by evidence level",
+    "recordedActs": "recorded acts engage this provision",
+    "courtNote": "At least one entry behind this provision was ruled unlawful by a court. The ruling concerned the act as a whole.",
+    "entries": "Entries",
+    "unknown": "There is no provision {id} in the library.",
+    "radialLabel": "Entries and actors linked to {law}"
+  },
+  "integrity": {
+    "eyebrow": "Seal",
+    "title": "Integrity",
+    "lead": "Every entry is chained to the one before it with SHA-256. Your browser has just recomputed the whole chain and compared it with the published lock file. Change one character of an old entry and the chain breaks from that point on.",
+    "chain": "Hash chain",
+    "rerun": "Verify again",
+    "how": "How the seal works",
+    "steps": {
+      "s1": "Each entry is turned into one canonical JSON string with sorted keys.",
+      "s2": "That string is hashed together with the hash of the entry before it.",
+      "s3": "The hashes are published in data/ledger.lock.json and checked by CI on every pull request.",
+      "s4": "Corrections never edit a sealed entry. They are published as visible amendments."
+    },
+    "head": "Head hash",
+    "lockFile": "Lock file",
+    "sealed": "Sealed entries",
+    "amendments": "Amendments",
+    "automated": "Automated entries",
+    "monitor": "Automated monitor",
+    "monitorBody": "Every six hours a GitHub Action reads news and NGO feeds and may propose entries. Code, not the model, decides what gets sealed:",
+    "rules": {
+      "r1": "At least two independent publishers",
+      "r2": "Every source link loads",
+      "r3": "The event is recent and not a duplicate",
+      "r4": "Laws only from the library",
+      "r5": "No private individuals named",
+      "r6": "Evidence level never above Documented"
+    },
+    "amendLog": "Amendments",
+    "noAmendments": "No amendments have been published.",
+    "amendHow": "Corrections, new sources and changes of evidence level are added as amendments and shown on the entry. The sealed text never changes.",
+    "requestCorrection": "Request a correction"
+  },
+  "docs": {
+    "eyebrow": "Documentation",
+    "toc": "On this page"
   }
 }

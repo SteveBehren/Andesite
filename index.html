@@ -1,29 +1,28 @@
 <!doctype html>
-<html lang="en" data-theme="light">
+<html lang="en" data-theme="dark">
 <head>
   <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
   <title>Andesite: the record they can't erase</title>
   <meta name="description" content="A permanent, open source ledger of documented and alleged violations of press freedom and civil liberties by the Indonesian state. Hash-sealed, four languages.">
-  <meta name="color-scheme" content="light dark">
-  <meta name="theme-color" content="#e8eeed">
+  <meta name="color-scheme" content="dark light">
+  <meta name="theme-color" content="#0d1117">
   <meta property="og:type" content="website">
   <meta property="og:title" content="Andesite: the record they can't erase">
   <meta property="og:description" content="A permanent, open source ledger of documented and alleged violations of press freedom and civil liberties by the Indonesian state.">
   <meta name="twitter:card" content="summary">
-  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect x='3' y='3' width='26' height='26' fill='%2318201f'/%3E%3Cpath d='M9 23 16 9l7 14' fill='none' stroke='%23e8eeed' stroke-width='2.5'/%3E%3Cpath d='M11.5 18h9' stroke='%23e8eeed' stroke-width='2.5'/%3E%3C/svg%3E">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect x='3' y='3' width='26' height='26' fill='%230d1117' stroke='%234c90f0' stroke-width='2'/%3E%3Cpath d='M9 23 16 9l7 14' fill='none' stroke='%23e6eaf0' stroke-width='2.5'/%3E%3Cpath d='M11.5 18h9' stroke='%23e6eaf0' stroke-width='2.5'/%3E%3C/svg%3E">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:ital,wght@0,400;0,500;0,600;1,400&family=Marcellus&display=swap">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=IBM+Plex+Sans:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap">
   <link rel="stylesheet" href="assets/css/style.css">
   <script>
-    // Runs before first paint: light theme unless the visitor chose dark,
+    // Runs before first paint: dark theme unless the visitor chose light,
     // and hide the first-visit notice if it was dismissed, so nothing jumps after load.
     (function () {
       var root = document.documentElement;
       try {
-        var t = localStorage.getItem('andesite.theme');
-        if (t === 'dark' || t === 'light') root.setAttribute('data-theme', t);
+        root.setAttribute('data-theme', localStorage.getItem('andesite.theme') === 'light' ? 'light' : 'dark');
         if (localStorage.getItem('andesite.stripDismissed') === '1') root.classList.add('strip-off');
       } catch (e) {}
     })();
@@ -31,172 +30,98 @@
   <script type="module" src="assets/js/app.js"></script>
 </head>
 <body>
-  <a class="skip" href="#ledger" data-i18n="nav.skip">Skip to the ledger</a>
+  <a class="skip" href="#main" id="skip-link">Skip to content</a>
 
-  <header class="site-header">
-    <div class="wrap header-inner">
-      <a class="wordmark" href="#top" aria-label="Andesite">
-        <svg class="glyph" viewBox="0 0 32 32" aria-hidden="true" focusable="false">
-          <rect x="2" y="2" width="28" height="28" class="glyph-stone"/>
-          <path d="M9 24 16 8l7 16" class="glyph-cut"/>
-          <path d="M11.6 18.5h8.8" class="glyph-cut"/>
-        </svg>
-        <span>Andesite</span>
-      </a>
-      <div class="header-actions">
-        <div class="seal-wrap">
-          <button type="button" class="seal-badge" id="seal-badge" aria-expanded="false" aria-controls="seal-panel" data-state="pending">
-            <svg class="seal-icon" viewBox="0 0 16 16" aria-hidden="true"><rect x="2.5" y="2.5" width="11" height="11"/><path class="i-ok" d="M5 8.2 7.1 10.2 11 5.9"/><path class="i-bad" d="M5.5 5.5l5 5M10.5 5.5l-5 5"/></svg>
-            <span class="seal-text" id="seal-text">Verifying seal</span><span class="visually-hidden" id="seal-sr"></span>
-          </button>
-          <div class="seal-panel" id="seal-panel" hidden>
-            <p id="seal-explain"></p>
-            <p class="mono-label" id="seal-head-label">Final hash</p>
-            <code class="hash" id="seal-hash"></code>
+  <header class="topbar" id="topbar">
+    <a class="brand" href="#/overview" aria-label="Andesite">
+      <svg class="brand-glyph" viewBox="0 0 32 32" aria-hidden="true" focusable="false">
+        <rect x="2" y="2" width="28" height="28" class="bg-stone"/>
+        <path d="M9 24 16 8l7 16" class="bg-cut"/>
+        <path d="M11.6 18.5h8.8" class="bg-cut"/>
+      </svg>
+      <span class="brand-text"><span class="brand-name">Andesite</span><span class="brand-sub" id="brand-sub">Civil liberties ledger</span></span>
+    </a>
+    <nav class="tb-nav" id="tb-nav" aria-label="Primary"></nav>
+    <div class="tb-right">
+      <button type="button" class="tb-btn tb-search" id="open-search" aria-haspopup="dialog">
+        <svg class="ico" viewBox="0 0 16 16" aria-hidden="true"><circle cx="7" cy="7" r="4.5"/><path d="m10.4 10.4 3.6 3.6"/></svg>
+        <span class="lbl" id="search-label">Search</span><kbd id="search-kbd">/</kbd>
+      </button>
+      <span class="live" id="live" data-tip=""><span class="live-dot" aria-hidden="true"></span><span class="lbl" id="live-label">Live</span></span>
+      <div class="seal-wrap">
+        <button type="button" class="seal-badge" id="seal-badge" aria-expanded="false" aria-controls="seal-panel" data-state="pending">
+          <svg class="seal-icon" viewBox="0 0 16 16" aria-hidden="true"><path class="s-shield" d="M8 1.8 13 4v4c0 3-2.2 5.2-5 6.2C5.2 13.2 3 11 3 8V4z"/><path class="i-ok" d="m5.6 8 1.7 1.7 3.2-3.4"/><path class="i-bad" d="M6 6l4 4M10 6l-4 4"/></svg>
+          <span class="seal-text" id="seal-text">Verifying</span><span class="visually-hidden" id="seal-sr"></span>
+        </button>
+        <div class="seal-panel popover" id="seal-panel" hidden>
+          <p id="seal-explain"></p>
+          <p class="mono-label" id="seal-head-label">Final hash</p>
+          <code class="hash" id="seal-hash"></code>
+          <div class="row-gap">
             <button type="button" class="btn btn-small" id="seal-copy">Copy hash</button>
+            <a class="btn btn-small btn-quiet" href="#/integrity" id="seal-more">Open integrity view</a>
           </div>
         </div>
-        <button type="button" class="icon-btn theme-toggle" id="theme-toggle" aria-label="Switch to dark mode">
-          <svg class="i-moon" viewBox="0 0 20 20" aria-hidden="true"><path d="M15.5 12.6A6.5 6.5 0 0 1 7.4 4.5a6.5 6.5 0 1 0 8.1 8.1z"/></svg>
-          <svg class="i-sun" viewBox="0 0 20 20" aria-hidden="true"><circle cx="10" cy="10" r="3.6"/><path d="M10 1.8v2.4M10 15.8v2.4M1.8 10h2.4M15.8 10h2.4M4.2 4.2l1.7 1.7M14.1 14.1l1.7 1.7M4.2 15.8l1.7-1.7M14.1 5.9l1.7-1.7"/></svg>
-        </button>
-        <button type="button" class="icon-btn menu-toggle" id="menu-toggle" aria-expanded="false" aria-controls="menu-panel" aria-label="Menu">
-          <svg viewBox="0 0 20 20" aria-hidden="true"><path d="M3 5.5h14M3 10h14M3 14.5h14"/></svg>
-        </button>
       </div>
-    </div>
-  </header>
-
-  <div class="menu-scrim" id="menu-scrim" hidden></div>
-  <nav class="menu-panel" id="menu-panel" aria-label="Menu" hidden>
-    <div class="menu-head">
-      <span class="menu-title" data-i18n="nav.menu">Menu</span>
-      <button type="button" class="icon-btn" id="menu-close" aria-label="Close menu">
-        <svg viewBox="0 0 20 20" aria-hidden="true"><path d="M5 5l10 10M15 5 5 15"/></svg>
+      <div class="lang-wrap">
+        <button type="button" class="tb-btn tb-lang" id="lang-btn" aria-expanded="false" aria-controls="lang-pop">
+          <svg class="ico" viewBox="0 0 16 16" aria-hidden="true"><circle cx="8" cy="8" r="6"/><path d="M2 8h12M8 2c2 2 2.6 4 2.6 6S10 12 8 14C6 12 5.4 10 5.4 8S6 4 8 2z"/></svg>
+          <span class="lbl" id="lang-current">EN</span>
+        </button>
+        <ul class="popover lang-pop" id="lang-pop" hidden></ul>
+      </div>
+      <button type="button" class="tb-btn icon-only theme-toggle" id="theme-toggle" aria-label="Switch to light mode">
+        <svg class="ico i-sun" viewBox="0 0 16 16" aria-hidden="true"><circle cx="8" cy="8" r="2.8"/><path d="M8 1.5v1.8M8 12.7v1.8M1.5 8h1.8M12.7 8h1.8M3.4 3.4l1.3 1.3M11.3 11.3l1.3 1.3M3.4 12.6l1.3-1.3M11.3 4.7l1.3-1.3"/></svg>
+        <svg class="ico i-moon" viewBox="0 0 16 16" aria-hidden="true"><path d="M12.8 10.4A5.4 5.4 0 0 1 5.6 3.2a5.4 5.4 0 1 0 7.2 7.2z"/></svg>
+      </button>
+      <button type="button" class="tb-btn icon-only menu-toggle" id="menu-toggle" aria-expanded="false" aria-controls="menu-panel" aria-label="Menu">
+        <svg class="ico" viewBox="0 0 16 16" aria-hidden="true"><path d="M2.5 4.5h11M2.5 8h11M2.5 11.5h11"/></svg>
       </button>
     </div>
-    <p class="menu-label" id="lang-label" data-i18n="nav.language">Language</p>
-    <ul class="lang-list" id="lang-list" aria-labelledby="lang-label"></ul>
-    <p class="menu-label" data-i18n="nav.theme">Theme</p>
-    <div class="theme-switch" role="group" id="theme-switch">
-      <button type="button" data-theme-set="light" data-i18n="nav.light">Light</button>
-      <button type="button" data-theme-set="dark" data-i18n="nav.dark">Dark</button>
-    </div>
-    <ul class="menu-links">
-      <li><a href="#ledger" data-i18n="nav.ledger">Ledger</a></li>
-      <li><a href="#laws" data-i18n="nav.laws">Laws</a></li>
-      <li><a href="#method" data-i18n="nav.method">Method</a></li>
-      <li><a href="#about" data-i18n="nav.about">About</a></li>
-      <li><a href="https://github.com/SteveBehren/Andesite" rel="noopener" data-i18n="nav.contribute">Contribute on GitHub</a></li>
-      <li><a href="https://github.com/SteveBehren/Andesite/issues/new/choose" rel="noopener" data-i18n="nav.submit">Submit a report</a></li>
-    </ul>
-  </nav>
+    <div class="progress" id="progress" aria-hidden="true"></div>
+  </header>
 
+  <div class="subbar" id="subbar"></div>
   <div class="banner-broken" id="seal-banner" role="alert" hidden></div>
 
-  <main id="top">
-    <aside class="strip" id="strip" aria-label="Read this first">
-      <div class="wrap strip-inner">
-        <p><strong id="strip-label">Read this first</strong> <span id="strip-body">Andesite is a record of documented and alleged events, not a court. Check the evidence level of an entry before you share it.</span> <a href="#about-read" id="strip-more">How to read an entry</a></p>
-        <button type="button" class="btn btn-small btn-quiet" id="strip-dismiss">Dismiss</button>
-      </div>
-    </aside>
-
-    <section class="hero wrap" aria-labelledby="hero-count">
-      <div class="hero-main">
-        <p class="numeral" id="hero-count" aria-describedby="hero-line">&nbsp;</p>
-        <p class="hero-line" id="hero-line">&nbsp;</p>
-      </div>
-      <div class="hero-side">
-        <div class="tierbar" id="tierbar" role="img"></div>
-        <ul class="tier-legend" id="tier-legend"></ul>
-        <dl class="hero-stats">
-          <div><dt id="stat-years-label"></dt><dd class="tnum" id="stat-years"></dd></div>
-          <div><dt id="stat-laws-label"></dt><dd class="tnum" id="stat-laws"></dd></div>
-        </dl>
-        <p class="hero-field" id="hero-field"></p>
-      </div>
-      <p class="not-court" id="not-court">Andesite records documented and alleged events. It is not a court and it does not issue verdicts.</p>
-      <p class="tagline"><span id="tagline">The record they can't erase.</span> <a href="#about" id="what-is">What is this?</a></p>
-    </section>
-
-    <section class="ledger-section" id="ledger" aria-labelledby="filters-title">
-      <div class="filters-bar">
-        <div class="wrap">
-          <h2 class="visually-hidden" id="filters-title">Filter the ledger</h2>
-          <div class="filters">
-            <label class="search">
-              <span class="visually-hidden" id="search-label">Search</span>
-              <svg viewBox="0 0 20 20" aria-hidden="true"><circle cx="8.5" cy="8.5" r="5.5"/><path d="m13 13 4.5 4.5"/></svg>
-              <input type="search" id="search" autocomplete="off" spellcheck="false">
-            </label>
-            <div class="chip-group" role="group" aria-labelledby="tier-chips-label">
-              <span class="chip-label" id="tier-chips-label"></span>
-              <div class="chips" id="tier-chips"></div>
-            </div>
-            <div class="chip-group" role="group" aria-labelledby="cat-chips-label">
-              <span class="chip-label" id="cat-chips-label"></span>
-              <div class="chips" id="cat-chips"></div>
-            </div>
-            <div class="filters-row">
-              <label class="select">
-                <span id="year-label"></span>
-                <select id="year-jump"></select>
-              </label>
-              <label class="toggle">
-                <input type="checkbox" id="field-toggle" checked>
-                <span class="toggle-track" aria-hidden="true"></span>
-                <span id="field-toggle-label"></span>
-              </label>
-              <button type="button" class="btn btn-small btn-quiet" id="filters-reset" hidden></button>
-            </div>
-          </div>
-          <p class="filter-count" id="filter-count" aria-live="polite"></p>
-        </div>
-      </div>
-      <div class="wrap">
-        <div class="timeline is-loading" id="timeline">
-          <noscript><p>Andesite needs JavaScript to verify the seal and show the ledger. The raw data is in <a href="data/entries.json">data/entries.json</a>.</p></noscript>
-        </div>
-      </div>
-    </section>
-
-    <section class="wrap prose-section" id="field-reports" aria-labelledby="field-title">
-      <h2 id="field-title"></h2>
-      <div class="field-intro">
-        <p id="field-body"></p>
-        <p class="field-empty" id="field-empty"></p>
-        <p><a class="btn" id="field-button" href="https://github.com/SteveBehren/Andesite/issues/new?template=field-report.yml" rel="noopener"></a></p>
-        <p class="small" id="field-safety"></p>
-      </div>
-    </section>
-
-    <section class="wrap prose-section" id="laws" aria-labelledby="laws-title">
-      <h2 id="laws-title"></h2>
-      <p class="lead" id="laws-intro"></p>
-      <ol class="laws-index" id="laws-index"></ol>
-    </section>
-
-    <section class="wrap prose-section" id="method" aria-labelledby="method-title">
-      <h2 id="method-title"></h2>
-      <p class="lead" id="method-lead"></p>
-      <div class="prose" id="method-body"></div>
-    </section>
-
-    <section class="wrap prose-section" id="about" aria-labelledby="about-title">
-      <h2 id="about-title"></h2>
-      <div class="prose" id="about-body"></div>
-    </section>
+  <main id="main" class="view" tabindex="-1">
+    <noscript><p class="noscript">Andesite needs JavaScript to verify the seal and show the ledger. The raw data is in <a href="data/entries.json">data/entries.json</a>.</p></noscript>
+    <div class="boot" id="boot" aria-live="polite">
+      <div class="boot-grid" aria-hidden="true"></div>
+      <p class="boot-text mono" id="boot-text">Loading ledger</p>
+    </div>
   </main>
 
-  <footer class="site-footer">
-    <div class="wrap footer-inner">
-      <p id="footer-licences"></p>
-      <p><a href="https://github.com/SteveBehren/Andesite" rel="noopener" id="footer-repo"></a> · <a href="https://github.com/SteveBehren" rel="noopener" id="footer-built"></a></p>
-      <p><span id="footer-last-label"></span> <span class="mono" id="footer-last"></span></p>
-      <p><span id="footer-head-label"></span> <code class="hash" id="footer-head"></code></p>
-    </div>
+  <footer class="statusbar" id="statusbar">
+    <span class="sb-item" id="footer-notcourt"></span>
+    <span class="sb-item"><span id="footer-last-label"></span> <span class="mono" id="footer-last"></span></span>
+    <span class="sb-item sb-hash"><span id="footer-head-label"></span> <code class="hash" id="footer-head"></code></span>
+    <span class="sb-item" id="footer-licences"></span>
+    <span class="sb-item"><a href="https://github.com/SteveBehren/Andesite" rel="noopener" id="footer-repo"></a> · <a href="https://github.com/SteveBehren" rel="noopener" id="footer-built"></a></span>
   </footer>
+
+  <nav class="tabbar" id="tabbar" aria-label="Quick navigation"></nav>
+
+  <div class="scrim" id="menu-scrim" hidden></div>
+  <aside class="drawer" id="menu-panel" aria-label="Menu" aria-modal="true" role="dialog" hidden>
+    <div class="drawer-head">
+      <span class="drawer-title" id="menu-title">Menu</span>
+      <button type="button" class="tb-btn icon-only" id="menu-close" aria-label="Close menu">
+        <svg class="ico" viewBox="0 0 16 16" aria-hidden="true"><path d="m4 4 8 8M12 4l-8 8"/></svg>
+      </button>
+    </div>
+    <div class="drawer-body" id="menu-body"></div>
+  </aside>
+
+  <div class="scrim" id="palette-scrim" hidden></div>
+  <div class="palette" id="palette" role="dialog" aria-modal="true" aria-labelledby="palette-input" hidden>
+    <div class="pal-input">
+      <svg class="ico" viewBox="0 0 16 16" aria-hidden="true"><circle cx="7" cy="7" r="4.5"/><path d="m10.4 10.4 3.6 3.6"/></svg>
+      <input type="search" id="palette-input" autocomplete="off" spellcheck="false" role="combobox" aria-expanded="true" aria-controls="palette-list" aria-autocomplete="list">
+      <kbd>Esc</kbd>
+    </div>
+    <ul class="pal-list" id="palette-list" role="listbox"></ul>
+  </div>
 
   <div class="toast" id="toast" role="status" aria-live="polite" hidden></div>
 </body>

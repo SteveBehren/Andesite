@@ -3,15 +3,15 @@
     "lang": "id",
     "name": "Bahasa Indonesia",
     "title": "Andesite: catatan yang tak bisa mereka hapus",
-    "description": "Buku besar permanen dan terbuka tentang dugaan maupun pelanggaran terdokumentasi oleh negara Indonesia terhadap kebebasan pers dan kebebasan sipil."
+    "description": "Buku besar permanen dan terbuka tentang dugaan maupun pelanggaran terdokumentasi oleh negara Indonesia terhadap kebebasan pers dan kebebasan sipil.",
+    "sub": "Catatan kebebasan sipil · Indonesia"
   },
   "nav": {
-    "skip": "Langsung ke catatan",
+    "skip": "Langsung ke konten",
     "ledger": "Catatan",
-    "laws": "Dasar hukum",
     "method": "Metode",
     "about": "Tentang",
-    "contribute": "Berkontribusi di GitHub",
+    "contribute": "Berkontribusi",
     "submit": "Kirim laporan",
     "menu": "Menu",
     "close": "Tutup menu",
@@ -20,7 +20,37 @@
     "toLight": "Ganti ke mode terang",
     "toDark": "Ganti ke mode gelap",
     "light": "Terang",
-    "dark": "Gelap"
+    "dark": "Gelap",
+    "overview": "Ringkasan",
+    "ontology": "Ontologi",
+    "legal": "Hukum",
+    "integrity": "Integritas",
+    "field": "Laporan lapangan",
+    "short": {
+      "overview": "Ringkasan",
+      "ledger": "Catatan",
+      "ontology": "Ontologi",
+      "legal": "Hukum"
+    },
+    "more": "Lainnya",
+    "search": "Cari",
+    "searchHint": "Cari entri, pelaku, dan dasar hukum (tekan /)",
+    "live": "Langsung",
+    "liveTip": "Memeriksa entri baru setiap 2 menit. Pemeriksaan terakhir {time}.",
+    "breadcrumb": "Jejak navigasi",
+    "objects": "{n} entri",
+    "pages": "Halaman",
+    "repo": "Kode sumber di GitHub",
+    "desc": {
+      "overview": "Entri terbaru dan gambaran isi catatan",
+      "ledger": "Semua entri, bisa disaring, lengkap dengan sumber",
+      "ontology": "Objek, tindakan, dan dampak dalam satu model",
+      "legal": "Hukum mana yang tercatat dilanggar negara",
+      "integrity": "Segel hash, diverifikasi di peramban Anda",
+      "field": "Unggahan belum terverifikasi, dihitung terpisah",
+      "method": "Cara bukti ditimbang",
+      "about": "Mengapa Andesite ada"
+    }
   },
   "seal": {
     "verifying": "Memeriksa segel",
@@ -32,7 +62,8 @@
     "head": "Hash terakhir",
     "copy": "Salin hash",
     "copied": "Tersalin",
-    "explain": "Setiap entri dirantai ke entri sebelumnya dengan SHA-256. Peramban Anda baru saja menghitung ulang seluruh rantai dan mencocokkannya dengan berkas kunci yang dipublikasikan."
+    "explain": "Setiap entri dirantai ke entri sebelumnya dengan SHA-256. Peramban Anda baru saja menghitung ulang seluruh rantai dan mencocokkannya dengan berkas kunci yang dipublikasikan.",
+    "open": "Buka tampilan integritas"
   },
   "strip": {
     "label": "Baca dulu",
@@ -43,12 +74,8 @@
   "hero": {
     "line": "entri dalam catatan, {from} → sekarang",
     "fieldReports": "{n} laporan lapangan belum terverifikasi, dihitung terpisah",
-    "lawsCited": "dasar hukum dikutip",
-    "years": "tahun tercakup",
     "notCourt": "Andesite mencatat peristiwa yang terdokumentasi dan yang masih berupa dugaan. Andesite bukan pengadilan dan tidak menjatuhkan putusan.",
-    "tagline": "Catatan yang tak bisa mereka hapus.",
-    "whatIs": "Apa ini?",
-    "tierBar": "Entri berdasarkan tingkat bukti"
+    "tagline": "Catatan yang tak bisa mereka hapus."
   },
   "tiers": {
     "court": {
@@ -84,7 +111,6 @@
     "information": "Hak atas informasi"
   },
   "filters": {
-    "title": "Saring catatan",
     "search": "Cari judul, ringkasan, pelaku, dan tempat",
     "searchLabel": "Cari",
     "tiers": "Tingkat bukti",
@@ -94,8 +120,7 @@
     "showField": "Tampilkan laporan lapangan",
     "reset": "Hapus saringan",
     "count": "{n} dari {total} entri ditampilkan",
-    "none": "Tidak ada entri yang cocok dengan saringan ini.",
-    "lawFilter": "Mengutip {law}"
+    "none": "Tidak ada entri yang cocok dengan saringan ini."
   },
   "entry": {
     "laws": "Dasar hukum",
@@ -147,17 +172,49 @@
       "official": "Resmi",
       "academic": "Riset",
       "social": "Unggahan media sosial"
-    }
+    },
+    "new": "Baru",
+    "summary": "Ringkasan",
+    "properties": "Properti",
+    "evidence": "Bukti",
+    "date": "Tanggal",
+    "province": "Provinsi",
+    "categories": "Hak",
+    "intake": "Asal entri",
+    "intakeTypes": {
+      "manual": "Ditinjau oleh manusia",
+      "automated": "Pemantau otomatis"
+    },
+    "addedOn": "Ditambahkan pada",
+    "links": "Objek terkait",
+    "egoLabel": "Objek yang terhubung dengan entri ini",
+    "inGraph": "Tampilkan di grafik",
+    "lifecycle": "Apa yang terjadi kemudian",
+    "lawsNote": "Ketentuan yang terkait dengan tindakan ini. Apakah tindakan itu melanggarnya adalah wewenang pengadilan; tingkat bukti menunjukkan seberapa kuat catatan publiknya.",
+    "sealTitle": "Segel",
+    "chainIndex": "Posisi dalam rantai",
+    "prevHash": "Hash sebelumnya",
+    "thisHash": "Hash entri ini",
+    "notSealed": "Entri ini belum disegel."
   },
   "field": {
     "title": "Laporan lapangan",
     "body": "Saat terjadi tindakan represif, catatan pertama tentang apa yang terjadi sering kali berupa unggahan publik di TikTok, Instagram, X, atau Threads. Andesite menerimanya sebagai laporan lapangan yang belum terverifikasi. Laporan ini diberi tanda yang jelas, hanya ditautkan dan tidak pernah disalin, lokasinya dicatat sampai tingkat kota saja, dan tidak pernah masuk ke angka utama. Laporan lapangan bisa dinaikkan tingkat buktinya jika sudah dikonfirmasi sumber independen.",
     "empty": "Belum ada laporan lapangan dalam catatan.",
     "button": "Kirim laporan lapangan",
-    "safety": "Issue di GitHub bersifat publik. Baca peringatan keamanan pada formulir sebelum mengirim."
+    "safety": "Issue di GitHub bersifat publik. Baca peringatan keamanan pada formulir sebelum mengirim.",
+    "listTitle": "Laporan lapangan dalam catatan",
+    "listSub": "{n} laporan, tidak pernah dihitung dalam angka utama",
+    "checksSub": "Hal yang diperiksa pengelola sebelum laporan dicatat",
+    "safetyTitle": "Keselamatan",
+    "rules": {
+      "r1": "Hanya tautan. Unggahan tidak pernah disematkan atau diunggah ulang.",
+      "r2": "Tidak ada tautan arsip untuk unggahan media sosial: unggahan yang dihapus tetap terhapus.",
+      "r3": "Lokasi hanya sampai tingkat kota.",
+      "r4": "Tidak menyebut individu pribadi."
+    }
   },
   "lawsIndex": {
-    "title": "Dasar hukum yang dikutip",
     "intro": "Semua aturan yang dikutip Andesite, beserta jumlah entri yang merujuknya. Pilih salah satu untuk menyaring catatan.",
     "count": "{n} entri",
     "none": "Belum dikutip",
@@ -237,6 +294,14 @@
         "p": [
           "Andesite tidak berafiliasi dengan partai, pemerintah, atau organisasi mana pun, dan tidak menerima dana yang terkait dengan isinya. Sumber, kode, dan riwayat lengkap setiap perubahan terbuka untuk publik."
         ]
+      },
+      {
+        "h": "Lapisan ontologi",
+        "p": [
+          "Halaman Ontologi menyatukan setiap entri ke dalam satu model: objek seperti peristiwa, pelaku negara, dan ketentuan hukum (semantik), tindakan yang diambil negara dan mekanisme yang digunakannya (kinetik), serta tanggapan yang menyusul dari waktu ke waktu (dinamis).",
+          "Pelaku, tindakan, dan dampak adalah klasifikasi editorial yang disimpan di data/ontology.json. Klasifikasi ini berada di atas catatan yang disegel dan bukan bagian dari segel, sehingga bisa diralat tanpa menyentuh entri. Entri yang dicatat pemantau sebelum diklasifikasikan oleh manusia ditampilkan sebagai menunggu klasifikasi, dengan pelaku dicocokkan dari teks entri.",
+          "Peta hukum menghubungkan setiap pelaku dengan ketentuan yang terkait dengan tindakannya yang tercatat dan menunjukkan tingkat bukti terkuat di balik setiap tautan. Itu bukan temuan bahwa hukum telah dilanggar. Hanya pengadilan yang bisa membuat temuan itu, dan bila pengadilan sudah melakukannya, entri menyebutkannya."
+        ]
       }
     ]
   },
@@ -304,5 +369,336 @@
         ]
       }
     ]
+  },
+  "palette": {
+    "placeholder": "Cari entri, pelaku, dasar hukum, halaman",
+    "pages": "Halaman",
+    "entries": "Entri",
+    "actors": "Pelaku negara",
+    "laws": "Dasar hukum",
+    "rights": "Hak",
+    "filterLedger": "Saring catatan",
+    "none": "Tidak ada yang cocok."
+  },
+  "overview": {
+    "title": "Ringkasan",
+    "lead": "Gambaran langsung isi catatan, yang terbaru lebih dulu.",
+    "latest": "Terbaru dicatat",
+    "latestSub": "Ditambahkan {date}",
+    "allRecords": "Semua entri",
+    "open": "Buka entri",
+    "kpi": {
+      "title": "Angka utama",
+      "entries": "Entri",
+      "court": "Diputus atau diakui",
+      "courtSub": "Diputus pengadilan atau diakui oleh otoritas",
+      "laws": "Dasar hukum terkait",
+      "lawsSub": "dari {n} ketentuan di pustaka",
+      "remedy": "Dipulihkan",
+      "remedySub": "dari {n} entri mencapai pemulihan atau perubahan aturan",
+      "field": "Laporan lapangan",
+      "fieldSub": "Belum terverifikasi, tidak masuk angka utama",
+      "years": "Tahun tercakup",
+      "seal": "Segel"
+    },
+    "verified": "terverifikasi",
+    "timeline": "Entri per tahun",
+    "timelineSub": "Ditumpuk menurut tingkat bukti. Pilih tahun untuk menyaring catatan.",
+    "evidence": "Tingkat bukti",
+    "evidenceSub": "Seberapa kuat catatan publiknya",
+    "records": "entri",
+    "map": "Lokasi kejadian",
+    "mapSub": "Tingkat provinsi. Titik yang lebih besar berisi lebih banyak entri.",
+    "rights": "Hak yang terdampak",
+    "rightsSub": "Entri per hak; satu entri bisa menyentuh beberapa hak",
+    "accountability": "Akuntabilitas",
+    "accountabilitySub": "Tanggapan terbaik yang diterima setiap entri sejauh ini",
+    "noAccountability": "dari {n} entri sama sekali tidak memiliki akuntabilitas yang tercatat",
+    "explore": "Jelajahi",
+    "provisions": "Ketentuan yang paling sering terkait",
+    "provisionsSub": "Dasar hukum yang dikutip paling banyak entri",
+    "breachMap": "Peta pelanggaran",
+    "ontology": "Lapisan ontologi",
+    "ontologySub": "Catatan yang sama dilihat sebagai objek, sebagai tindakan, dan sebagai dampak dari waktu ke waktu",
+    "actors": "Pelaku negara",
+    "actorsSub": "Lembaga yang paling sering disebut dalam entri",
+    "about": "Baca ini sebelum membagikan",
+    "aboutBody": "Setiap entri memiliki tingkat bukti. Periksa tingkat itu sebelum Anda membagikan entri, dan baca metode untuk mengetahui cara tingkat bukti ditetapkan."
+  },
+  "ledger": {
+    "title": "Catatan",
+    "lead": "Semua entri, yang terbaru lebih dulu. Saringan tersimpan di bilah alamat, jadi tampilan yang disaring bisa dibagikan.",
+    "back": "Kembali ke daftar",
+    "notFound": "Tidak ada entri {id} dalam catatan ini.",
+    "pick": "Pilih entri untuk membukanya",
+    "pickHint": "Gunakan pencarian, saringan, atau tekan / untuk melompat ke mana saja.",
+    "lawsCount": "{n} dasar hukum dikutip",
+    "facets": {
+      "actor": "Pelaku",
+      "action": "Tindakan",
+      "outcome": "Dampak",
+      "law": "Dasar hukum",
+      "cls": "Akuntabilitas"
+    }
+  },
+  "ontology": {
+    "eyebrow": "Lapisan fusi",
+    "title": "Ontologi",
+    "lead": "Satu model yang menyatukan setiap entri menjadi objek bertipe, tindakan yang menghubungkannya, dan dampak yang menyusul. Model ini meminjam cara platform operasional memodelkan dunia: semantik, kinetik, dan dinamis.",
+    "pending": "Menunggu klasifikasi",
+    "layers": {
+      "semantic": {
+        "name": "Semantik",
+        "short": "SEM",
+        "tag": "Objek, properti, dan tautan",
+        "desc": "Apa yang ada. Setiap entri, pelaku negara, ketentuan hukum, instrumen, hak, tempat, dan sumber adalah objek bertipe dengan propertinya. Tautan menjelaskan hubungannya: sebuah peristiwa dilakukan oleh pelaku, menyentuh ketentuan, menyangkut hak, terjadi di suatu tempat, dan didokumentasikan oleh sumber."
+      },
+      "kinetic": {
+        "name": "Kinetik",
+        "short": "KIN",
+        "tag": "Tindakan dan mekanisme",
+        "desc": "Apa yang dilakukan. Setiap entri diurai menjadi tindakan yang diambil negara, dari penangkapan hingga pemutusan jaringan, dikelompokkan menurut mekanismenya. Catatan itu sendiri juga hanya bisa berubah melalui tindakan yang sudah ditetapkan: mengamati, mengusulkan, menyaring, menyegel, dan mengubah."
+      },
+      "dynamic": {
+        "name": "Dinamis",
+        "short": "DIN",
+        "tag": "Dampak dari waktu ke waktu",
+        "desc": "Apa yang terjadi kemudian. Putusan, permintaan maaf, bantahan, dan vonis adalah dampak bertanggal yang melekat pada setiap entri, sehingga Anda bisa memutar ulang catatan tahun demi tahun dan melihat seberapa sering pelanggaran berujung pada akuntabilitas."
+      }
+    },
+    "types": {
+      "event": "Peristiwa",
+      "actor": "Pelaku negara",
+      "action": "Tindakan",
+      "provision": "Ketentuan",
+      "instrument": "Instrumen",
+      "right": "Hak",
+      "place": "Tempat",
+      "outcome": "Dampak",
+      "source": "Sumber"
+    },
+    "kinds": {
+      "ministry": "Kementerian",
+      "police": "Kepolisian",
+      "military": "Militer",
+      "security": "Aparat keamanan",
+      "executive": "Eksekutif",
+      "judiciary": "Sistem peradilan",
+      "unknown": "Belum diketahui"
+    },
+    "links": {
+      "committed_by": "Dilakukan oleh",
+      "engages": "Menyentuh",
+      "concerns": "Menyangkut",
+      "occurred_in": "Terjadi di",
+      "documented_by": "Didokumentasikan oleh",
+      "performed": "Melakukan",
+      "resulted_in": "Berujung pada",
+      "part_of": "Bagian dari",
+      "protects": "Melindungi",
+      "unit_of": "Satuan dari"
+    }
+  },
+  "semantic": {
+    "catalog": "Tipe objek",
+    "catalogSub": "Aktifkan atau matikan tipe untuk mengubah grafik",
+    "layersLabel": "Gabungkan lapisan lain",
+    "fusionNote": "Tambahkan lapisan kinetik dan dinamis untuk melihat tindakan dan dampak bergabung dalam grafik yang sama.",
+    "graph": "Grafik objek",
+    "count2": "{n} objek · {l} tautan",
+    "zoomIn": "Perbesar",
+    "zoomOut": "Perkecil",
+    "fit": "Sesuaikan tampilan",
+    "relayout": "Acak tata letak",
+    "gestures": "Seret untuk memindahkan · pilih untuk memeriksa · klik di dalam, lalu gulir atau cubit untuk memperbesar",
+    "inspector": "Inspektur",
+    "pick": "Pilih objek mana pun di grafik untuk melihat properti dan tautannya.",
+    "objects": "Objek",
+    "linksN": "Tautan",
+    "types": "Tipe objek",
+    "hint": "Arahkan kursor ke sebuah objek untuk menyorot semua yang terhubung dengannya.",
+    "kind": "Jenis",
+    "fullName": "Nama lengkap",
+    "parent": "Bagian dari",
+    "note": "Catatan",
+    "host": "Host",
+    "sourceType": "Jenis sumber",
+    "degree": "Tautan",
+    "linked": "{n} objek terkait",
+    "open": "Buka",
+    "linkTypes": "Tipe tautan",
+    "linkTypesSub": "Setiap relasi dalam model, beserta jumlahnya",
+    "linkType": "Tautan",
+    "from": "Dari",
+    "to": "Ke",
+    "count": "Jumlah"
+  },
+  "kinetic": {
+    "summary": "Ringkasan kinetik",
+    "actionTypes": "Tipe tindakan",
+    "acts": "Tindakan tercatat",
+    "mechanisms": "Mekanisme",
+    "mechanism": "Mekanisme",
+    "pipeline": "Cara catatan berubah",
+    "pipelineSub": "Catatan ini hanya bisa berubah melalui tindakan berikut, dengan urutan ini",
+    "steps": {
+      "observe": {
+        "name": "Mengamati",
+        "desc": "Sumber yang dikutip di semua entri"
+      },
+      "propose": {
+        "name": "Mengusulkan",
+        "desc": "Entri yang disusun pemantau otomatis"
+      },
+      "gate": {
+        "name": "Menyaring",
+        "desc": "Entri yang lolos validasi dan aturan penyegelan"
+      },
+      "seal": {
+        "name": "Menyegel",
+        "desc": "Entri yang dirantai ke dalam segel SHA-256"
+      },
+      "amend": {
+        "name": "Mengubah",
+        "desc": "Amandemen yang terlihat; tidak ada yang pernah dihapus"
+      }
+    },
+    "flow": "Pelaku → tindakan → ketentuan",
+    "flowSub": "Siapa melakukan apa, dan dasar hukum mana yang terkait. Arahkan kursor ke simpul atau pita untuk menelusurinya; pilih simpul untuk membukanya.",
+    "flowNote": "Lebar pita menghitung pasangan entri dan pelaku. Satu entri bisa melibatkan beberapa pelaku, tindakan, dan ketentuan.",
+    "catalog": "Tipe tindakan",
+    "openFiltered": "Buka entri ini",
+    "log": "Log tindakan",
+    "logSub": "Setiap tindakan yang tercatat, yang terbaru lebih dulu"
+  },
+  "dynamic": {
+    "replay": "Putar ulang catatan",
+    "replaySub": "Geser tahun atau tekan putar untuk melihat catatan bertambah dari waktu ke waktu",
+    "play": "Putar",
+    "pause": "Jeda",
+    "asOf": "Tampilkan catatan per tahun",
+    "cumulative": "Entri kumulatif menurut tingkat bukti",
+    "stats": {
+      "entries": "Entri",
+      "actors": "Pelaku negara",
+      "provisions": "Ketentuan terkait",
+      "responses": "Tanggapan",
+      "remedies": "Pemulihan"
+    },
+    "flow": "Bukti → mekanisme → akuntabilitas",
+    "flowSub": "Seberapa kuat catatannya, bagaimana tindakan dilakukan, dan tanggapan terbaik yang diterimanya",
+    "class": "Akuntabilitas",
+    "classes": {
+      "remedy": "Pemulihan atau perubahan aturan",
+      "partial": "Tanggapan sebagian",
+      "deflected": "Dibantah atau dielakkan",
+      "adverse": "Dampak merugikan",
+      "none": "Tidak ada yang tercatat"
+    },
+    "gap": "Kesenjangan akuntabilitas",
+    "gapSub": "Entri tanpa tanggapan yang tercatat, dan berapa lama tanggapan muncul",
+    "noneLabel": "Tanpa tanggapan tercatat",
+    "ofN": "dari {n} entri",
+    "median": "Median hari sampai tanggapan pertama",
+    "medianSub": "Dari {n} entri dengan tanggapan bertanggal",
+    "lanes": "Lajur tanggapan",
+    "lanesSub": "Setiap entri pada satu sumbu waktu: tindakannya, lalu setiap tanggapan bertanggal",
+    "lanesNote": "Titik putus-putus adalah tanggapan tanpa tanggal yang pasti; titik itu diletakkan pada tanggal tindakan.",
+    "event": "Tindakan",
+    "noOutcome": "Belum ada tanggapan yang tercatat untuk entri ini.",
+    "undated": "tanggal belum diketahui",
+    "days": "{n} hr",
+    "responses": "Tanggapan tercatat"
+  },
+  "legal": {
+    "eyebrow": "Peta hukum",
+    "title": "Hukum mana yang dilanggar negara?",
+    "lead": "Setiap sel menghubungkan pelaku negara dengan ketentuan yang terkait dengan tindakannya yang tercatat, dan tanda di sel menunjukkan bukti terkuat di baliknya. Andesite bukan pengadilan: hanya sel bertanda Diputus pengadilan yang bersandar pada putusan hakim, dan putusan itu pun menyangkut tindakannya, belum tentu setiap ketentuan yang tercantum.",
+    "kpi": {
+      "engaged": "Ketentuan terkait",
+      "engagedSub": "dari {n} di pustaka",
+      "pairs": "Pasangan pelaku dan hukum",
+      "pairsSub": "Kombinasi pelaku dan ketentuan yang berbeda",
+      "court": "Putusan pengadilan",
+      "courtSub": "Pasangan yang didukung putusan pengadilan terhadap tindakan itu",
+      "ack": "Diakui",
+      "ackSub": "Pasangan yang tindakannya diakui oleh otoritas"
+    },
+    "matrix": "Matriks pelanggaran",
+    "matrixSub": "Pelaku negara ke bawah, ketentuan ke samping, dikelompokkan menurut kekuatan mengikat hukumnya. Pilih sel untuk membuka entri di baliknya.",
+    "matrixNote": "Laporan lapangan dan entri yang ditarik tidak dimasukkan ke dalam matriks.",
+    "actorsDown": "Pelaku ↓",
+    "lawsAcross": "Hukum →",
+    "cellTip": "{n} entri, bukti terkuat: {tier}",
+    "stack": "Hierarki hukum",
+    "stackSub": "Dari UUD sampai deklarasi, dengan jumlah entri yang terkait dengan setiap ketentuan",
+    "library": "Pustaka ketentuan",
+    "bindingLevels": {
+      "constitution": "Konstitusi",
+      "statute": "Undang-undang",
+      "treaty": "Perjanjian yang diratifikasi",
+      "declaration": "Deklarasi"
+    },
+    "bindingDesc": {
+      "constitution": "UUD 1945, hukum tertinggi Indonesia",
+      "statute": "Undang-undang yang disahkan DPR",
+      "treaty": "Perjanjian internasional yang sudah diratifikasi Indonesia ke dalam hukumnya",
+      "declaration": "Standar internasional yang bukan perjanjian"
+    },
+    "binding": "Kekuatan mengikat",
+    "jurisdiction": "Yurisdiksi",
+    "domestic": "Hukum Indonesia",
+    "international": "Hukum internasional",
+    "citation": "Kutipan",
+    "openDossier": "Buka berkas ketentuan",
+    "backAll": "Semua dasar hukum",
+    "text": "Teks",
+    "protects": "Melindungi",
+    "network": "Siapa yang terkait",
+    "networkSub": "Entri di lingkar dalam, pelaku negara di lingkar luar",
+    "strength": "Kekuatan catatan",
+    "strengthSub": "Entri yang terkait dengan ketentuan ini, menurut tingkat bukti",
+    "recordedActs": "tindakan tercatat terkait dengan ketentuan ini",
+    "courtNote": "Setidaknya satu entri di balik ketentuan ini diputus melanggar hukum oleh pengadilan. Putusan itu menyangkut tindakannya secara keseluruhan.",
+    "entries": "Entri",
+    "unknown": "Tidak ada ketentuan {id} di pustaka.",
+    "radialLabel": "Entri dan pelaku yang terhubung dengan {law}"
+  },
+  "integrity": {
+    "eyebrow": "Segel",
+    "title": "Integritas",
+    "lead": "Setiap entri dirantai ke entri sebelumnya dengan SHA-256. Peramban Anda baru saja menghitung ulang seluruh rantai dan membandingkannya dengan berkas kunci yang diterbitkan. Ubah satu karakter di entri lama, dan rantai akan putus mulai dari titik itu.",
+    "chain": "Rantai hash",
+    "rerun": "Verifikasi lagi",
+    "how": "Cara kerja segel",
+    "steps": {
+      "s1": "Setiap entri diubah menjadi satu string JSON kanonis dengan kunci yang diurutkan.",
+      "s2": "String itu di-hash bersama hash entri sebelumnya.",
+      "s3": "Hash diterbitkan di data/ledger.lock.json dan diperiksa CI pada setiap pull request.",
+      "s4": "Ralat tidak pernah mengubah entri yang sudah disegel. Ralat diterbitkan sebagai amandemen yang terlihat."
+    },
+    "head": "Hash terakhir",
+    "lockFile": "Berkas kunci",
+    "sealed": "Entri tersegel",
+    "amendments": "Amandemen",
+    "automated": "Entri otomatis",
+    "monitor": "Pemantau otomatis",
+    "monitorBody": "Setiap enam jam sebuah GitHub Action membaca umpan berita dan LSM, lalu bisa mengusulkan entri. Kode, bukan model, yang memutuskan apa yang disegel:",
+    "rules": {
+      "r1": "Minimal dua penerbit independen",
+      "r2": "Setiap tautan sumber bisa dibuka",
+      "r3": "Peristiwanya baru dan bukan duplikat",
+      "r4": "Dasar hukum hanya dari pustaka",
+      "r5": "Tidak menyebut individu pribadi",
+      "r6": "Tingkat bukti tidak pernah di atas Terdokumentasi"
+    },
+    "amendLog": "Amandemen",
+    "noAmendments": "Belum ada amandemen yang diterbitkan.",
+    "amendHow": "Ralat, sumber baru, dan perubahan tingkat bukti ditambahkan sebagai amandemen dan ditampilkan di entri. Teks yang sudah disegel tidak pernah berubah.",
+    "requestCorrection": "Ajukan ralat"
+  },
+  "docs": {
+    "eyebrow": "Dokumentasi",
+    "toc": "Di halaman ini"
   }
 }

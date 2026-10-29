@@ -3,9 +3,10 @@
 **A permanent, open source ledger of documented and alleged violations of press freedom and civil liberties by the Indonesian state.**
 *The record they can't erase.*
 
-| Light | Dark |
+| Desktop | Phone |
 |---|---|
-| ![Andesite in light mode: the headline count, the evidence bar and the ledger](docs/screenshots/light.png) | ![Andesite in dark mode: an entry with the constitutional text quoted and an unofficial translation](docs/screenshots/dark.png) |
+| ![Andesite overview in dark mode: the latest entry first, key figures, entries by year and evidence levels](docs/screenshots/dark.png) | ![Andesite on a phone: the latest entry and the bottom tab bar](docs/screenshots/mobile.png) |
+| ![The Ontology page, semantic layer: a force-directed graph of events, state actors and provisions with an inspector](docs/screenshots/ontology.png) | ![The legal map in light mode: a matrix of state actors against the provisions their acts engage](docs/screenshots/light.png) |
 
 ## Why it exists
 
@@ -14,6 +15,21 @@ Press freedom, freedom of expression, freedom of assembly and the right to infor
 Andesite keeps that record in one place. Every entry has a date, a place, the state actor involved, sources you can open, and the exact laws it relates to, quoted in the original language with a translation underneath. Nothing is ever deleted. The site is available in English, Bahasa Indonesia, Nederlands and Deutsch.
 
 Andesite records documented and alleged events. It is not a court and it does not issue verdicts.
+
+## What's on the site
+
+Andesite is laid out like an operations console: a set of pages you move between, not one long scroll.
+
+| Page | What it shows |
+|---|---|
+| **Overview** | The most recently added entry first, then key figures, entries by year, evidence levels, a map, the rights affected, the accountability gap and the most engaged laws. Every chart links into a filtered ledger. |
+| **Ledger** | Every entry with search and filters that live in the address bar, and a split-pane object view: summary, properties, linked objects, what happened next, the laws quoted in full, sources and the entry's place in the hash chain. |
+| **Ontology** | The fusion layer, in three tabs. *Semantic*: a live graph of every object and link, with an inspector. *Kinetic*: actor to action to provision flows, the action catalogue and the steps by which the record itself can change. *Dynamic*: replay the ledger year by year, evidence to accountability flows, and response lanes on one time axis. |
+| **Legal** | "Which laws did the state breach?" A matrix of state actors against provisions, each cell marked with the strongest evidence behind it, the legal hierarchy from the Constitution down, and a dossier per provision. |
+| **Integrity** | The hash chain drawn block by block and verified live in the browser. |
+| **Field reports, Method, About** | Unverified posts counted separately, and the long-form rules. |
+
+On a desktop every page sits in the top bar. On an iPad in landscape the main pages stay in the bar and the rest move to the menu; in portrait the menu takes over, with a breadcrumb and page tabs underneath. On a phone there is a bottom tab bar plus the menu, which holds every page, the language and the theme. Press `/` (or Ctrl/Cmd+K) anywhere to search entries, actors, laws and pages.
 
 ## How to read the evidence levels
 
@@ -63,7 +79,9 @@ npx serve .                                          # run the site locally
 
 ## Engineering notes
 
-- **No framework and no build step, on purpose.** The site is one HTML file, one stylesheet and four small ES modules that read plain JSON. Anyone who can edit a JSON file can contribute, and the site will still open in ten years.
+- **No framework and no build step, on purpose.** The site is one HTML file, one stylesheet and a handful of plain ES modules (one per page in `assets/js/views/`) that read plain JSON. Charts, the force-directed graph, the Sankey flows and the dot-matrix map are hand-written SVG with no chart library. Anyone who can edit a JSON file can contribute, and the site will still open in ten years.
+- **An ontology on top of the seal, not inside it.** `data/ontology.json` classifies who acted, how, and what happened next. It is validated against the entries and the law library, but it is not hashed, so the classification can improve without ever rewriting a sealed entry. Unclassified entries fall back to actors matched from their text.
+- **Motion that respects the visitor.** Panels, charts and graphs animate in, but every animation is CSS or `requestAnimationFrame` driven and switches off under `prefers-reduced-motion`.
 - **Append-only data with CI enforcement.** `seal.mjs` refuses to rewrite an existing hash. `verify.mjs` checks on every pull request that the base branch's lock is an exact prefix of the new one.
 - **One canonicalisation module for browser and Node.** [`assets/js/canonical.js`](assets/js/canonical.js) is imported by the page (Web Crypto) and by the scripts (Node crypto). A unit test proves both produce the same chain for the real ledger.
 - **Four-language content pipeline.** Entries carry `en`, `id`, `nl` and `de` text; UI strings and the About and Method pages live in `i18n/*.json`. The validator fails if any language is missing a key or if any text contains an em or en dash. Dates are formatted per locale with `Intl`.
@@ -71,7 +89,7 @@ npx serve .                                          # run the site locally
 - **The evidence model drives the UI.** Each level has a colour and a distinct shape, so colour is never the only signal. Field reports are excluded from the headline number by design.
 - **Safety by design for social media reports.** Links only, no embeds, no archive links for social posts (a deleted post stays deleted), city-level locations, no private names, and no scraping of social platforms.
 - **The model proposes, code decides.** The automated monitor uses structured outputs; every sealing rule is a deterministic, unit-tested function in [`scripts/scan-lib.mjs`](scripts/scan-lib.mjs).
-- **Strict Content Security Policy.** No inline event handlers, one hashed inline script, no third-party scripts. The validator checks that the CSP hash matches the inline script.
+- **Strict Content Security Policy.** No inline event handlers, no inline styles (chart geometry goes through the CSSOM), one hashed inline script, no third-party scripts. The validator checks that the CSP hash matches the inline script.
 
 ## Roadmap (V2)
 

@@ -3,15 +3,15 @@
     "lang": "de",
     "name": "Deutsch",
     "title": "Andesite: das Register, das sie nicht löschen können",
-    "description": "Ein dauerhaftes, quelloffenes Register dokumentierter und mutmaßlicher Verletzungen der Pressefreiheit und der bürgerlichen Freiheiten durch den indonesischen Staat."
+    "description": "Ein dauerhaftes, quelloffenes Register dokumentierter und mutmaßlicher Verletzungen der Pressefreiheit und der bürgerlichen Freiheiten durch den indonesischen Staat.",
+    "sub": "Register der Bürgerrechte · Indonesien"
   },
   "nav": {
-    "skip": "Direkt zum Register",
+    "skip": "Direkt zum Inhalt",
     "ledger": "Register",
-    "laws": "Gesetze",
     "method": "Methode",
     "about": "Über",
-    "contribute": "Auf GitHub mitwirken",
+    "contribute": "Mitwirken",
     "submit": "Meldung einreichen",
     "menu": "Menü",
     "close": "Menü schließen",
@@ -20,7 +20,37 @@
     "toLight": "Zum hellen Modus wechseln",
     "toDark": "Zum dunklen Modus wechseln",
     "light": "Hell",
-    "dark": "Dunkel"
+    "dark": "Dunkel",
+    "overview": "Überblick",
+    "ontology": "Ontologie",
+    "legal": "Recht",
+    "integrity": "Integrität",
+    "field": "Feldberichte",
+    "short": {
+      "overview": "Überblick",
+      "ledger": "Register",
+      "ontology": "Ontologie",
+      "legal": "Recht"
+    },
+    "more": "Mehr",
+    "search": "Suchen",
+    "searchHint": "Einträge, Akteure und Gesetze durchsuchen (Taste /)",
+    "live": "Live",
+    "liveTip": "Prüft alle 2 Minuten auf neue Einträge. Letzte Prüfung {time}.",
+    "breadcrumb": "Brotkrümelnavigation",
+    "objects": "{n} Einträge",
+    "pages": "Seiten",
+    "repo": "Quellcode auf GitHub",
+    "desc": {
+      "overview": "Neuester Eintrag und die Gestalt des Registers",
+      "ledger": "Jeder Eintrag, filterbar, mit allen Quellen",
+      "ontology": "Objekte, Handlungen und Folgen in einem Modell",
+      "legal": "Welche Gesetze der Staat laut Register verletzt",
+      "integrity": "Das Hash-Siegel, in Ihrem Browser geprüft",
+      "field": "Unbestätigte Beiträge, gesondert gezählt",
+      "method": "Wie Belege gewichtet werden",
+      "about": "Warum es Andesite gibt"
+    }
   },
   "seal": {
     "verifying": "Siegel wird geprüft",
@@ -32,7 +62,8 @@
     "head": "Letzter Hash",
     "copy": "Hash kopieren",
     "copied": "Kopiert",
-    "explain": "Jeder Eintrag ist mit SHA-256 an den vorherigen gekettet. Ihr Browser hat gerade die gesamte Kette neu berechnet und mit der veröffentlichten Lock-Datei verglichen."
+    "explain": "Jeder Eintrag ist mit SHA-256 an den vorherigen gekettet. Ihr Browser hat gerade die gesamte Kette neu berechnet und mit der veröffentlichten Lock-Datei verglichen.",
+    "open": "Integritätsansicht öffnen"
   },
   "strip": {
     "label": "Bitte zuerst lesen",
@@ -43,12 +74,8 @@
   "hero": {
     "line": "Einträge im Register, {from} → heute",
     "fieldReports": "{n} unbestätigte Feldberichte, gesondert gezählt",
-    "lawsCited": "zitierte Rechtsnormen",
-    "years": "erfasste Jahre",
     "notCourt": "Andesite verzeichnet dokumentierte und mutmaßliche Ereignisse. Es ist kein Gericht und fällt keine Urteile.",
-    "tagline": "Das Register, das sie nicht löschen können.",
-    "whatIs": "Was ist das?",
-    "tierBar": "Einträge nach Beweisstufe"
+    "tagline": "Das Register, das sie nicht löschen können."
   },
   "tiers": {
     "court": {
@@ -84,7 +111,6 @@
     "information": "Recht auf Information"
   },
   "filters": {
-    "title": "Register filtern",
     "search": "Titel, Zusammenfassungen, Akteure und Orte durchsuchen",
     "searchLabel": "Suche",
     "tiers": "Beweisstufe",
@@ -94,8 +120,7 @@
     "showField": "Feldberichte anzeigen",
     "reset": "Filter zurücksetzen",
     "count": "{n} von {total} Einträgen angezeigt",
-    "none": "Keine Einträge entsprechen diesen Filtern.",
-    "lawFilter": "Beruft sich auf {law}"
+    "none": "Keine Einträge entsprechen diesen Filtern."
   },
   "entry": {
     "laws": "Angeführte Rechtsnormen",
@@ -147,17 +172,49 @@
       "official": "Amtlich",
       "academic": "Forschung",
       "social": "Beitrag in sozialen Medien"
-    }
+    },
+    "new": "Neu",
+    "summary": "Zusammenfassung",
+    "properties": "Eigenschaften",
+    "evidence": "Beleglage",
+    "date": "Datum",
+    "province": "Provinz",
+    "categories": "Rechte",
+    "intake": "Herkunft",
+    "intakeTypes": {
+      "manual": "Von einem Menschen geprüft",
+      "automated": "Automatische Beobachtung"
+    },
+    "addedOn": "Hinzugefügt am",
+    "links": "Verknüpfte Objekte",
+    "egoLabel": "Mit diesem Eintrag verknüpfte Objekte",
+    "inGraph": "Im Graphen zeigen",
+    "lifecycle": "Was danach geschah",
+    "lawsNote": "Normen, die diese Handlung berührt. Ob sie verletzt wurden, entscheidet ein Gericht; die Beweisstufe sagt, wie stark die öffentliche Beleglage ist.",
+    "sealTitle": "Siegel",
+    "chainIndex": "Position in der Kette",
+    "prevHash": "Vorheriger Hash",
+    "thisHash": "Hash dieses Eintrags",
+    "notSealed": "Dieser Eintrag ist noch nicht versiegelt."
   },
   "field": {
     "title": "Feldberichte",
     "body": "Bei Repressionswellen ist die erste Aufzeichnung dessen, was geschah, oft ein öffentlicher Beitrag auf TikTok, Instagram, X oder Threads. Andesite nimmt solche Beiträge als unbestätigte Feldberichte auf. Sie werden deutlich gekennzeichnet, nur verlinkt und nie kopiert, auf Stadtebene gehalten und nie zur Hauptzahl gezählt. Ein Feldbericht kann eine höhere Beweisstufe erhalten, sobald unabhängige Quellen ihn bestätigen.",
     "empty": "Im Register gibt es noch keine Feldberichte.",
     "button": "Feldbericht einreichen",
-    "safety": "Issues auf GitHub sind öffentlich. Lesen Sie den Sicherheitshinweis im Formular, bevor Sie etwas einreichen."
+    "safety": "Issues auf GitHub sind öffentlich. Lesen Sie den Sicherheitshinweis im Formular, bevor Sie etwas einreichen.",
+    "listTitle": "Feldberichte im Register",
+    "listSub": "{n} Berichte, nie in der Hauptzahl gezählt",
+    "checksSub": "Was eine Betreuerin oder ein Betreuer prüft, bevor ein Bericht erfasst wird",
+    "safetyTitle": "Sicherheit",
+    "rules": {
+      "r1": "Nur Links. Beiträge werden nie eingebettet oder erneut hochgeladen.",
+      "r2": "Keine Archivlinks für Beiträge aus sozialen Medien: Ein gelöschter Beitrag bleibt gelöscht.",
+      "r3": "Orte auf Stadtebene, nie genauer.",
+      "r4": "Keine Privatpersonen genannt."
+    }
   },
   "lawsIndex": {
-    "title": "Zitierte Rechtsnormen",
     "intro": "Jede Rechtsnorm, die Andesite zitiert, mit der Zahl der Einträge, die sich darauf berufen. Wählen Sie eine Norm, um das Register zu filtern.",
     "count": "{n} Einträge",
     "none": "Noch nicht zitiert",
@@ -237,6 +294,14 @@
         "p": [
           "Andesite ist mit keiner Partei, Regierung oder Organisation verbunden und nimmt keine Finanzierung an, die an Inhalte geknüpft ist. Die Quellen, der Code und die vollständige Geschichte jeder Änderung sind öffentlich."
         ]
+      },
+      {
+        "h": "Die Ontologie-Ebene",
+        "p": [
+          "Die Ontologie-Seiten verschmelzen jeden Eintrag zu einem Modell: Objekte wie Ereignisse, staatliche Akteure und Rechtsnormen (semantisch), die Handlungen des Staates und die Mechanismen, die er nutzte (kinetisch), sowie die Reaktionen, die zeitlich folgten (dynamisch).",
+          "Akteure, Handlungen und Folgen sind eine redaktionelle Einordnung in data/ontology.json. Sie liegt über dem versiegelten Register und gehört nicht zum Siegel, sodass sie korrigiert werden kann, ohne einen Eintrag anzufassen. Einträge, die die Beobachtung erfasst, bevor ein Mensch sie einordnet, erscheinen als Klassifizierung ausstehend, mit Akteuren, die aus dem Eintragstext erkannt werden.",
+          "Die Rechtskarte verbindet jeden Akteur mit den Normen, die seine erfassten Handlungen berühren, und zeigt die stärkste Beweisstufe hinter jeder Verknüpfung. Das ist keine Feststellung, dass ein Gesetz verletzt wurde. Das kann nur ein Gericht feststellen, und wo eines es getan hat, steht es im Eintrag."
+        ]
       }
     ]
   },
@@ -304,5 +369,336 @@
         ]
       }
     ]
+  },
+  "palette": {
+    "placeholder": "Einträge, Akteure, Gesetze, Seiten suchen",
+    "pages": "Seiten",
+    "entries": "Einträge",
+    "actors": "Staatliche Akteure",
+    "laws": "Gesetze",
+    "rights": "Rechte",
+    "filterLedger": "Register filtern",
+    "none": "Keine Treffer."
+  },
+  "overview": {
+    "title": "Überblick",
+    "lead": "Ein aktuelles Bild dessen, was das Register enthält, Neuestes zuerst.",
+    "latest": "Zuletzt erfasst",
+    "latestSub": "Hinzugefügt am {date}",
+    "allRecords": "Alle Einträge",
+    "open": "Eintrag öffnen",
+    "kpi": {
+      "title": "Kennzahlen",
+      "entries": "Einträge",
+      "court": "Entschieden oder eingeräumt",
+      "courtSub": "Gerichtlich entschieden oder von der Behörde eingeräumt",
+      "laws": "Betroffene Rechtsnormen",
+      "lawsSub": "von {n} Normen in der Bibliothek",
+      "remedy": "Abgeholfen",
+      "remedySub": "von {n} Einträgen führten zu Abhilfe oder Reform",
+      "field": "Feldberichte",
+      "fieldSub": "Unbestätigt, nicht in der Hauptzahl",
+      "years": "Erfasste Jahre",
+      "seal": "Siegel"
+    },
+    "verified": "geprüft",
+    "timeline": "Einträge pro Jahr",
+    "timelineSub": "Gestapelt nach Beweisstufe. Wählen Sie ein Jahr, um das Register zu filtern.",
+    "evidence": "Beweisstufen",
+    "evidenceSub": "Wie stark die öffentliche Beleglage ist",
+    "records": "Einträge",
+    "map": "Wo es geschah",
+    "mapSub": "Auf Provinzebene. Größere Punkte enthalten mehr Einträge.",
+    "rights": "Betroffene Rechte",
+    "rightsSub": "Einträge pro Recht; ein Eintrag kann mehrere Rechte berühren",
+    "accountability": "Rechenschaft",
+    "accountabilitySub": "Die beste Reaktion, die jeder Eintrag bisher erhalten hat",
+    "noAccountability": "von {n} Einträgen haben überhaupt keine erfasste Rechenschaft",
+    "explore": "Erkunden",
+    "provisions": "Am häufigsten betroffene Normen",
+    "provisionsSub": "Gesetze, die von den meisten Einträgen zitiert werden",
+    "breachMap": "Verletzungskarte",
+    "ontology": "Ontologie-Ebenen",
+    "ontologySub": "Dasselbe Register als Objekte, als Handlungen und als Folgen in der Zeit",
+    "actors": "Staatliche Akteure",
+    "actorsSub": "Institutionen, die in den meisten Einträgen genannt werden",
+    "about": "Vor dem Teilen lesen",
+    "aboutBody": "Jeder Eintrag hat eine Beweisstufe. Prüfen Sie sie, bevor Sie einen Eintrag teilen, und lesen Sie in der Methode, wie Stufen vergeben werden."
+  },
+  "ledger": {
+    "title": "Register",
+    "lead": "Jeder Eintrag, Neuestes zuerst. Filter stehen in der Adressleiste, sodass sich eine gefilterte Ansicht teilen lässt.",
+    "back": "Zurück zur Liste",
+    "notFound": "In diesem Register gibt es keinen Eintrag {id}.",
+    "pick": "Wählen Sie einen Eintrag, um ihn zu öffnen",
+    "pickHint": "Nutzen Sie die Suche, die Filter oder drücken Sie /, um überallhin zu springen.",
+    "lawsCount": "{n} Rechtsnormen zitiert",
+    "facets": {
+      "actor": "Akteur",
+      "action": "Handlung",
+      "outcome": "Folge",
+      "law": "Gesetz",
+      "cls": "Rechenschaft"
+    }
+  },
+  "ontology": {
+    "eyebrow": "Fusionsebene",
+    "title": "Ontologie",
+    "lead": "Ein Modell, das jeden Eintrag zu typisierten Objekten, den Handlungen, die sie verbinden, und den darauf folgenden Folgen verschmilzt. Es übernimmt die Art, wie operative Plattformen eine Welt modellieren: semantisch, kinetisch und dynamisch.",
+    "pending": "Klassifizierung ausstehend",
+    "layers": {
+      "semantic": {
+        "name": "Semantisch",
+        "short": "SEM",
+        "tag": "Objekte, Eigenschaften und Verknüpfungen",
+        "desc": "Was existiert. Jeder Eintrag, jeder staatliche Akteur, jede Rechtsnorm, jedes Instrument, Recht, jeder Ort und jede Quelle ist ein typisiertes Objekt mit Eigenschaften. Verknüpfungen zeigen die Beziehungen: Ein Ereignis wird von einem Akteur begangen, berührt eine Norm, betrifft ein Recht, fand an einem Ort statt und ist durch eine Quelle belegt."
+      },
+      "kinetic": {
+        "name": "Kinetisch",
+        "short": "KIN",
+        "tag": "Handlungen und Mechanismen",
+        "desc": "Was getan wurde. Jeder Eintrag wird in die Handlungen des Staates zerlegt, von Festnahmen bis zu Netzabschaltungen, gruppiert nach Mechanismus. Auch das Register selbst ändert sich nur durch festgelegte Handlungen: beobachten, vorschlagen, prüfen, versiegeln und ändern."
+      },
+      "dynamic": {
+        "name": "Dynamisch",
+        "short": "DYN",
+        "tag": "Folgen in der Zeit",
+        "desc": "Was danach geschah. Urteile, Entschuldigungen, Dementis und Strafen sind datierte Folgen an jedem Eintrag, sodass Sie das Register Jahr für Jahr abspielen und sehen können, wie oft Missbrauch überhaupt zu Rechenschaft führt."
+      }
+    },
+    "types": {
+      "event": "Ereignis",
+      "actor": "Staatlicher Akteur",
+      "action": "Handlung",
+      "provision": "Rechtsnorm",
+      "instrument": "Instrument",
+      "right": "Recht",
+      "place": "Ort",
+      "outcome": "Folge",
+      "source": "Quelle"
+    },
+    "kinds": {
+      "ministry": "Ministerium",
+      "police": "Polizei",
+      "military": "Militär",
+      "security": "Sicherheitskräfte",
+      "executive": "Exekutive",
+      "judiciary": "Justiz",
+      "unknown": "Nicht festgestellt"
+    },
+    "links": {
+      "committed_by": "Begangen von",
+      "engages": "Berührt",
+      "concerns": "Betrifft",
+      "occurred_in": "Fand statt in",
+      "documented_by": "Belegt durch",
+      "performed": "Führte aus",
+      "resulted_in": "Führte zu",
+      "part_of": "Teil von",
+      "protects": "Schützt",
+      "unit_of": "Einheit von"
+    }
+  },
+  "semantic": {
+    "catalog": "Objekttypen",
+    "catalogSub": "Typen ein- oder ausschalten, um den Graphen umzubauen",
+    "layersLabel": "Weitere Ebenen verschmelzen",
+    "fusionNote": "Fügen Sie die kinetische und die dynamische Ebene hinzu, um Handlungen und Folgen im selben Graphen zu sehen.",
+    "graph": "Objektgraph",
+    "count2": "{n} Objekte · {l} Verknüpfungen",
+    "zoomIn": "Vergrößern",
+    "zoomOut": "Verkleinern",
+    "fit": "Einpassen",
+    "relayout": "Anordnung neu mischen",
+    "gestures": "Ziehen zum Verschieben · wählen zum Prüfen · hineinklicken, dann scrollen oder zoomen per Fingergeste",
+    "inspector": "Inspektor",
+    "pick": "Wählen Sie ein Objekt im Graphen, um seine Eigenschaften und Verknüpfungen zu sehen.",
+    "objects": "Objekte",
+    "linksN": "Verknüpfungen",
+    "types": "Objekttypen",
+    "hint": "Zeigen Sie auf ein Objekt, um alles hervorzuheben, womit es verbunden ist.",
+    "kind": "Art",
+    "fullName": "Vollständiger Name",
+    "parent": "Teil von",
+    "note": "Hinweis",
+    "host": "Host",
+    "sourceType": "Quellenart",
+    "degree": "Verknüpfungen",
+    "linked": "{n} verknüpfte Objekte",
+    "open": "Öffnen",
+    "linkTypes": "Verknüpfungstypen",
+    "linkTypesSub": "Jede Beziehung im Modell, mit Anzahl",
+    "linkType": "Verknüpfung",
+    "from": "Von",
+    "to": "Nach",
+    "count": "Anzahl"
+  },
+  "kinetic": {
+    "summary": "Kinetische Übersicht",
+    "actionTypes": "Handlungstypen",
+    "acts": "Erfasste Handlungen",
+    "mechanisms": "Mechanismen",
+    "mechanism": "Mechanismus",
+    "pipeline": "Wie sich das Register ändert",
+    "pipelineSub": "Das Register selbst ändert sich nur durch diese Handlungen, in dieser Reihenfolge",
+    "steps": {
+      "observe": {
+        "name": "Beobachten",
+        "desc": "Quellen, die in allen Einträgen zitiert werden"
+      },
+      "propose": {
+        "name": "Vorschlagen",
+        "desc": "Einträge, die die automatische Beobachtung entworfen hat"
+      },
+      "gate": {
+        "name": "Prüfen",
+        "desc": "Einträge, die Validierung und Siegelregeln bestanden haben"
+      },
+      "seal": {
+        "name": "Versiegeln",
+        "desc": "Einträge, die in das SHA-256-Siegel verkettet sind"
+      },
+      "amend": {
+        "name": "Ändern",
+        "desc": "Sichtbare Änderungen; gelöscht wird nie etwas"
+      }
+    },
+    "flow": "Akteur → Handlung → Rechtsnorm",
+    "flowSub": "Wer was tat und welche Gesetze es berührt. Zeigen Sie auf einen Knoten oder ein Band, um es zu verfolgen; wählen Sie einen Knoten, um ihn zu öffnen.",
+    "flowNote": "Die Bandbreite zählt Paare aus Eintrag und Akteur. Ein Eintrag kann mehrere Akteure, Handlungen und Normen umfassen.",
+    "catalog": "Handlungstypen",
+    "openFiltered": "Diese Einträge öffnen",
+    "log": "Handlungsprotokoll",
+    "logSub": "Jede erfasste Handlung, Neuestes zuerst"
+  },
+  "dynamic": {
+    "replay": "Das Register abspielen",
+    "replaySub": "Ziehen Sie das Jahr oder drücken Sie Abspielen, um das Register über die Zeit wachsen zu sehen",
+    "play": "Abspielen",
+    "pause": "Pause",
+    "asOf": "Register zum Jahr zeigen",
+    "cumulative": "Kumulierte Einträge nach Beweisstufe",
+    "stats": {
+      "entries": "Einträge",
+      "actors": "Staatliche Akteure",
+      "provisions": "Berührte Normen",
+      "responses": "Reaktionen",
+      "remedies": "Abhilfen"
+    },
+    "flow": "Beleglage → Mechanismus → Rechenschaft",
+    "flowSub": "Wie stark die Beleglage ist, wie die Handlung ausgeführt wurde und die beste Reaktion darauf",
+    "class": "Rechenschaft",
+    "classes": {
+      "remedy": "Abhilfe oder Reform",
+      "partial": "Teilweise Reaktion",
+      "deflected": "Bestritten oder abgewiesen",
+      "adverse": "Nachteilige Folge",
+      "none": "Nichts erfasst"
+    },
+    "gap": "Rechenschaftslücke",
+    "gapSub": "Einträge ohne erfasste Reaktion und wie lange Reaktionen dauern",
+    "noneLabel": "Keine Reaktion erfasst",
+    "ofN": "von {n} Einträgen",
+    "median": "Median der Tage bis zur ersten Reaktion",
+    "medianSub": "Über {n} Einträge mit datierter Reaktion",
+    "lanes": "Reaktionsbahnen",
+    "lanesSub": "Jeder Eintrag auf einer Zeitachse: die Handlung, dann jede datierte Reaktion",
+    "lanesNote": "Gestrichelte Punkte sind Reaktionen ohne verlässliches Datum; sie stehen am Datum der Handlung.",
+    "event": "Handlung",
+    "noOutcome": "Für diesen Eintrag ist noch keine Reaktion erfasst.",
+    "undated": "Datum nicht festgestellt",
+    "days": "{n} T",
+    "responses": "Erfasste Reaktionen"
+  },
+  "legal": {
+    "eyebrow": "Rechtskarte",
+    "title": "Welche Gesetze hat der Staat verletzt?",
+    "lead": "Jede Zelle verbindet einen staatlichen Akteur mit einer Norm, die seine erfassten Handlungen berühren, und das Zeichen zeigt die stärkste Beleglage dahinter. Andesite ist kein Gericht: Nur eine Zelle mit Gerichtlich entschieden beruht auf einer richterlichen Feststellung, und auch dann betraf das Urteil die Handlung, nicht unbedingt jede genannte Norm.",
+    "kpi": {
+      "engaged": "Berührte Normen",
+      "engagedSub": "von {n} in der Bibliothek",
+      "pairs": "Paare aus Akteur und Gesetz",
+      "pairsSub": "Unterschiedliche Kombinationen aus Akteur und Norm",
+      "court": "Gerichtliche Feststellungen",
+      "courtSub": "Paare, gestützt auf ein Urteil gegen die Handlung",
+      "ack": "Eingeräumt",
+      "ackSub": "Paare, bei denen die Behörde die Handlung eingeräumt hat"
+    },
+    "matrix": "Verletzungsmatrix",
+    "matrixSub": "Staatliche Akteure nach unten, Normen nach rechts, gruppiert nach Verbindlichkeit des Gesetzes. Wählen Sie eine Zelle, um die Einträge dahinter zu öffnen.",
+    "matrixNote": "Feldberichte und zurückgezogene Einträge sind nicht in der Matrix.",
+    "actorsDown": "Akteure ↓",
+    "lawsAcross": "Gesetze →",
+    "cellTip": "{n} Einträge, stärkste Beleglage: {tier}",
+    "stack": "Normenhierarchie",
+    "stackSub": "Von der Verfassung bis zu Erklärungen, mit der Zahl der Einträge, die jede Norm berühren",
+    "library": "Normenbibliothek",
+    "bindingLevels": {
+      "constitution": "Verfassung",
+      "statute": "Gesetz",
+      "treaty": "Ratifizierter Vertrag",
+      "declaration": "Erklärung"
+    },
+    "bindingDesc": {
+      "constitution": "UUD 1945, das höchste Gesetz Indonesiens",
+      "statute": "Vom DPR beschlossene Gesetze (Undang-Undang)",
+      "treaty": "Internationale Verträge, die Indonesien in sein Recht übernommen hat",
+      "declaration": "Internationale Standards, die kein Vertrag sind"
+    },
+    "binding": "Verbindlichkeit",
+    "jurisdiction": "Rechtsordnung",
+    "domestic": "Indonesisches Recht",
+    "international": "Völkerrecht",
+    "citation": "Fundstelle",
+    "openDossier": "Normendossier öffnen",
+    "backAll": "Alle Gesetze",
+    "text": "Wortlaut",
+    "protects": "Schützt",
+    "network": "Wer sie berührte",
+    "networkSub": "Einträge im inneren Ring, staatliche Akteure im äußeren",
+    "strength": "Stärke der Beleglage",
+    "strengthSub": "Einträge, die diese Norm berühren, nach Beweisstufe",
+    "recordedActs": "erfasste Handlungen berühren diese Norm",
+    "courtNote": "Mindestens ein Eintrag hinter dieser Norm wurde von einem Gericht für rechtswidrig erklärt. Das Urteil betraf die Handlung als Ganzes.",
+    "entries": "Einträge",
+    "unknown": "In der Bibliothek gibt es keine Norm {id}.",
+    "radialLabel": "Mit {law} verknüpfte Einträge und Akteure"
+  },
+  "integrity": {
+    "eyebrow": "Siegel",
+    "title": "Integrität",
+    "lead": "Jeder Eintrag ist mit SHA-256 an den vorherigen gekettet. Ihr Browser hat gerade die ganze Kette neu berechnet und mit der veröffentlichten Lock-Datei verglichen. Ändert man ein Zeichen in einem alten Eintrag, bricht die Kette ab dieser Stelle.",
+    "chain": "Hash-Kette",
+    "rerun": "Erneut prüfen",
+    "how": "Wie das Siegel funktioniert",
+    "steps": {
+      "s1": "Jeder Eintrag wird in eine kanonische JSON-Zeichenkette mit sortierten Schlüsseln umgewandelt.",
+      "s2": "Diese Zeichenkette wird zusammen mit dem Hash des vorherigen Eintrags gehasht.",
+      "s3": "Die Hashes stehen in data/ledger.lock.json und werden bei jedem Pull Request von der CI geprüft.",
+      "s4": "Korrekturen ändern nie einen versiegelten Eintrag. Sie erscheinen als sichtbare Änderungen."
+    },
+    "head": "Letzter Hash",
+    "lockFile": "Lock-Datei",
+    "sealed": "Versiegelte Einträge",
+    "amendments": "Änderungen",
+    "automated": "Automatische Einträge",
+    "monitor": "Automatische Beobachtung",
+    "monitorBody": "Alle sechs Stunden liest eine GitHub Action Nachrichten- und NGO-Feeds und kann Einträge vorschlagen. Code, nicht das Modell, entscheidet, was versiegelt wird:",
+    "rules": {
+      "r1": "Mindestens zwei unabhängige Herausgeber",
+      "r2": "Jeder Quellenlink lädt",
+      "r3": "Das Ereignis ist aktuell und kein Duplikat",
+      "r4": "Gesetze nur aus der Bibliothek",
+      "r5": "Keine Privatpersonen genannt",
+      "r6": "Beweisstufe nie höher als Dokumentiert"
+    },
+    "amendLog": "Änderungen",
+    "noAmendments": "Es wurden noch keine Änderungen veröffentlicht.",
+    "amendHow": "Korrekturen, neue Quellen und geänderte Beweisstufen werden als Änderung hinzugefügt und am Eintrag angezeigt. Der versiegelte Text ändert sich nie.",
+    "requestCorrection": "Korrektur anfragen"
+  },
+  "docs": {
+    "eyebrow": "Dokumentation",
+    "toc": "Auf dieser Seite"
   }
 }

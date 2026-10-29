@@ -1,0 +1,237 @@
+{
+  "_comment": "Editorial index over the sealed ledger. It classifies who acted, how, and what happened next. It is not part of the seal: changing this file never changes an entry or its hash. Entries without an annotation are shown as pending classification.",
+  "actorKinds": {
+    "ministry": { "en": "Ministry", "id": "Kementerian", "nl": "Ministerie", "de": "Ministerium" },
+    "police": { "en": "Police", "id": "Kepolisian", "nl": "Politie", "de": "Polizei" },
+    "military": { "en": "Military", "id": "Militer", "nl": "Krijgsmacht", "de": "Militär" },
+    "security": { "en": "Security forces", "id": "Aparat keamanan", "nl": "Veiligheidstroepen", "de": "Sicherheitskräfte" },
+    "executive": { "en": "Executive", "id": "Eksekutif", "nl": "Uitvoerende macht", "de": "Exekutive" },
+    "judiciary": { "en": "Justice system", "id": "Sistem peradilan", "nl": "Justitie", "de": "Justiz" },
+    "unknown": { "en": "Not established", "id": "Belum diketahui", "nl": "Niet vastgesteld", "de": "Nicht festgestellt" }
+  },
+  "actors": {
+    "deppen": {
+      "kind": "ministry",
+      "short": "Deppen",
+      "name": { "en": "Ministry of Information", "id": "Departemen Penerangan", "nl": "Ministerie van Voorlichting", "de": "Informationsministerium" },
+      "note": { "en": "Dissolved in 1999.", "id": "Dibubarkan pada 1999.", "nl": "Opgeheven in 1999.", "de": "1999 aufgelöst." },
+      "aliases": ["Ministry of Information", "Departemen Penerangan", "Information Ministry"]
+    },
+    "security-forces": {
+      "kind": "security",
+      "short": "Security forces",
+      "name": { "en": "Security forces (unit not specified)", "id": "Aparat keamanan (satuan tidak disebutkan)", "nl": "Veiligheidstroepen (eenheid niet vermeld)", "de": "Sicherheitskräfte (Einheit nicht angegeben)" },
+      "aliases": ["security forces", "aparat keamanan"]
+    },
+    "polri": {
+      "kind": "police",
+      "short": "Polri",
+      "name": { "en": "Indonesian National Police", "id": "Kepolisian Negara Republik Indonesia", "nl": "Indonesische Nationale Politie", "de": "Indonesische Nationalpolizei" },
+      "aliases": ["Polri", "National Police", "police", "polisi", "kepolisian"]
+    },
+    "polda-metro": {
+      "kind": "police",
+      "short": "Polda Metro Jaya",
+      "parent": "polri",
+      "name": { "en": "Jakarta Metropolitan Regional Police", "id": "Kepolisian Daerah Metro Jaya", "nl": "Regionale politie Groot-Jakarta", "de": "Regionalpolizei Groß-Jakarta" },
+      "aliases": ["Polda Metro Jaya"]
+    },
+    "tni": {
+      "kind": "military",
+      "short": "TNI",
+      "name": { "en": "Indonesian National Armed Forces", "id": "Tentara Nasional Indonesia", "nl": "Indonesische Nationale Strijdkrachten", "de": "Indonesische Nationale Streitkräfte" },
+      "aliases": ["TNI", "soldiers", "armed forces", "military", "tentara"]
+    },
+    "central-gov": {
+      "kind": "executive",
+      "short": "Government",
+      "name": { "en": "President and central government", "id": "Presiden dan pemerintah pusat", "nl": "President en centrale regering", "de": "Präsident und Zentralregierung" },
+      "aliases": ["central government", "President", "Presiden", "pemerintah pusat"]
+    },
+    "kominfo": {
+      "kind": "ministry",
+      "short": "Kominfo / Komdigi",
+      "name": { "en": "Ministry of Communication (Kominfo, now Komdigi)", "id": "Kementerian Komunikasi (Kominfo, kini Komdigi)", "nl": "Ministerie van Communicatie (Kominfo, nu Komdigi)", "de": "Kommunikationsministerium (Kominfo, heute Komdigi)" },
+      "note": { "en": "Restructured as the Ministry of Communication and Digital Affairs (Komdigi) in October 2024.", "id": "Direstrukturisasi menjadi Kementerian Komunikasi dan Digital (Komdigi) pada Oktober 2024.", "nl": "In oktober 2024 omgevormd tot het Ministerie van Communicatie en Digitale Zaken (Komdigi).", "de": "Im Oktober 2024 zum Ministerium für Kommunikation und Digitales (Komdigi) umgebaut." },
+      "aliases": ["Kominfo", "Komdigi", "Ministry of Communication"]
+    },
+    "polhukam": {
+      "kind": "ministry",
+      "short": "Kemenko Polhukam",
+      "name": { "en": "Coordinating Ministry for Political, Legal and Security Affairs", "id": "Kementerian Koordinator Bidang Politik, Hukum, dan Keamanan", "nl": "Coördinerend Ministerie voor Politieke, Juridische en Veiligheidszaken", "de": "Koordinierendes Ministerium für Politik, Recht und Sicherheit" },
+      "aliases": ["Polhukam", "Coordinating Minister for Political, Legal and Security Affairs"]
+    },
+    "court-jakpus": {
+      "kind": "judiciary",
+      "short": "PN Jakarta Pusat",
+      "name": { "en": "Central Jakarta District Court", "id": "Pengadilan Negeri Jakarta Pusat", "nl": "Rechtbank Centraal-Jakarta", "de": "Bezirksgericht Zentral-Jakarta" },
+      "aliases": ["Central Jakarta District Court", "Pengadilan Negeri Jakarta Pusat"]
+    },
+    "prosecution": {
+      "kind": "judiciary",
+      "short": "Kejaksaan",
+      "name": { "en": "Public prosecution service", "id": "Kejaksaan", "nl": "Openbaar ministerie", "de": "Staatsanwaltschaft" },
+      "aliases": ["prosecution", "prosecutor", "Kejaksaan", "jaksa"]
+    },
+    "unidentified": {
+      "kind": "unknown",
+      "short": "Not established",
+      "name": { "en": "Not established", "id": "Belum diketahui", "nl": "Niet vastgesteld", "de": "Nicht festgestellt" },
+      "aliases": []
+    }
+  },
+  "mechanisms": {
+    "physical": { "en": "Physical", "id": "Fisik", "nl": "Fysiek", "de": "Physisch" },
+    "administrative": { "en": "Administrative", "id": "Administratif", "nl": "Bestuurlijk", "de": "Administrativ" },
+    "digital": { "en": "Digital", "id": "Digital", "nl": "Digitaal", "de": "Digital" },
+    "legal": { "en": "Legal process", "id": "Proses hukum", "nl": "Juridisch", "de": "Rechtlich" }
+  },
+  "actions": {
+    "licence_revocation": { "mechanism": "administrative", "name": { "en": "Licence revocation", "id": "Pencabutan izin terbit", "nl": "Intrekking van vergunningen", "de": "Lizenzentzug" } },
+    "coverage_obstruction": { "mechanism": "administrative", "name": { "en": "Obstructing coverage", "id": "Menghalangi peliputan", "nl": "Belemmeren van verslaggeving", "de": "Behinderung der Berichterstattung" } },
+    "detention": { "mechanism": "physical", "name": { "en": "Arrest and detention", "id": "Penangkapan dan penahanan", "nl": "Arrestatie en detentie", "de": "Festnahme und Haft" } },
+    "violence": { "mechanism": "physical", "name": { "en": "Physical violence", "id": "Kekerasan fisik", "nl": "Fysiek geweld", "de": "Körperliche Gewalt" } },
+    "intimidation": { "mechanism": "physical", "name": { "en": "Intimidation", "id": "Intimidasi", "nl": "Intimidatie", "de": "Einschüchterung" } },
+    "crowd_sweeps": { "mechanism": "physical", "name": { "en": "Sweeps and movement restrictions", "id": "Penyisiran dan pembatasan gerak", "nl": "Razzia's en bewegingsbeperkingen", "de": "Razzien und Bewegungseinschränkungen" } },
+    "network_restriction": { "mechanism": "digital", "name": { "en": "Network throttling or shutdown", "id": "Pelambatan atau pemutusan jaringan", "nl": "Vertragen of afsluiten van netwerken", "de": "Drosselung oder Abschaltung von Netzen" } },
+    "content_removal": { "mechanism": "digital", "name": { "en": "Content takedown", "id": "Penurunan konten", "nl": "Verwijderen van content", "de": "Löschung von Inhalten" } },
+    "platform_pressure": { "mechanism": "digital", "name": { "en": "Pressure on platforms", "id": "Tekanan terhadap platform", "nl": "Druk op platforms", "de": "Druck auf Plattformen" } },
+    "prosecution": { "mechanism": "legal", "name": { "en": "Prosecution of speech", "id": "Pemidanaan ekspresi", "nl": "Vervolging van meningsuiting", "de": "Strafverfolgung von Äußerungen" } }
+  },
+  "outcomes": {
+    "court_ruled_against": { "class": "remedy", "name": { "en": "Court ruled against the act", "id": "Pengadilan memutus tindakan itu cacat hukum", "nl": "Rechter oordeelde tegen de handeling", "de": "Gericht entschied gegen die Maßnahme" } },
+    "appeal_withdrawn": { "class": "remedy", "name": { "en": "State withdrew its appeal", "id": "Negara mencabut bandingnya", "nl": "Staat trok hoger beroep in", "de": "Staat zog die Berufung zurück" } },
+    "legal_reform": { "class": "remedy", "name": { "en": "Law changed to forbid the act", "id": "Undang-undang diubah untuk melarang tindakan itu", "nl": "Wet gewijzigd om de handeling te verbieden", "de": "Gesetz geändert, um die Maßnahme zu verbieten" } },
+    "acknowledged": { "class": "partial", "name": { "en": "Authority acknowledged the act", "id": "Otoritas mengakui tindakan itu", "nl": "Autoriteit erkende de handeling", "de": "Behörde räumte die Maßnahme ein" } },
+    "public_apology": { "class": "partial", "name": { "en": "Public apology and promised review", "id": "Permintaan maaf publik dan janji evaluasi", "nl": "Publieke excuses en toegezegde evaluatie", "de": "Öffentliche Entschuldigung und angekündigte Prüfung" } },
+    "measure_lifted": { "class": "partial", "name": { "en": "Measure lifted", "id": "Tindakan dicabut", "nl": "Maatregel opgeheven", "de": "Maßnahme aufgehoben" } },
+    "detainees_released": { "class": "partial", "name": { "en": "Detainees released", "id": "Yang ditahan dibebaskan", "nl": "Gedetineerden vrijgelaten", "de": "Festgenommene freigelassen" } },
+    "under_inquiry": { "class": "partial", "name": { "en": "Under inquiry by a rights body", "id": "Diselidiki lembaga HAM", "nl": "Onderzoek door een mensenrechteninstantie", "de": "Untersuchung durch eine Menschenrechtsstelle" } },
+    "content_restored": { "class": "partial", "name": { "en": "Content restored after appeal", "id": "Konten dipulihkan setelah banding", "nl": "Content hersteld na bezwaar", "de": "Inhalt nach Einspruch wiederhergestellt" } },
+    "official_denial": { "class": "deflected", "name": { "en": "Official denial", "id": "Bantahan resmi", "nl": "Officiële ontkenning", "de": "Offizielles Dementi" } },
+    "pledge_unfulfilled": { "class": "deflected", "name": { "en": "Promised reform not carried out", "id": "Janji perbaikan tidak dijalankan", "nl": "Beloofde hervorming niet uitgevoerd", "de": "Versprochene Reform nicht umgesetzt" } },
+    "appeal_announced": { "class": "adverse", "name": { "en": "State announced an appeal", "id": "Negara mengumumkan banding", "nl": "Staat kondigde hoger beroep aan", "de": "Staat kündigte Berufung an" } },
+    "power_upheld": { "class": "adverse", "name": { "en": "Court upheld the power behind the act", "id": "Pengadilan menguatkan kewenangan di balik tindakan itu", "nl": "Rechter bevestigde de bevoegdheid achter de handeling", "de": "Gericht bestätigte die Befugnis hinter der Maßnahme" } },
+    "sentence_imposed": { "class": "adverse", "name": { "en": "Prison sentence imposed", "id": "Hukuman penjara dijatuhkan", "nl": "Gevangenisstraf opgelegd", "de": "Haftstrafe verhängt" } }
+  },
+  "provisionRights": {
+    "uupers-4": ["press", "information"],
+    "uupers-18": ["press"],
+    "uud-28e3": ["assembly", "expression"],
+    "uud-28f": ["information"],
+    "uu9-1998-2": ["expression", "assembly"],
+    "uu9-1998-18": ["assembly"],
+    "uuham-14": ["information"],
+    "uuham-25": ["expression", "assembly"],
+    "iccpr-19": ["expression", "press", "information"],
+    "iccpr-21": ["assembly"],
+    "udhr-19": ["expression", "press", "information"],
+    "udhr-20": ["assembly"]
+  },
+  "provinces": {
+    "Aceh": [5.55, 95.32],
+    "Sumatera Utara": [3.59, 98.67],
+    "Sumatera Barat": [-0.95, 100.35],
+    "Riau": [0.51, 101.45],
+    "Kepulauan Riau": [0.92, 104.45],
+    "Jambi": [-1.61, 103.61],
+    "Sumatera Selatan": [-2.99, 104.76],
+    "Kepulauan Bangka Belitung": [-2.13, 106.11],
+    "Bengkulu": [-3.8, 102.27],
+    "Lampung": [-5.43, 105.26],
+    "DKI Jakarta": [-6.21, 106.85],
+    "Banten": [-6.12, 106.15],
+    "Jawa Barat": [-6.91, 107.61],
+    "Jawa Tengah": [-6.97, 110.42],
+    "DI Yogyakarta": [-7.8, 110.37],
+    "Jawa Timur": [-7.25, 112.75],
+    "Bali": [-8.65, 115.22],
+    "Nusa Tenggara Barat": [-8.58, 116.12],
+    "Nusa Tenggara Timur": [-10.18, 123.61],
+    "Kalimantan Barat": [-0.03, 109.34],
+    "Kalimantan Tengah": [-2.21, 113.92],
+    "Kalimantan Selatan": [-3.44, 114.83],
+    "Kalimantan Timur": [-0.5, 117.15],
+    "Kalimantan Utara": [2.84, 117.37],
+    "Sulawesi Utara": [1.47, 124.84],
+    "Gorontalo": [0.54, 123.06],
+    "Sulawesi Tengah": [-0.9, 119.87],
+    "Sulawesi Barat": [-2.68, 118.89],
+    "Sulawesi Selatan": [-5.15, 119.43],
+    "Sulawesi Tenggara": [-3.97, 122.51],
+    "Maluku": [-3.7, 128.18],
+    "Maluku Utara": [0.74, 127.56],
+    "Papua": [-2.53, 140.72],
+    "Papua Barat": [-0.86, 134.06],
+    "Papua Barat Daya": [-0.88, 131.25],
+    "Papua Tengah": [-3.37, 135.5],
+    "Papua Pegunungan": [-4.1, 138.94],
+    "Papua Selatan": [-8.49, 140.4]
+  },
+  "entries": {
+    "AND-0001": {
+      "actors": ["deppen"],
+      "actions": ["licence_revocation"],
+      "outcomes": [
+        { "type": "court_ruled_against", "date": "1995-05-03" },
+        { "type": "appeal_announced", "date": "1995" },
+        { "type": "legal_reform", "date": "1999-09-23" }
+      ]
+    },
+    "AND-0002": { "actors": ["security-forces"], "actions": ["detention", "violence"], "outcomes": [] },
+    "AND-0003": {
+      "actors": ["central-gov", "polri"],
+      "actions": ["coverage_obstruction"],
+      "outcomes": [{ "type": "pledge_unfulfilled", "date": "2017" }]
+    },
+    "AND-0004": {
+      "actors": ["polhukam", "kominfo"],
+      "actions": ["network_restriction"],
+      "outcomes": [{ "type": "measure_lifted", "date": "2019-05" }]
+    },
+    "AND-0005": {
+      "actors": ["kominfo", "central-gov"],
+      "actions": ["network_restriction"],
+      "outcomes": [
+        { "type": "court_ruled_against", "date": "2020-06-03" },
+        { "type": "appeal_withdrawn", "date": "2020-06" },
+        { "type": "power_upheld", "date": "2021-10-27" }
+      ]
+    },
+    "AND-0006": {
+      "actors": ["polri"],
+      "actions": ["violence", "intimidation", "detention"],
+      "outcomes": [{ "type": "detainees_released", "date": "2020-10-09" }]
+    },
+    "AND-0007": { "actors": ["polri"], "actions": ["violence", "intimidation", "detention"], "outcomes": [] },
+    "AND-0008": { "actors": ["kominfo"], "actions": ["platform_pressure"], "outcomes": [] },
+    "AND-0009": {
+      "actors": ["kominfo"],
+      "actions": ["content_removal"],
+      "outcomes": [
+        { "type": "acknowledged", "date": null },
+        { "type": "official_denial", "date": null },
+        { "type": "under_inquiry", "date": "2026-10-13" }
+      ]
+    },
+    "AND-0010": {
+      "actors": ["unidentified"],
+      "actions": ["content_removal"],
+      "outcomes": [
+        { "type": "official_denial", "date": null },
+        { "type": "content_restored", "date": "2026-10-20" }
+      ]
+    },
+    "AND-0011": {
+      "actors": ["court-jakpus", "prosecution"],
+      "actions": ["prosecution"],
+      "outcomes": [{ "type": "sentence_imposed", "date": "2026-10-07" }]
+    },
+    "AND-0012": {
+      "actors": ["polda-metro"],
+      "actions": ["coverage_obstruction"],
+      "outcomes": [{ "type": "public_apology", "date": "2026-10-29" }]
+    },
+    "AND-0013": { "actors": ["polri", "tni"], "actions": ["crowd_sweeps", "violence", "detention"], "outcomes": [] }
+  }
+}
