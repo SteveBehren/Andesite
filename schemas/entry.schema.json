@@ -1,0 +1,81 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/SteveBehren/Andesite/schemas/entry.schema.json",
+  "title": "Andesite ledger entry",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["id", "date", "dateEnd", "datePrecision", "tier", "category", "location", "actor", "title", "summary", "context", "laws", "sources", "addedOn", "intake"],
+  "properties": {
+    "id": { "type": "string", "pattern": "^AND-[0-9]{4,}$" },
+    "date": { "type": "string", "pattern": "^[0-9]{4}(-[0-9]{2}(-[0-9]{2})?)?$" },
+    "dateEnd": { "type": ["string", "null"], "pattern": "^[0-9]{4}(-[0-9]{2}(-[0-9]{2})?)?$" },
+    "datePrecision": { "enum": ["day", "month", "year"] },
+    "tier": { "enum": ["court", "acknowledged", "documented", "alleged", "unverified"] },
+    "category": {
+      "type": "array", "minItems": 1, "uniqueItems": true,
+      "items": { "type": "string", "pattern": "^[a-z][a-z_]*$" }
+    },
+    "location": {
+      "type": "object", "additionalProperties": false, "required": ["place", "province"],
+      "properties": { "place": { "type": "string", "minLength": 1 }, "province": { "type": "string", "minLength": 1 } }
+    },
+    "actor": { "type": "string", "minLength": 2 },
+    "title": { "$ref": "#/$defs/i18n" },
+    "summary": { "$ref": "#/$defs/i18n" },
+    "context": { "oneOf": [{ "type": "null" }, { "$ref": "#/$defs/i18n" }] },
+    "laws": {
+      "type": "array", "minItems": 1,
+      "items": {
+        "type": "object", "additionalProperties": false, "required": ["law"],
+        "properties": { "law": { "type": "string" }, "pinpoint": { "type": ["string", "null"] } }
+      }
+    },
+    "sources": { "type": "array", "minItems": 1, "items": { "$ref": "#/$defs/source" } },
+    "field": { "$ref": "#/$defs/field" },
+    "intake": { "enum": ["manual", "automated"] },
+    "addedOn": { "type": "string", "format": "date" }
+  },
+  "allOf": [
+    {
+      "if": { "properties": { "tier": { "const": "unverified" } } },
+      "then": { "required": ["field"] },
+      "else": { "not": { "required": ["field"] } }
+    }
+  ],
+  "$defs": {
+    "i18n": {
+      "type": "object", "additionalProperties": false, "required": ["en", "id", "nl", "de"],
+      "properties": {
+        "en": { "type": "string", "minLength": 1 }, "id": { "type": "string", "minLength": 1 },
+        "nl": { "type": "string", "minLength": 1 }, "de": { "type": "string", "minLength": 1 }
+      }
+    },
+    "source": {
+      "type": "object", "additionalProperties": false, "required": ["title", "publisher", "url", "lang", "published", "type"],
+      "properties": {
+        "title": { "type": "string", "minLength": 1 },
+        "publisher": { "type": "string", "minLength": 1 },
+        "url": { "type": "string", "format": "uri", "pattern": "^https://" },
+        "lang": { "type": "string", "pattern": "^[a-z]{2}$" },
+        "published": { "type": ["string", "null"], "format": "date" },
+        "type": { "enum": ["news", "ngo", "court", "official", "academic", "social"] }
+      }
+    },
+    "field": {
+      "type": "object", "additionalProperties": false, "required": ["platforms", "postUrls", "capturedOn", "shows", "corroboration"],
+      "properties": {
+        "platforms": { "type": "array", "minItems": 1, "items": { "enum": ["tiktok", "instagram", "x", "threads", "facebook", "youtube", "other"] } },
+        "postUrls": { "type": "array", "minItems": 1, "items": { "type": "string", "format": "uri", "pattern": "^https://" } },
+        "capturedOn": { "type": "string", "format": "date" },
+        "shows": { "$ref": "#/$defs/i18n" },
+        "corroboration": {
+          "type": "object", "additionalProperties": false, "required": ["count", "checks"],
+          "properties": {
+            "count": { "type": "integer", "minimum": 0 },
+            "checks": { "type": "array", "uniqueItems": true, "items": { "enum": ["date_matches", "location_geolocated", "independent_second_angle", "no_earlier_copy_found", "account_not_new"] } }
+          }
+        }
+      }
+    }
+  }
+}

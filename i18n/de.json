@@ -1,0 +1,308 @@
+{
+  "meta": {
+    "lang": "de",
+    "name": "Deutsch",
+    "title": "Andesite: das Register, das sie nicht löschen können",
+    "description": "Ein dauerhaftes, quelloffenes Register dokumentierter und mutmaßlicher Verletzungen der Pressefreiheit und der bürgerlichen Freiheiten durch den indonesischen Staat."
+  },
+  "nav": {
+    "skip": "Direkt zum Register",
+    "ledger": "Register",
+    "laws": "Gesetze",
+    "method": "Methode",
+    "about": "Über",
+    "contribute": "Auf GitHub mitwirken",
+    "submit": "Meldung einreichen",
+    "menu": "Menü",
+    "close": "Menü schließen",
+    "language": "Sprache",
+    "theme": "Darstellung",
+    "toLight": "Zum hellen Modus wechseln",
+    "toDark": "Zum dunklen Modus wechseln",
+    "light": "Hell",
+    "dark": "Dunkel"
+  },
+  "seal": {
+    "verifying": "Siegel wird geprüft",
+    "ok": "Register versiegelt · {n}/{total} Einträge geprüft",
+    "okShort": "Versiegelt {n}/{total}",
+    "broken": "Siegel gebrochen",
+    "brokenBanner": "Das Siegel stimmt ab Eintrag {id} nicht mehr. Die Fassung des Registers, die Sie sehen, wurde verändert oder ist veraltet. Verlassen Sie sich nicht darauf und prüfen Sie das Repository auf GitHub.",
+    "unavailable": "Das Siegel konnte in diesem Browser nicht geprüft werden.",
+    "head": "Letzter Hash",
+    "copy": "Hash kopieren",
+    "copied": "Kopiert",
+    "explain": "Jeder Eintrag ist mit SHA-256 an den vorherigen gekettet. Ihr Browser hat gerade die gesamte Kette neu berechnet und mit der veröffentlichten Lock-Datei verglichen."
+  },
+  "strip": {
+    "label": "Bitte zuerst lesen",
+    "body": "Andesite verzeichnet dokumentierte und mutmaßliche Ereignisse und ist kein Gericht. Prüfen Sie die Beweisstufe eines Eintrags, bevor Sie ihn teilen.",
+    "more": "So lesen Sie einen Eintrag",
+    "dismiss": "Schließen"
+  },
+  "hero": {
+    "line": "Einträge im Register, {from} → heute",
+    "fieldReports": "{n} unbestätigte Feldberichte, gesondert gezählt",
+    "lawsCited": "zitierte Rechtsnormen",
+    "years": "erfasste Jahre",
+    "notCourt": "Andesite verzeichnet dokumentierte und mutmaßliche Ereignisse. Es ist kein Gericht und fällt keine Urteile.",
+    "tagline": "Das Register, das sie nicht löschen können.",
+    "whatIs": "Was ist das?",
+    "tierBar": "Einträge nach Beweisstufe"
+  },
+  "tiers": {
+    "court": {
+      "name": "Gerichtlich entschieden",
+      "short": "Gericht",
+      "desc": "Ein Gericht hat die Handlung für rechtswidrig oder verfassungswidrig erklärt."
+    },
+    "acknowledged": {
+      "name": "Eingeräumt",
+      "short": "Eingeräumt",
+      "desc": "Die verantwortliche Behörde hat die Handlung öffentlich eingeräumt."
+    },
+    "documented": {
+      "name": "Dokumentiert",
+      "short": "Dokumentiert",
+      "desc": "Dokumentiert von glaubwürdigen unabhängigen Beobachtern oder mehreren glaubwürdigen Medien."
+    },
+    "alleged": {
+      "name": "Mutmaßlich",
+      "short": "Mutmaßlich",
+      "desc": "Glaubwürdig berichtet, aber die Handlung oder die Verantwortung dafür ist nicht bestätigt."
+    },
+    "unverified": {
+      "name": "Unbestätigter Feldbericht",
+      "short": "Feldbericht",
+      "desc": "Öffentliche Beiträge in sozialen Medien, die einen Vorfall zeigen und noch nicht unabhängig bestätigt sind. Sie zählen nie zur Hauptzahl."
+    }
+  },
+  "categories": {
+    "press": "Pressefreiheit",
+    "expression": "Meinungsäußerung",
+    "assembly": "Versammlung",
+    "information": "Recht auf Information"
+  },
+  "filters": {
+    "title": "Register filtern",
+    "search": "Titel, Zusammenfassungen, Akteure und Orte durchsuchen",
+    "searchLabel": "Suche",
+    "tiers": "Beweisstufe",
+    "categories": "Kategorie",
+    "year": "Zum Jahr springen",
+    "allYears": "Alle Jahre",
+    "showField": "Feldberichte anzeigen",
+    "reset": "Filter zurücksetzen",
+    "count": "{n} von {total} Einträgen angezeigt",
+    "none": "Keine Einträge entsprechen diesen Filtern.",
+    "lawFilter": "Beruft sich auf {law}"
+  },
+  "entry": {
+    "laws": "Angeführte Rechtsnormen",
+    "sources": "Quellen",
+    "archived": "Archivierte Kopie",
+    "context": "Kontext",
+    "amended": "Geändert",
+    "history": "Änderungsverlauf",
+    "cite": "Zitieren",
+    "copyLink": "Link kopieren",
+    "copied": "Kopiert",
+    "copyFailed": "Markieren Sie den Text unten und kopieren Sie ihn.",
+    "place": "Ort",
+    "actor": "Akteur",
+    "withdrawn": "Zurückgezogen",
+    "withdrawnNote": "Dieser Eintrag wurde zurückgezogen. Er bleibt sichtbar, damit das Register vollständig ist.",
+    "original": "Originaltext",
+    "officialTranslation": "Offizielle Übersetzung",
+    "unofficialTranslation": "Inoffizielle Übersetzung",
+    "lawSource": "Amtlicher Text",
+    "noDate": "ohne Datum",
+    "rangeTo": "bis",
+    "ledgerEntry": "Registereintrag",
+    "accessed": "Abgerufen am",
+    "autoRecorded": "Automatisch erfasst",
+    "autoRecordedNote": "Vom automatischen Monitor von Andesite aus mindestens zwei unabhängigen Quellen erfasst. Noch nicht von einem Menschen geprüft.",
+    "originalUnavailable": "Ursprünglicher Beitrag nicht mehr verfügbar",
+    "shows": "Was die Beiträge zeigen",
+    "checks": "Prüfliste",
+    "corroboration": "{n} bestätigende Quellen",
+    "fromTier": "von {from} zu {to}",
+    "amendTypes": {
+      "correction": "Korrektur",
+      "tier_change": "Beweisstufe geändert",
+      "addition": "Quellen ergänzt",
+      "withdrawn": "Zurückgezogen"
+    },
+    "checkNames": {
+      "date_matches": "Datum stimmig",
+      "location_geolocated": "Ort geolokalisiert",
+      "independent_second_angle": "Unabhängige zweite Quelle",
+      "no_earlier_copy_found": "Auf ältere Kopien geprüft",
+      "account_not_new": "Konto nicht neu angelegt"
+    },
+    "sourceTypes": {
+      "news": "Nachrichten",
+      "ngo": "Beobachter",
+      "court": "Gericht",
+      "official": "Amtlich",
+      "academic": "Forschung",
+      "social": "Beitrag in sozialen Medien"
+    }
+  },
+  "field": {
+    "title": "Feldberichte",
+    "body": "Bei Repressionswellen ist die erste Aufzeichnung dessen, was geschah, oft ein öffentlicher Beitrag auf TikTok, Instagram, X oder Threads. Andesite nimmt solche Beiträge als unbestätigte Feldberichte auf. Sie werden deutlich gekennzeichnet, nur verlinkt und nie kopiert, auf Stadtebene gehalten und nie zur Hauptzahl gezählt. Ein Feldbericht kann eine höhere Beweisstufe erhalten, sobald unabhängige Quellen ihn bestätigen.",
+    "empty": "Im Register gibt es noch keine Feldberichte.",
+    "button": "Feldbericht einreichen",
+    "safety": "Issues auf GitHub sind öffentlich. Lesen Sie den Sicherheitshinweis im Formular, bevor Sie etwas einreichen."
+  },
+  "lawsIndex": {
+    "title": "Zitierte Rechtsnormen",
+    "intro": "Jede Rechtsnorm, die Andesite zitiert, mit der Zahl der Einträge, die sich darauf berufen. Wählen Sie eine Norm, um das Register zu filtern.",
+    "count": "{n} Einträge",
+    "none": "Noch nicht zitiert",
+    "filter": "Einträge anzeigen"
+  },
+  "live": {
+    "new": "{n} neuer Eintrag erfasst",
+    "newPlural": "{n} neue Einträge erfasst",
+    "show": "Anzeigen",
+    "updated": "Register aktualisiert"
+  },
+  "footer": {
+    "licences": "Code unter der MIT-Lizenz. Daten und Texte unter CC BY 4.0.",
+    "repo": "Quellcode auf GitHub",
+    "builtBy": "Erstellt von Stephen",
+    "lastAdded": "Letzter Eintrag hinzugefügt",
+    "head": "Versiegelter Kopf-Hash"
+  },
+  "method": {
+    "title": "Methode",
+    "lead": "Wie Andesite entscheidet, was ins Register kommt, wie es mit Belegen umgeht und wie jeder prüfen kann, dass das Register nicht verändert wurde.",
+    "sections": [
+      {
+        "h": "Beweisstufen",
+        "p": [
+          "Jeder Eintrag hat genau eine Beweisstufe. Sie beschreibt, wie stark die öffentliche Beleglage ist, nicht wie schwer das Ereignis wiegt.",
+          "Gerichtlich entschieden: Ein Gericht hat die Handlung für rechtswidrig oder verfassungswidrig erklärt. Nur diese Einträge sagen, dass eine Handlung rechtswidrig war.",
+          "Eingeräumt: Die verantwortliche Behörde hat die Handlung öffentlich eingeräumt, etwa in einer Bekanntmachung, einer Entschuldigung oder einer Erklärung gegenüber Komnas HAM.",
+          "Dokumentiert: Glaubwürdige unabhängige Beobachter (etwa AJI, LBH, Komnas HAM, SAFEnet, CIVICUS, RSF, CPJ, HRW, Amnesty oder IFJ) oder mehrere glaubwürdige Medien haben die Handlung dokumentiert.",
+          "Mutmaßlich: glaubwürdig berichtet, aber die Handlung selbst oder wer dafür verantwortlich ist, ist nicht bestätigt.",
+          "Unbestätigter Feldbericht: öffentliche Beiträge in sozialen Medien, die einen Vorfall zeigen und nicht unabhängig bestätigt sind. Sie werden gesondert gezählt und nie zur Hauptzahl addiert, damit ein einzelner unbestätigter Beitrag nicht genutzt werden kann, um das ganze Register zu diskreditieren."
+        ]
+      },
+      {
+        "h": "Zuschreiben, nicht beschuldigen",
+        "p": [
+          "Einträge sagen \"dokumentiert von\", \"berichtet von\" oder \"eingeräumt von\". Andesite entscheidet nicht über Schuld. Amtsträger und Institutionen werden in ihrer öffentlichen Rolle genannt. Privatpersonen, darunter Demonstrierende, Umstehende und Minderjährige, werden nie namentlich genannt. Personen, die glaubwürdige Medien bereits im Zusammenhang mit ihrem eigenen Fall öffentlich genannt haben, etwa ein verurteilter Aktivist, dürfen genannt werden."
+        ]
+      },
+      {
+        "h": "Prüfliste für Feldberichte",
+        "p": [
+          "Jeder Feldbericht zeigt, welche Prüfungen er bestanden hat: Das Datum ist stimmig, der Ort wurde geolokalisiert, es gibt eine unabhängige zweite Quelle oder Perspektive, das Material wurde auf ältere Kopien geprüft, und das veröffentlichende Konto ist nicht neu angelegt."
+        ]
+      },
+      {
+        "h": "Sicherheitsregeln für Meldungen aus sozialen Medien",
+        "p": [
+          "Nur Links. Andesite kopiert, veröffentlicht, bettet ein oder fotografiert niemals Videos, Bilder, Nutzernamen, Anzeigenamen oder Gesichter. Gespeichert werden nur der Link zum Beitrag und eine neutrale Beschreibung dessen, was er zeigt.",
+          "Keine Archivierung von Beiträgen in sozialen Medien. Wenn jemand einen Beitrag löscht, um sich zu schützen, hat Andesite ihn nicht aufbewahrt. Der Eintrag zeigt dann \"Ursprünglicher Beitrag nicht mehr verfügbar\", die Beschreibung bleibt erhalten.",
+          "Nur Stadtebene. Feldberichte enthalten nie Angaben auf Straßenebene, die verraten könnten, von wo jemand gefilmt hat.",
+          "Kein automatisches Auslesen sozialer Plattformen. Feldberichte gehen über ein öffentliches Formular auf GitHub ein. Wenn Sie sich in Indonesien befinden, verwenden Sie kein Konto, das mit Ihrer echten Identität verbunden ist, und reichen Sie kein Material ein, das Sie selbst gefilmt haben."
+        ]
+      },
+      {
+        "h": "Automatische Beobachtung",
+        "p": [
+          "Alle sechs Stunden liest ein automatischer Monitor öffentliche Nachrichten- und NGO-Feeds auf Berichte über staatliches Vorgehen gegen Presse, Meinungsäußerung, Versammlung und das Recht auf Information in Indonesien. Ein Sprachmodell entwirft einen Eintrag in vier Sprachen, und der Monitor versiegelt ihn nur, wenn er feste, im Code festgelegte Regeln erfüllt.",
+          "Ein automatischer Eintrag braucht mindestens zwei unabhängige Quellen aus einer Liste glaubwürdiger Medien und Beobachter, jeder Quellenlink muss erreichbar sein, das Ereignis muss aktuell sein und darf keinen bestehenden Eintrag doppeln. Die Beweisstufe ist höchstens Dokumentiert und wird auf Mutmaßlich gesetzt, sofern nicht ein anerkannter Beobachter oder zwei glaubwürdige Medien berichten. Privatpersonen werden nicht genannt. Automatische Einträge tragen die Markierung \"Automatisch erfasst\", bis ein Mensch sie geprüft hat, und jeder Fehler wird in einer sichtbaren Änderung korrigiert."
+        ]
+      },
+      {
+        "h": "Das Siegel",
+        "p": [
+          "Das Register ist eine Hash-Kette. Jeder Eintrag wird in einen festen, kanonischen Text umgewandelt und mit dem Fingerabdruck (SHA-256-Hash) des vorherigen Eintrags verbunden. Ändert man ein einziges Zeichen in einem alten Eintrag, ändern sich alle folgenden Fingerabdrücke.",
+          "Die Fingerabdrücke werden in einer Lock-Datei veröffentlicht. Wenn Sie diese Seite öffnen, berechnet Ihr Browser die ganze Kette neu und vergleicht sie mit der Lock-Datei. Auf GitHub lehnt eine automatische Prüfung jede Änderung ab, die einen bereits versiegelten Eintrag bearbeitet oder entfernt. Neue Einträge können nur am Ende angefügt werden."
+        ]
+      },
+      {
+        "h": "Korrekturen",
+        "p": [
+          "Wir löschen nie, wir ergänzen. Ist etwas falsch, wird die Korrektur als sichtbare Änderung unter dem Eintrag veröffentlicht, und der ursprüngliche Text bleibt lesbar. Ein Eintrag kann zurückgezogen werden, bleibt aber ausgegraut und mit Begründung im Register."
+        ]
+      },
+      {
+        "h": "Unabhängigkeit",
+        "p": [
+          "Andesite ist mit keiner Partei, Regierung oder Organisation verbunden und nimmt keine Finanzierung an, die an Inhalte geknüpft ist. Die Quellen, der Code und die vollständige Geschichte jeder Änderung sind öffentlich."
+        ]
+      }
+    ]
+  },
+  "about": {
+    "title": "Über Andesite",
+    "sections": [
+      {
+        "h": "Warum dieser Name",
+        "p": [
+          "Andesit ist ein vulkanisches Gestein. Borobudur ist daraus gebaut, und Indonesiens Vulkanbogen ist voll davon. Ich habe den Namen gewählt, weil ich ein Register wollte, das sich wie Stein verhält: einmal gemeißelt, sehr lange lesbar und schwer unbemerkt zu entfernen. (Das Wort selbst stammt von den Anden, aber das Gestein findet man überall in Indonesien.)"
+        ]
+      },
+      {
+        "h": "Warum es das gibt",
+        "p": [
+          "Pressefreiheit, Meinungsfreiheit, Versammlungsfreiheit und das Recht auf Information stehen im indonesischen Recht und in den internationalen Verträgen, die Indonesien ratifiziert hat. Wenn diese Rechte verletzt werden, ist die Beleglage meist über Nachrichtenartikel, NGO-Berichte und Beiträge in sozialen Medien verstreut, und manches verschwindet. Andesite bündelt sie an einem Ort, verknüpft jedes Ereignis mit der genauen Rechtsnorm und löscht nie etwas."
+        ]
+      },
+      {
+        "h": "Das Problem, das ich lösen will",
+        "p": [
+          "Während der Proteste vom 28. Oktober 2026 habe ich gesehen, wie schnell die öffentliche Beleglage dünn werden kann. Lokale Medien können unter Druck gesetzt, Journalisten vom Geschehen ferngehalten und Inhalte entfernt werden, und vieles, was Menschen in Indonesien erfahren, stammt aus Beiträgen, die Menschen untereinander auf Plattformen wie TikTok und Instagram teilen. Internationale Medien berichten nur über wenige Ereignisse. Ein Tracker, der nur wiederholt, was die großen Medien melden, übernimmt auch deren blinde Flecken. Deshalb nimmt Andesite auch öffentliche Meldungen aus sozialen Medien auf, klar als unbestätigt gekennzeichnet, und lässt zu, dass sie mit der Zeit erhärtet oder korrigiert werden."
+        ]
+      },
+      {
+        "h": "Was Andesite ist",
+        "p": [
+          "Ein dauerhaftes, quelloffenes Register, das nur ergänzt werden kann. Jeder Eintrag hat ein Datum, einen Ort, den beteiligten Akteur, Quellen, die Sie öffnen können, und die konkreten Rechtsnormen, um die es geht, zitiert in der Originalsprache mit einer Übersetzung darunter. Die Einträge sind mit einer Hash-Kette versiegelt, sodass jeder prüfen kann, dass das Register nicht verändert wurde."
+        ]
+      },
+      {
+        "h": "Was Andesite nicht ist",
+        "p": [
+          "Es ist kein Gericht und entscheidet nicht, wer schuldig ist. Es ist kein Nachrichtenmedium. Es ist mit keiner Partei, Regierung oder Organisation verbunden. Einträge sagen \"dokumentiert von\", \"berichtet von\" oder \"eingeräumt von\". Nur Einträge, über die ein Gericht entschieden hat, sagen, dass eine Handlung rechtswidrig war."
+        ]
+      },
+      {
+        "h": "So lesen Sie einen Eintrag",
+        "p": [
+          "Jeder Eintrag hat eine Beweisstufe: gerichtlich entschieden, von der Behörde eingeräumt, von glaubwürdigen Beobachtern dokumentiert, mutmaßlich oder unbestätigter Feldbericht. Feldberichte werden gesondert gezählt und nie zur Hauptzahl addiert, damit ein einzelner unbestätigter Beitrag nicht genutzt werden kann, um das ganze Register zu diskreditieren. Bitte prüfen Sie die Beweisstufe, bevor Sie einen Eintrag teilen."
+        ]
+      },
+      {
+        "h": "Wie ich mit Meldungen aus sozialen Medien umgehe",
+        "p": [
+          "Ich verlinke nur öffentliche Beiträge. Ich kopiere, veröffentliche oder fotografiere keine Videos, Gesichter oder Nutzernamen und archiviere sie nicht, damit jemand, der seinen Beitrag zum eigenen Schutz löscht, geschützt bleibt. Ortsangaben bleiben auf Stadtebene. Privatpersonen werden nie namentlich genannt."
+        ]
+      },
+      {
+        "h": "Korrekturen",
+        "p": [
+          "Wir löschen nie, wir ergänzen. Ist etwas falsch, wird es in einer sichtbaren Änderung unter dem Eintrag korrigiert, und der ursprüngliche Text bleibt lesbar."
+        ]
+      },
+      {
+        "h": "Wer dahintersteht",
+        "p": [
+          "Ich bin Stephen, ein unabhängiger Maintainer. Ich habe Andesite allein als Open-Source-Projekt gebaut, weil ich finde, dass Menschen die vollständige Beleglage dessen sehen können sollten, was geschehen ist, in ihrer eigenen Sprache und mit den Quellen daneben. Ich bin mit keiner Partei, Regierung oder Organisation verbunden. Jeder kann über GitHub mitwirken, und Sie erreichen mich über mein GitHub-Profil: https://github.com/SteveBehren"
+        ]
+      },
+      {
+        "h": "Bitte mit Sorgfalt nutzen",
+        "p": [
+          "Lesen Sie die Quellen, prüfen Sie die Beweisstufe und behandeln Sie einen mutmaßlichen oder unbestätigten Eintrag nicht als bewiesen."
+        ]
+      }
+    ]
+  }
+}

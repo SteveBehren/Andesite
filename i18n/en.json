@@ -1,0 +1,308 @@
+{
+  "meta": {
+    "lang": "en",
+    "name": "English",
+    "title": "Andesite: the record they can't erase",
+    "description": "A permanent, open source ledger of documented and alleged violations of press freedom and civil liberties by the Indonesian state."
+  },
+  "nav": {
+    "skip": "Skip to the ledger",
+    "ledger": "Ledger",
+    "laws": "Laws",
+    "method": "Method",
+    "about": "About",
+    "contribute": "Contribute on GitHub",
+    "submit": "Submit a report",
+    "menu": "Menu",
+    "close": "Close menu",
+    "language": "Language",
+    "theme": "Theme",
+    "toLight": "Switch to light mode",
+    "toDark": "Switch to dark mode",
+    "light": "Light",
+    "dark": "Dark"
+  },
+  "seal": {
+    "verifying": "Verifying seal",
+    "ok": "Ledger sealed · {n}/{total} entries verified",
+    "okShort": "Sealed {n}/{total}",
+    "broken": "Seal broken",
+    "brokenBanner": "The seal does not match from entry {id} onward. The copy of the ledger you are viewing has been altered or is out of date. Do not rely on it; check the repository on GitHub.",
+    "unavailable": "Seal could not be checked in this browser.",
+    "head": "Final hash",
+    "copy": "Copy hash",
+    "copied": "Copied",
+    "explain": "Every entry is chained to the one before it with SHA-256. Your browser just recomputed the whole chain and compared it with the published lock file."
+  },
+  "strip": {
+    "label": "Read this first",
+    "body": "Andesite is a record of documented and alleged events, not a court. Check the evidence level of an entry before you share it.",
+    "more": "How to read an entry",
+    "dismiss": "Dismiss"
+  },
+  "hero": {
+    "line": "entries in the ledger, {from} → today",
+    "fieldReports": "{n} unverified field reports, counted separately",
+    "lawsCited": "laws cited",
+    "years": "years covered",
+    "notCourt": "Andesite records documented and alleged events. It is not a court and it does not issue verdicts.",
+    "tagline": "The record they can't erase.",
+    "whatIs": "What is this?",
+    "tierBar": "Entries by evidence level"
+  },
+  "tiers": {
+    "court": {
+      "name": "Ruled by a court",
+      "short": "Court",
+      "desc": "A court ruled the act unlawful or unconstitutional."
+    },
+    "acknowledged": {
+      "name": "Acknowledged",
+      "short": "Acknowledged",
+      "desc": "The responsible authority publicly admitted the act."
+    },
+    "documented": {
+      "name": "Documented",
+      "short": "Documented",
+      "desc": "Documented by credible independent monitors or several credible outlets."
+    },
+    "alleged": {
+      "name": "Alleged",
+      "short": "Alleged",
+      "desc": "Credibly reported, but the act or responsibility for it is not confirmed."
+    },
+    "unverified": {
+      "name": "Unverified field report",
+      "short": "Field report",
+      "desc": "Public social media posts showing an incident, not yet independently confirmed. Never counted in the headline number."
+    }
+  },
+  "categories": {
+    "press": "Press freedom",
+    "expression": "Expression",
+    "assembly": "Assembly",
+    "information": "Right to information"
+  },
+  "filters": {
+    "title": "Filter the ledger",
+    "search": "Search titles, summaries, actors and places",
+    "searchLabel": "Search",
+    "tiers": "Evidence level",
+    "categories": "Category",
+    "year": "Jump to year",
+    "allYears": "All years",
+    "showField": "Show field reports",
+    "reset": "Clear filters",
+    "count": "{n} of {total} entries shown",
+    "none": "No entries match these filters.",
+    "lawFilter": "Citing {law}"
+  },
+  "entry": {
+    "laws": "Laws invoked",
+    "sources": "Sources",
+    "archived": "Archived copy",
+    "context": "Context",
+    "amended": "Amended",
+    "history": "Amendment history",
+    "cite": "Cite",
+    "copyLink": "Copy link",
+    "copied": "Copied",
+    "copyFailed": "Select the text below and copy it.",
+    "place": "Place",
+    "actor": "Actor",
+    "withdrawn": "Withdrawn",
+    "withdrawnNote": "This entry has been withdrawn. It stays visible so the record is complete.",
+    "original": "Original text",
+    "officialTranslation": "Official translation",
+    "unofficialTranslation": "Unofficial translation",
+    "lawSource": "Official text",
+    "noDate": "no date",
+    "rangeTo": "to",
+    "ledgerEntry": "Ledger entry",
+    "accessed": "Accessed",
+    "autoRecorded": "Auto-recorded",
+    "autoRecordedNote": "Recorded by Andesite's automated monitor from at least two independent sources. Not yet reviewed by a person.",
+    "originalUnavailable": "Original post no longer available",
+    "shows": "What the posts show",
+    "checks": "Verification checklist",
+    "corroboration": "{n} corroborating sources",
+    "fromTier": "from {from} to {to}",
+    "amendTypes": {
+      "correction": "Correction",
+      "tier_change": "Evidence level changed",
+      "addition": "Sources added",
+      "withdrawn": "Withdrawn"
+    },
+    "checkNames": {
+      "date_matches": "Date consistent",
+      "location_geolocated": "Location geolocated",
+      "independent_second_angle": "Independent second source",
+      "no_earlier_copy_found": "Reverse-searched for older copies",
+      "account_not_new": "Account not newly created"
+    },
+    "sourceTypes": {
+      "news": "News",
+      "ngo": "Monitor",
+      "court": "Court",
+      "official": "Official",
+      "academic": "Research",
+      "social": "Social post"
+    }
+  },
+  "field": {
+    "title": "Field reports",
+    "body": "During crackdowns the first record of what happened is often a public post on TikTok, Instagram, X or Threads. Andesite accepts those as unverified field reports. They are marked clearly, linked but never copied, kept at city level, and never added to the headline number. A field report can be promoted to a higher evidence level when independent sources confirm it.",
+    "empty": "There are no field reports in the ledger yet.",
+    "button": "Submit a field report",
+    "safety": "GitHub issues are public. Read the safety notice on the form before you submit."
+  },
+  "lawsIndex": {
+    "title": "Laws cited",
+    "intro": "Every law Andesite cites, with the number of entries that invoke it. Select a law to filter the ledger.",
+    "count": "{n} entries",
+    "none": "Not cited yet",
+    "filter": "Show entries"
+  },
+  "live": {
+    "new": "{n} new entry recorded",
+    "newPlural": "{n} new entries recorded",
+    "show": "Show",
+    "updated": "Ledger updated"
+  },
+  "footer": {
+    "licences": "Code under the MIT licence. Data and text under CC BY 4.0.",
+    "repo": "Source on GitHub",
+    "builtBy": "Built by Stephen",
+    "lastAdded": "Last entry added",
+    "head": "Sealed head hash"
+  },
+  "method": {
+    "title": "Method",
+    "lead": "How Andesite decides what goes into the ledger, how it handles evidence, and how anyone can check that the record has not been changed.",
+    "sections": [
+      {
+        "h": "Evidence levels",
+        "p": [
+          "Every entry carries one evidence level. The level describes the strength of the public record, not the seriousness of the event.",
+          "Ruled by a court: a court ruled the act unlawful or unconstitutional. Only these entries say that an act was unlawful.",
+          "Acknowledged: the responsible authority publicly admitted the act, for example in an announcement, an apology or a statement to Komnas HAM.",
+          "Documented: credible independent monitors (such as AJI, LBH, Komnas HAM, SAFEnet, CIVICUS, RSF, CPJ, HRW, Amnesty or IFJ) or several credible outlets documented the act.",
+          "Alleged: credibly reported, but the act itself or who was responsible is not confirmed.",
+          "Unverified field report: public social media posts that show an incident and have not been confirmed independently. They are counted separately and never added to the headline number, so one unconfirmed post cannot be used to discredit the whole record."
+        ]
+      },
+      {
+        "h": "Attribute, don't accuse",
+        "p": [
+          "Entries say \"documented by\", \"reported by\" or \"acknowledged by\". Andesite does not decide guilt. Officials and institutions are named in their public role. Private individuals, including protesters, bystanders and minors, are never named. People already publicly named by credible outlets in connection with their own case, such as a convicted activist, may be named."
+        ]
+      },
+      {
+        "h": "Verification checklist for field reports",
+        "p": [
+          "Each field report shows which of these checks it has passed: the date is consistent, the location has been geolocated, there is an independent second source or angle, the footage has been reverse-searched for older copies, and the posting account is not newly created."
+        ]
+      },
+      {
+        "h": "Safety rules for social media reports",
+        "p": [
+          "Link only. Andesite never copies, re-hosts, embeds or screenshots videos, images, usernames, display names or faces. It stores the post link and a neutral description of what the post shows.",
+          "No archiving of social posts. If a person deletes a post to protect themselves, Andesite has not preserved it. The entry then shows \"Original post no longer available\" and keeps the description.",
+          "City level only. Field reports never contain street-level detail that could show where a person filmed from.",
+          "No live scraping of social platforms. Field reports come in through a public GitHub form. If you are inside Indonesia, do not use an account tied to your real identity, and do not submit footage you filmed yourself."
+        ]
+      },
+      {
+        "h": "Automatic monitoring",
+        "p": [
+          "Every six hours an automated monitor reads public news and NGO feeds for reports of state actions against the press, expression, assembly and the right to information in Indonesia. A language model drafts a candidate entry in four languages, and the monitor seals it only if it passes hard rules written in code.",
+          "An automated entry needs at least two independent sources from an allowlist of credible outlets and monitors, every source link must load, the event must be recent, and it must not duplicate an existing entry. Its evidence level is capped at Documented and set to Alleged unless a recognised monitor or two credible outlets report it. It names no private individuals. Automated entries carry an \"Auto-recorded\" mark until a person reviews them, and any error is corrected in a visible amendment."
+        ]
+      },
+      {
+        "h": "The seal",
+        "p": [
+          "The ledger is a hash chain. Each entry is turned into a fixed canonical text and combined with the fingerprint (SHA-256 hash) of the entry before it. Change one character in any old entry and every fingerprint after it changes.",
+          "The fingerprints are published in a lock file. When you open this page, your browser recomputes the whole chain and compares it with the lock. On GitHub, an automated check refuses any change that edits or removes an entry that is already sealed. New entries can only be added at the end."
+        ]
+      },
+      {
+        "h": "Corrections",
+        "p": [
+          "We never delete, we amend. If something is wrong, the correction is published as a visible amendment under the entry, and the original stays readable. An entry can be withdrawn, but a withdrawn entry stays in the ledger, greyed out, with the reason."
+        ]
+      },
+      {
+        "h": "Independence",
+        "p": [
+          "Andesite is not affiliated with any party, government or organisation, and it accepts no funding tied to its content. The sources, the code and the full history of every change are public."
+        ]
+      }
+    ]
+  },
+  "about": {
+    "title": "About Andesite",
+    "sections": [
+      {
+        "h": "Why the name",
+        "p": [
+          "Andesite is a volcanic rock. It is what Borobudur is built from, and Indonesia's volcanic arc is full of it. I picked it because I wanted a record that behaves like stone: carved once, readable for a very long time, and hard to quietly remove. (The word itself comes from the Andes, but the rock is everywhere in Indonesia.)"
+        ]
+      },
+      {
+        "h": "Why this exists",
+        "p": [
+          "Press freedom, freedom of expression, freedom of assembly and the right to information are written into Indonesian law and into the international treaties Indonesia has ratified. When those rights are violated, the record is usually scattered across news articles, NGO reports and social media posts, and some of it disappears. Andesite puts it in one place, links each event to the exact law involved, and never deletes anything."
+        ]
+      },
+      {
+        "h": "The problem I am trying to solve",
+        "p": [
+          "During the protests of 28 October 2026, I saw how quickly the public record can get thin. Local media can be pressured, journalists can be kept away from the scene, content can be taken down, and much of what people in Indonesia learn comes from person to person posts on platforms like TikTok and Instagram. International outlets cover only a few events. If a tracker only repeats what mainstream media report, it inherits their blind spots. So Andesite also accepts public social media reports, clearly labelled as unverified, and lets them be strengthened or corrected over time."
+        ]
+      },
+      {
+        "h": "What Andesite is",
+        "p": [
+          "A permanent, open source, append only ledger. Every entry has a date, a place, the actor involved, sources you can open, and the specific laws it relates to, quoted in the original language with a translation underneath. Entries are sealed with a hash chain so that anyone can check the record has not been altered."
+        ]
+      },
+      {
+        "h": "What Andesite is not",
+        "p": [
+          "It is not a court, and it does not decide who is guilty. It is not a news outlet. It is not affiliated with any party, government or organisation. Entries say \"documented by\", \"reported by\" or \"acknowledged by\". Only entries where a court has ruled say that an act was unlawful."
+        ]
+      },
+      {
+        "h": "How to read an entry",
+        "p": [
+          "Every entry carries an evidence level: ruled by a court, acknowledged by the authority, documented by credible monitors, alleged, or unverified field report. Field reports are counted separately and never added to the headline number, so one unconfirmed post cannot be used to discredit the whole record. Please read the evidence level before you share an entry."
+        ]
+      },
+      {
+        "h": "How I handle social media reports",
+        "p": [
+          "I only link to public posts. I do not copy, re-host or screenshot videos, faces or usernames, and I do not archive them, so a person who deletes their post to protect themselves stays protected. Locations are kept at city level. Private individuals are never named."
+        ]
+      },
+      {
+        "h": "Corrections",
+        "p": [
+          "We never delete, we amend. If something is wrong, it is corrected in a visible amendment under the entry, and the original stays readable."
+        ]
+      },
+      {
+        "h": "Who is behind it",
+        "p": [
+          "I am Stephen, an independent maintainer. I built Andesite on my own as an open source project because I believe people should be able to see the full record of what has happened, in their own language, with the sources next to it. I am not affiliated with any party, government or organisation. Anyone can contribute through GitHub, and you can reach me through my GitHub profile: https://github.com/SteveBehren"
+        ]
+      },
+      {
+        "h": "Please use it carefully",
+        "p": [
+          "Read the sources, check the evidence level, and do not treat an alleged or unverified entry as proven."
+        ]
+      }
+    ]
+  }
+}

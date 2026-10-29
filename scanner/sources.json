@@ -1,0 +1,326 @@
+{
+  "_comment": "Configuration for scripts/scan.mjs. Feeds were checked for a valid RSS response when added. Only sources whose domain is in 'publishers' can ever be cited by an automated entry.",
+  "lookbackDays": 4,
+  "maxEventAgeDays": 30,
+  "maxArticlesPerRun": 24,
+  "maxEntriesPerRun": 5,
+  "minConfidence": 0.8,
+  "rightsKeywords": [
+    "jurnalis",
+    "wartawan",
+    "pewarta",
+    "pers",
+    "media",
+    "liputan",
+    "meliput",
+    "demonstran",
+    "demonstrasi",
+    "demo",
+    "unjuk rasa",
+    "massa aksi",
+    "mahasiswa",
+    "aktivis",
+    "konten",
+    "media sosial",
+    "internet",
+    "uu ite",
+    "kebebasan berekspresi",
+    "kebebasan berpendapat",
+    "journalist",
+    "journalists",
+    "reporter",
+    "reporters",
+    "press",
+    "media",
+    "protest",
+    "protests",
+    "protester",
+    "protesters",
+    "activist",
+    "activists",
+    "content",
+    "social media",
+    "internet",
+    "ite law",
+    "free speech",
+    "freedom of expression",
+    "assembly"
+  ],
+  "harmKeywords": [
+    "dihalangi",
+    "menghalangi",
+    "intimidasi",
+    "diintimidasi",
+    "kekerasan",
+    "dipukul",
+    "dianiaya",
+    "penganiayaan",
+    "ditangkap",
+    "penangkapan",
+    "diamankan",
+    "ditahan",
+    "pembubaran",
+    "dibubarkan",
+    "represif",
+    "sweeping",
+    "dilarang",
+    "pelarangan",
+    "diblokir",
+    "pemblokiran",
+    "takedown",
+    "diturunkan",
+    "pembatasan",
+    "dibatasi",
+    "sensor",
+    "penyensoran",
+    "kriminalisasi",
+    "dipidana",
+    "divonis",
+    "tersangka",
+    "dilaporkan",
+    "arrested",
+    "arrest",
+    "detained",
+    "detention",
+    "assaulted",
+    "attacked",
+    "beaten",
+    "intimidated",
+    "intimidation",
+    "obstructed",
+    "blocked",
+    "banned",
+    "censored",
+    "censorship",
+    "takedown",
+    "restricted",
+    "shutdown",
+    "throttled",
+    "crackdown",
+    "charged",
+    "sentenced",
+    "prosecuted",
+    "criminalised",
+    "criminalized"
+  ],
+  "contextKeywords": [
+    "indonesia",
+    "jakarta",
+    "papua",
+    "polri",
+    "komdigi",
+    "kominfo",
+    "dpr",
+    "aji",
+    "lbh",
+    "komnas ham",
+    "safenet",
+    "indonesian"
+  ],
+  "feeds": [
+    {
+      "url": "https://aji.or.id/rss.xml",
+      "lang": "id"
+    },
+    {
+      "url": "https://safenet.or.id/feed/",
+      "lang": "id"
+    },
+    {
+      "url": "https://cpj.org/feed/",
+      "lang": "en"
+    },
+    {
+      "url": "https://www.hrw.org/rss/news",
+      "lang": "en"
+    },
+    {
+      "url": "https://www.amnesty.org/en/latest/feed/",
+      "lang": "en"
+    },
+    {
+      "url": "https://rss.tempo.co/nasional",
+      "lang": "id"
+    },
+    {
+      "url": "https://www.antaranews.com/rss/terkini.xml",
+      "lang": "id"
+    },
+    {
+      "url": "https://asiapacificreport.nz/feed/",
+      "lang": "en"
+    }
+  ],
+  "gdelt": {
+    "endpoint": "https://api.gdeltproject.org/api/v2/doc/doc",
+    "queries": [
+      "(jurnalis OR wartawan) (dihalangi OR intimidasi OR kekerasan OR ditangkap) sourcecountry:indonesia",
+      "(demo OR demonstrasi OR \"unjuk rasa\") (ditangkap OR represif OR pembubaran) sourcecountry:indonesia",
+      "(takedown OR pemblokiran OR \"pembatasan internet\" OR \"UU ITE\") (Komdigi OR polisi OR aktivis) sourcecountry:indonesia",
+      "Indonesia (journalist OR \"press freedom\" OR protesters) (police OR arrested OR assaulted OR censorship)"
+    ]
+  },
+  "publishers": {
+    "aji.or.id": {
+      "name": "Aliansi Jurnalis Independen (AJI)",
+      "class": "monitor"
+    },
+    "safenet.or.id": {
+      "name": "SAFEnet",
+      "class": "monitor"
+    },
+    "lbhjakarta.org": {
+      "name": "LBH Jakarta",
+      "class": "monitor"
+    },
+    "bantuanhukum.or.id": {
+      "name": "LBH Jakarta",
+      "class": "monitor"
+    },
+    "ylbhi.or.id": {
+      "name": "YLBHI",
+      "class": "monitor"
+    },
+    "kontras.org": {
+      "name": "KontraS",
+      "class": "monitor"
+    },
+    "komnasham.go.id": {
+      "name": "Komnas HAM",
+      "class": "monitor",
+      "type": "official"
+    },
+    "amnesty.id": {
+      "name": "Amnesty International Indonesia",
+      "class": "monitor"
+    },
+    "amnesty.org": {
+      "name": "Amnesty International",
+      "class": "monitor"
+    },
+    "hrw.org": {
+      "name": "Human Rights Watch",
+      "class": "monitor"
+    },
+    "cpj.org": {
+      "name": "Committee to Protect Journalists (CPJ)",
+      "class": "monitor"
+    },
+    "rsf.org": {
+      "name": "Reporters Without Borders (RSF)",
+      "class": "monitor"
+    },
+    "ifj.org": {
+      "name": "International Federation of Journalists (IFJ)",
+      "class": "monitor"
+    },
+    "ifex.org": {
+      "name": "IFEX",
+      "class": "monitor"
+    },
+    "monitor.civicus.org": {
+      "name": "CIVICUS Monitor",
+      "class": "monitor"
+    },
+    "civicus.org": {
+      "name": "CIVICUS",
+      "class": "monitor"
+    },
+    "globalvoices.org": {
+      "name": "Global Voices",
+      "class": "monitor"
+    },
+    "tempo.co": {
+      "name": "Tempo",
+      "class": "outlet"
+    },
+    "thejakartapost.com": {
+      "name": "The Jakarta Post",
+      "class": "outlet"
+    },
+    "kompas.com": {
+      "name": "Kompas",
+      "class": "outlet"
+    },
+    "kompas.id": {
+      "name": "Kompas",
+      "class": "outlet"
+    },
+    "detik.com": {
+      "name": "detikcom",
+      "class": "outlet"
+    },
+    "cnnindonesia.com": {
+      "name": "CNN Indonesia",
+      "class": "outlet"
+    },
+    "idntimes.com": {
+      "name": "IDN Times",
+      "class": "outlet"
+    },
+    "suara.com": {
+      "name": "Suara.com",
+      "class": "outlet"
+    },
+    "tirto.id": {
+      "name": "Tirto",
+      "class": "outlet"
+    },
+    "kumparan.com": {
+      "name": "kumparan",
+      "class": "outlet"
+    },
+    "antaranews.com": {
+      "name": "Antara",
+      "class": "outlet"
+    },
+    "inews.id": {
+      "name": "iNews",
+      "class": "outlet"
+    },
+    "nu.or.id": {
+      "name": "NU Online",
+      "class": "outlet"
+    },
+    "jawapos.com": {
+      "name": "Jawa Pos",
+      "class": "outlet"
+    },
+    "bbc.com": {
+      "name": "BBC",
+      "class": "outlet"
+    },
+    "benarnews.org": {
+      "name": "BenarNews",
+      "class": "outlet"
+    },
+    "voaindonesia.com": {
+      "name": "VOA Indonesia",
+      "class": "outlet"
+    },
+    "reuters.com": {
+      "name": "Reuters",
+      "class": "outlet"
+    },
+    "apnews.com": {
+      "name": "Associated Press",
+      "class": "outlet"
+    },
+    "aljazeera.com": {
+      "name": "Al Jazeera",
+      "class": "outlet"
+    },
+    "theguardian.com": {
+      "name": "The Guardian",
+      "class": "outlet"
+    },
+    "asiapacificreport.nz": {
+      "name": "Asia Pacific Report",
+      "class": "outlet"
+    },
+    "courthousenews.com": {
+      "name": "Courthouse News Service",
+      "class": "outlet"
+    }
+  }
+}

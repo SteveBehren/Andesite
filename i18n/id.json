@@ -1,0 +1,308 @@
+{
+  "meta": {
+    "lang": "id",
+    "name": "Bahasa Indonesia",
+    "title": "Andesite: catatan yang tak bisa mereka hapus",
+    "description": "Buku besar permanen dan terbuka tentang dugaan maupun pelanggaran terdokumentasi oleh negara Indonesia terhadap kebebasan pers dan kebebasan sipil."
+  },
+  "nav": {
+    "skip": "Langsung ke catatan",
+    "ledger": "Catatan",
+    "laws": "Dasar hukum",
+    "method": "Metode",
+    "about": "Tentang",
+    "contribute": "Berkontribusi di GitHub",
+    "submit": "Kirim laporan",
+    "menu": "Menu",
+    "close": "Tutup menu",
+    "language": "Bahasa",
+    "theme": "Tampilan",
+    "toLight": "Ganti ke mode terang",
+    "toDark": "Ganti ke mode gelap",
+    "light": "Terang",
+    "dark": "Gelap"
+  },
+  "seal": {
+    "verifying": "Memeriksa segel",
+    "ok": "Catatan tersegel · {n}/{total} entri terverifikasi",
+    "okShort": "Tersegel {n}/{total}",
+    "broken": "Segel rusak",
+    "brokenBanner": "Segel tidak cocok mulai entri {id}. Salinan catatan yang Anda lihat sudah diubah atau tidak mutakhir. Jangan jadikan pegangan; periksa repositorinya di GitHub.",
+    "unavailable": "Segel tidak bisa diperiksa di peramban ini.",
+    "head": "Hash terakhir",
+    "copy": "Salin hash",
+    "copied": "Tersalin",
+    "explain": "Setiap entri dirantai ke entri sebelumnya dengan SHA-256. Peramban Anda baru saja menghitung ulang seluruh rantai dan mencocokkannya dengan berkas kunci yang dipublikasikan."
+  },
+  "strip": {
+    "label": "Baca dulu",
+    "body": "Andesite adalah catatan peristiwa yang terdokumentasi dan yang masih berupa dugaan, bukan pengadilan. Cek tingkat bukti sebuah entri sebelum Anda membagikannya.",
+    "more": "Cara membaca entri",
+    "dismiss": "Tutup"
+  },
+  "hero": {
+    "line": "entri dalam catatan, {from} → sekarang",
+    "fieldReports": "{n} laporan lapangan belum terverifikasi, dihitung terpisah",
+    "lawsCited": "dasar hukum dikutip",
+    "years": "tahun tercakup",
+    "notCourt": "Andesite mencatat peristiwa yang terdokumentasi dan yang masih berupa dugaan. Andesite bukan pengadilan dan tidak menjatuhkan putusan.",
+    "tagline": "Catatan yang tak bisa mereka hapus.",
+    "whatIs": "Apa ini?",
+    "tierBar": "Entri berdasarkan tingkat bukti"
+  },
+  "tiers": {
+    "court": {
+      "name": "Diputus pengadilan",
+      "short": "Pengadilan",
+      "desc": "Pengadilan memutuskan tindakan itu melanggar hukum atau inkonstitusional."
+    },
+    "acknowledged": {
+      "name": "Diakui",
+      "short": "Diakui",
+      "desc": "Otoritas yang bertanggung jawab mengakui tindakan itu secara terbuka."
+    },
+    "documented": {
+      "name": "Terdokumentasi",
+      "short": "Terdokumentasi",
+      "desc": "Didokumentasikan oleh pemantau independen yang kredibel atau beberapa media kredibel."
+    },
+    "alleged": {
+      "name": "Dugaan",
+      "short": "Dugaan",
+      "desc": "Dilaporkan secara kredibel, tetapi tindakannya atau pihak yang bertanggung jawab belum terkonfirmasi."
+    },
+    "unverified": {
+      "name": "Laporan lapangan belum terverifikasi",
+      "short": "Laporan lapangan",
+      "desc": "Unggahan publik di media sosial yang memperlihatkan suatu kejadian dan belum dikonfirmasi secara independen. Tidak pernah dihitung dalam angka utama."
+    }
+  },
+  "categories": {
+    "press": "Kebebasan pers",
+    "expression": "Berekspresi",
+    "assembly": "Berkumpul",
+    "information": "Hak atas informasi"
+  },
+  "filters": {
+    "title": "Saring catatan",
+    "search": "Cari judul, ringkasan, pelaku, dan tempat",
+    "searchLabel": "Cari",
+    "tiers": "Tingkat bukti",
+    "categories": "Kategori",
+    "year": "Lompat ke tahun",
+    "allYears": "Semua tahun",
+    "showField": "Tampilkan laporan lapangan",
+    "reset": "Hapus saringan",
+    "count": "{n} dari {total} entri ditampilkan",
+    "none": "Tidak ada entri yang cocok dengan saringan ini.",
+    "lawFilter": "Mengutip {law}"
+  },
+  "entry": {
+    "laws": "Dasar hukum",
+    "sources": "Sumber",
+    "archived": "Salinan arsip",
+    "context": "Konteks",
+    "amended": "Diralat",
+    "history": "Riwayat ralat",
+    "cite": "Kutip",
+    "copyLink": "Salin tautan",
+    "copied": "Tersalin",
+    "copyFailed": "Pilih teks di bawah lalu salin.",
+    "place": "Tempat",
+    "actor": "Pelaku",
+    "withdrawn": "Ditarik",
+    "withdrawnNote": "Entri ini telah ditarik. Entri tetap ditampilkan agar catatan tetap utuh.",
+    "original": "Teks asli",
+    "officialTranslation": "Terjemahan resmi",
+    "unofficialTranslation": "Terjemahan tidak resmi",
+    "lawSource": "Teks resmi",
+    "noDate": "tanpa tanggal",
+    "rangeTo": "sampai",
+    "ledgerEntry": "Entri catatan",
+    "accessed": "Diakses",
+    "autoRecorded": "Dicatat otomatis",
+    "autoRecordedNote": "Dicatat oleh pemantau otomatis Andesite dari sedikitnya dua sumber independen. Belum ditinjau oleh manusia.",
+    "originalUnavailable": "Unggahan asli sudah tidak tersedia",
+    "shows": "Isi unggahan",
+    "checks": "Daftar verifikasi",
+    "corroboration": "{n} sumber pendukung",
+    "fromTier": "dari {from} menjadi {to}",
+    "amendTypes": {
+      "correction": "Ralat",
+      "tier_change": "Tingkat bukti diubah",
+      "addition": "Sumber ditambahkan",
+      "withdrawn": "Ditarik"
+    },
+    "checkNames": {
+      "date_matches": "Tanggal konsisten",
+      "location_geolocated": "Lokasi sudah digeolokasi",
+      "independent_second_angle": "Ada sumber kedua yang independen",
+      "no_earlier_copy_found": "Sudah dicek apakah ada salinan lebih lama",
+      "account_not_new": "Akun bukan akun baru"
+    },
+    "sourceTypes": {
+      "news": "Berita",
+      "ngo": "Pemantau",
+      "court": "Pengadilan",
+      "official": "Resmi",
+      "academic": "Riset",
+      "social": "Unggahan media sosial"
+    }
+  },
+  "field": {
+    "title": "Laporan lapangan",
+    "body": "Saat terjadi tindakan represif, catatan pertama tentang apa yang terjadi sering kali berupa unggahan publik di TikTok, Instagram, X, atau Threads. Andesite menerimanya sebagai laporan lapangan yang belum terverifikasi. Laporan ini diberi tanda yang jelas, hanya ditautkan dan tidak pernah disalin, lokasinya dicatat sampai tingkat kota saja, dan tidak pernah masuk ke angka utama. Laporan lapangan bisa dinaikkan tingkat buktinya jika sudah dikonfirmasi sumber independen.",
+    "empty": "Belum ada laporan lapangan dalam catatan.",
+    "button": "Kirim laporan lapangan",
+    "safety": "Issue di GitHub bersifat publik. Baca peringatan keamanan pada formulir sebelum mengirim."
+  },
+  "lawsIndex": {
+    "title": "Dasar hukum yang dikutip",
+    "intro": "Semua aturan yang dikutip Andesite, beserta jumlah entri yang merujuknya. Pilih salah satu untuk menyaring catatan.",
+    "count": "{n} entri",
+    "none": "Belum dikutip",
+    "filter": "Lihat entri"
+  },
+  "live": {
+    "new": "{n} entri baru tercatat",
+    "newPlural": "{n} entri baru tercatat",
+    "show": "Lihat",
+    "updated": "Catatan diperbarui"
+  },
+  "footer": {
+    "licences": "Kode dengan lisensi MIT. Data dan teks dengan lisensi CC BY 4.0.",
+    "repo": "Kode sumber di GitHub",
+    "builtBy": "Dibuat oleh Stephen",
+    "lastAdded": "Entri terakhir ditambahkan",
+    "head": "Hash kepala yang tersegel"
+  },
+  "method": {
+    "title": "Metode",
+    "lead": "Bagaimana Andesite memutuskan apa yang masuk ke catatan, bagaimana bukti ditangani, dan bagaimana siapa pun bisa memastikan catatan ini tidak diubah.",
+    "sections": [
+      {
+        "h": "Tingkat bukti",
+        "p": [
+          "Setiap entri punya satu tingkat bukti. Tingkat ini menggambarkan seberapa kuat catatan publiknya, bukan seberapa berat peristiwanya.",
+          "Diputus pengadilan: pengadilan memutuskan tindakan itu melanggar hukum atau inkonstitusional. Hanya entri seperti ini yang menyebut suatu tindakan melanggar hukum.",
+          "Diakui: otoritas yang bertanggung jawab mengakui tindakan itu secara terbuka, misalnya lewat pengumuman, permintaan maaf, atau keterangan kepada Komnas HAM.",
+          "Terdokumentasi: pemantau independen yang kredibel (misalnya AJI, LBH, Komnas HAM, SAFEnet, CIVICUS, RSF, CPJ, HRW, Amnesty, atau IFJ) atau beberapa media kredibel telah mendokumentasikannya.",
+          "Dugaan: dilaporkan secara kredibel, tetapi tindakannya sendiri atau siapa yang bertanggung jawab belum terkonfirmasi.",
+          "Laporan lapangan belum terverifikasi: unggahan publik di media sosial yang memperlihatkan suatu kejadian dan belum dikonfirmasi secara independen. Laporan ini dihitung terpisah dan tidak pernah masuk ke angka utama, sehingga satu unggahan yang belum terkonfirmasi tidak bisa dipakai untuk menjatuhkan kredibilitas seluruh catatan."
+        ]
+      },
+      {
+        "h": "Menyebut sumber, bukan menuduh",
+        "p": [
+          "Entri memakai frasa \"didokumentasikan oleh\", \"dilaporkan oleh\", atau \"diakui oleh\". Andesite tidak menentukan siapa yang bersalah. Pejabat dan lembaga disebut dalam kapasitas jabatan publiknya. Warga biasa, termasuk peserta aksi, orang di sekitar lokasi, dan anak, tidak pernah disebut namanya. Orang yang sudah disebut namanya secara terbuka oleh media kredibel terkait perkaranya sendiri, seperti aktivis yang divonis, boleh disebut namanya."
+        ]
+      },
+      {
+        "h": "Daftar verifikasi laporan lapangan",
+        "p": [
+          "Setiap laporan lapangan menunjukkan pemeriksaan mana saja yang sudah lolos: tanggalnya konsisten, lokasinya sudah digeolokasi, ada sumber atau sudut pandang kedua yang independen, rekamannya sudah dicek apakah pernah beredar sebelumnya, dan akun pengunggahnya bukan akun baru."
+        ]
+      },
+      {
+        "h": "Aturan keamanan untuk laporan media sosial",
+        "p": [
+          "Hanya tautan. Andesite tidak pernah menyalin, mengunggah ulang, menyematkan, atau mengambil tangkapan layar video, gambar, nama pengguna, nama tampilan, atau wajah. Yang disimpan hanya tautan unggahan dan deskripsi netral tentang isinya.",
+          "Unggahan media sosial tidak diarsipkan. Jika seseorang menghapus unggahannya demi keselamatan dirinya, Andesite tidak menyimpannya. Entri akan menampilkan \"Unggahan asli sudah tidak tersedia\" dan deskripsinya tetap ada.",
+          "Lokasi hanya sampai tingkat kota. Laporan lapangan tidak pernah memuat detail setingkat jalan yang bisa menunjukkan dari mana seseorang merekam.",
+          "Tidak ada scraping langsung dari platform media sosial. Laporan lapangan masuk lewat formulir publik di GitHub. Jika Anda berada di Indonesia, jangan gunakan akun yang terhubung dengan identitas asli Anda, dan jangan mengirim rekaman yang Anda buat sendiri."
+        ]
+      },
+      {
+        "h": "Pemantauan otomatis",
+        "p": [
+          "Setiap enam jam, pemantau otomatis membaca kanal berita dan laporan LSM yang terbuka untuk mencari laporan tindakan negara terhadap pers, kebebasan berekspresi, berkumpul, dan hak atas informasi di Indonesia. Sebuah model bahasa menyusun draf entri dalam empat bahasa, dan pemantau hanya menyegelnya jika draf itu lolos aturan ketat yang ditulis dalam kode.",
+          "Entri otomatis butuh sedikitnya dua sumber independen dari daftar media dan pemantau kredibel, semua tautan sumber harus bisa dibuka, peristiwanya harus baru terjadi, dan tidak boleh sama dengan entri yang sudah ada. Tingkat buktinya paling tinggi Terdokumentasi, dan ditetapkan sebagai Dugaan kecuali dilaporkan oleh pemantau yang diakui atau dua media kredibel. Entri otomatis tidak menyebut nama warga biasa. Entri ini diberi tanda \"Dicatat otomatis\" sampai ditinjau manusia, dan setiap kekeliruan diperbaiki lewat ralat yang terlihat."
+        ]
+      },
+      {
+        "h": "Segel",
+        "p": [
+          "Catatan ini adalah rantai hash. Setiap entri diubah menjadi teks kanonis yang tetap, lalu digabung dengan sidik jari (hash SHA-256) entri sebelumnya. Ubah satu karakter saja di entri lama, dan semua sidik jari sesudahnya ikut berubah.",
+          "Sidik jari itu dipublikasikan dalam berkas kunci. Saat Anda membuka halaman ini, peramban Anda menghitung ulang seluruh rantai dan mencocokkannya dengan berkas kunci. Di GitHub, pemeriksaan otomatis menolak setiap perubahan yang mengedit atau menghapus entri yang sudah tersegel. Entri baru hanya bisa ditambahkan di bagian akhir."
+        ]
+      },
+      {
+        "h": "Ralat",
+        "p": [
+          "Kami tidak pernah menghapus, kami meralat. Jika ada yang keliru, perbaikannya diterbitkan sebagai ralat yang terlihat di bawah entri, dan teks aslinya tetap bisa dibaca. Entri bisa ditarik, tetapi entri yang ditarik tetap ada di catatan dengan warna redup, disertai alasannya."
+        ]
+      },
+      {
+        "h": "Independensi",
+        "p": [
+          "Andesite tidak berafiliasi dengan partai, pemerintah, atau organisasi mana pun, dan tidak menerima dana yang terkait dengan isinya. Sumber, kode, dan riwayat lengkap setiap perubahan terbuka untuk publik."
+        ]
+      }
+    ]
+  },
+  "about": {
+    "title": "Tentang Andesite",
+    "sections": [
+      {
+        "h": "Kenapa namanya Andesite",
+        "p": [
+          "Andesit adalah batuan vulkanik. Candi Borobudur dibangun dari batu ini, dan busur vulkanik Indonesia penuh dengannya. Saya memilih nama ini karena saya ingin catatan yang sifatnya seperti batu: dipahat sekali, bisa dibaca dalam waktu sangat lama, dan sulit dihilangkan diam-diam. (Kata ini sebenarnya berasal dari Pegunungan Andes, tetapi batuannya ada di mana-mana di Indonesia.)"
+        ]
+      },
+      {
+        "h": "Kenapa ini ada",
+        "p": [
+          "Kebebasan pers, kebebasan berekspresi, kebebasan berkumpul, dan hak atas informasi tertulis dalam hukum Indonesia dan dalam perjanjian internasional yang sudah diratifikasi Indonesia. Ketika hak-hak itu dilanggar, catatannya biasanya tercecer di berbagai artikel berita, laporan LSM, dan unggahan media sosial, dan sebagian hilang begitu saja. Andesite mengumpulkannya di satu tempat, menghubungkan setiap peristiwa dengan aturan hukum yang tepat, dan tidak pernah menghapus apa pun."
+        ]
+      },
+      {
+        "h": "Masalah yang ingin saya selesaikan",
+        "p": [
+          "Saat aksi 28 Oktober 2026, saya melihat betapa cepatnya catatan publik bisa menipis. Media lokal bisa ditekan, jurnalis bisa dijauhkan dari lokasi, konten bisa diturunkan, dan banyak hal yang diketahui orang di Indonesia justru datang dari unggahan antarwarga di platform seperti TikTok dan Instagram. Media internasional hanya meliput sebagian kecil peristiwa. Kalau sebuah pelacak hanya mengulang apa yang diberitakan media arus utama, ia ikut mewarisi titik butanya. Karena itu Andesite juga menerima laporan dari media sosial publik, diberi label jelas sebagai belum terverifikasi, dan bisa diperkuat atau dikoreksi seiring waktu."
+        ]
+      },
+      {
+        "h": "Apa itu Andesite",
+        "p": [
+          "Sebuah catatan permanen, sumber terbuka, yang hanya bisa ditambah. Setiap entri memuat tanggal, tempat, pelaku, sumber yang bisa Anda buka, dan aturan hukum yang terkait, dikutip dalam bahasa aslinya dengan terjemahan di bawahnya. Entri disegel dengan rantai hash sehingga siapa pun bisa memastikan catatan ini tidak diubah."
+        ]
+      },
+      {
+        "h": "Apa yang bukan Andesite",
+        "p": [
+          "Andesite bukan pengadilan dan tidak menentukan siapa yang bersalah. Andesite bukan media berita. Andesite tidak berafiliasi dengan partai, pemerintah, atau organisasi mana pun. Entri memakai frasa \"didokumentasikan oleh\", \"dilaporkan oleh\", atau \"diakui oleh\". Hanya entri yang sudah diputus pengadilan yang menyebut suatu tindakan melanggar hukum."
+        ]
+      },
+      {
+        "h": "Cara membaca entri",
+        "p": [
+          "Setiap entri punya tingkat bukti: diputus pengadilan, diakui oleh otoritas, didokumentasikan oleh pemantau kredibel, dugaan, atau laporan lapangan belum terverifikasi. Laporan lapangan dihitung terpisah dan tidak pernah masuk ke angka utama, sehingga satu unggahan yang belum terkonfirmasi tidak bisa dipakai untuk menjatuhkan kredibilitas seluruh catatan. Tolong cek tingkat buktinya sebelum Anda membagikan sebuah entri."
+        ]
+      },
+      {
+        "h": "Cara saya menangani laporan media sosial",
+        "p": [
+          "Saya hanya menautkan unggahan publik. Saya tidak menyalin, mengunggah ulang, atau mengambil tangkapan layar video, wajah, maupun nama pengguna, dan saya tidak mengarsipkannya, jadi orang yang menghapus unggahannya demi keselamatan dirinya tetap terlindungi. Lokasi dicatat sampai tingkat kota saja. Nama warga biasa tidak pernah disebut."
+        ]
+      },
+      {
+        "h": "Ralat",
+        "p": [
+          "Kami tidak pernah menghapus, kami meralat. Jika ada yang keliru, perbaikannya dicantumkan sebagai ralat yang terlihat di bawah entri, dan teks aslinya tetap bisa dibaca."
+        ]
+      },
+      {
+        "h": "Siapa di baliknya",
+        "p": [
+          "Saya Stephen, pengelola independen. Saya membangun Andesite sendiri sebagai proyek sumber terbuka karena saya percaya orang berhak melihat catatan lengkap tentang apa yang telah terjadi, dalam bahasanya sendiri, dengan sumber yang tersedia di sampingnya. Saya tidak berafiliasi dengan partai, pemerintah, atau organisasi mana pun. Siapa pun bisa berkontribusi lewat GitHub, dan Anda bisa menghubungi saya lewat profil GitHub saya: https://github.com/SteveBehren"
+        ]
+      },
+      {
+        "h": "Gunakan dengan hati-hati",
+        "p": [
+          "Baca sumbernya, cek tingkat buktinya, dan jangan anggap entri yang masih berupa dugaan atau belum terverifikasi sebagai sesuatu yang sudah terbukti."
+        ]
+      }
+    ]
+  }
+}

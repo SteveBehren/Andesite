@@ -1,0 +1,308 @@
+{
+  "meta": {
+    "lang": "nl",
+    "name": "Nederlands",
+    "title": "Andesite: het archief dat ze niet kunnen wissen",
+    "description": "Een permanent, open source register van gedocumenteerde en vermeende schendingen van persvrijheid en burgerlijke vrijheden door de Indonesische staat."
+  },
+  "nav": {
+    "skip": "Direct naar het register",
+    "ledger": "Register",
+    "laws": "Wetten",
+    "method": "Methode",
+    "about": "Over",
+    "contribute": "Bijdragen op GitHub",
+    "submit": "Melding doen",
+    "menu": "Menu",
+    "close": "Menu sluiten",
+    "language": "Taal",
+    "theme": "Weergave",
+    "toLight": "Naar lichte modus",
+    "toDark": "Naar donkere modus",
+    "light": "Licht",
+    "dark": "Donker"
+  },
+  "seal": {
+    "verifying": "Zegel wordt gecontroleerd",
+    "ok": "Register verzegeld · {n}/{total} items geverifieerd",
+    "okShort": "Verzegeld {n}/{total}",
+    "broken": "Zegel verbroken",
+    "brokenBanner": "Het zegel klopt niet meer vanaf item {id}. De versie van het register die u bekijkt is gewijzigd of verouderd. Vertrouw er niet op en controleer de repository op GitHub.",
+    "unavailable": "Het zegel kon in deze browser niet worden gecontroleerd.",
+    "head": "Laatste hash",
+    "copy": "Hash kopiëren",
+    "copied": "Gekopieerd",
+    "explain": "Elk item is met SHA-256 aan het vorige gekoppeld. Uw browser heeft zojuist de hele keten opnieuw berekend en vergeleken met het gepubliceerde lockbestand."
+  },
+  "strip": {
+    "label": "Lees dit eerst",
+    "body": "Andesite is een register van gedocumenteerde en vermeende gebeurtenissen, geen rechtbank. Kijk naar het bewijsniveau van een item voordat u het deelt.",
+    "more": "Zo leest u een item",
+    "dismiss": "Sluiten"
+  },
+  "hero": {
+    "line": "items in het register, {from} → nu",
+    "fieldReports": "{n} onbevestigde veldmeldingen, apart geteld",
+    "lawsCited": "wetsartikelen aangehaald",
+    "years": "jaren bestreken",
+    "notCourt": "Andesite legt gedocumenteerde en vermeende gebeurtenissen vast. Het is geen rechtbank en doet geen uitspraken.",
+    "tagline": "Het archief dat ze niet kunnen wissen.",
+    "whatIs": "Wat is dit?",
+    "tierBar": "Items per bewijsniveau"
+  },
+  "tiers": {
+    "court": {
+      "name": "Uitspraak van de rechter",
+      "short": "Rechter",
+      "desc": "Een rechter heeft de handeling onrechtmatig of ongrondwettig verklaard."
+    },
+    "acknowledged": {
+      "name": "Erkend",
+      "short": "Erkend",
+      "desc": "De verantwoordelijke instantie heeft de handeling publiekelijk erkend."
+    },
+    "documented": {
+      "name": "Gedocumenteerd",
+      "short": "Gedocumenteerd",
+      "desc": "Gedocumenteerd door geloofwaardige onafhankelijke waarnemers of meerdere geloofwaardige media."
+    },
+    "alleged": {
+      "name": "Vermeend",
+      "short": "Vermeend",
+      "desc": "Geloofwaardig gemeld, maar de handeling of de verantwoordelijkheid ervoor is niet bevestigd."
+    },
+    "unverified": {
+      "name": "Onbevestigde veldmelding",
+      "short": "Veldmelding",
+      "desc": "Openbare berichten op sociale media die een incident tonen en nog niet onafhankelijk zijn bevestigd. Tellen nooit mee in het hoofdgetal."
+    }
+  },
+  "categories": {
+    "press": "Persvrijheid",
+    "expression": "Meningsuiting",
+    "assembly": "Vergadering",
+    "information": "Recht op informatie"
+  },
+  "filters": {
+    "title": "Register filteren",
+    "search": "Zoek in titels, samenvattingen, actoren en plaatsen",
+    "searchLabel": "Zoeken",
+    "tiers": "Bewijsniveau",
+    "categories": "Categorie",
+    "year": "Naar jaar",
+    "allYears": "Alle jaren",
+    "showField": "Veldmeldingen tonen",
+    "reset": "Filters wissen",
+    "count": "{n} van {total} items getoond",
+    "none": "Geen items die aan deze filters voldoen.",
+    "lawFilter": "Verwijst naar {law}"
+  },
+  "entry": {
+    "laws": "Ingeroepen wetsartikelen",
+    "sources": "Bronnen",
+    "archived": "Gearchiveerde kopie",
+    "context": "Context",
+    "amended": "Gewijzigd",
+    "history": "Wijzigingsgeschiedenis",
+    "cite": "Citeren",
+    "copyLink": "Link kopiëren",
+    "copied": "Gekopieerd",
+    "copyFailed": "Selecteer de tekst hieronder en kopieer die.",
+    "place": "Plaats",
+    "actor": "Actor",
+    "withdrawn": "Ingetrokken",
+    "withdrawnNote": "Dit item is ingetrokken. Het blijft zichtbaar zodat het register volledig is.",
+    "original": "Oorspronkelijke tekst",
+    "officialTranslation": "Officiële vertaling",
+    "unofficialTranslation": "Niet-officiële vertaling",
+    "lawSource": "Officiële tekst",
+    "noDate": "zonder datum",
+    "rangeTo": "tot",
+    "ledgerEntry": "Registeritem",
+    "accessed": "Geraadpleegd",
+    "autoRecorded": "Automatisch vastgelegd",
+    "autoRecordedNote": "Vastgelegd door de automatische monitor van Andesite op basis van minstens twee onafhankelijke bronnen. Nog niet door een mens beoordeeld.",
+    "originalUnavailable": "Oorspronkelijk bericht niet meer beschikbaar",
+    "shows": "Wat de berichten tonen",
+    "checks": "Verificatielijst",
+    "corroboration": "{n} bevestigende bronnen",
+    "fromTier": "van {from} naar {to}",
+    "amendTypes": {
+      "correction": "Correctie",
+      "tier_change": "Bewijsniveau gewijzigd",
+      "addition": "Bronnen toegevoegd",
+      "withdrawn": "Ingetrokken"
+    },
+    "checkNames": {
+      "date_matches": "Datum klopt",
+      "location_geolocated": "Locatie gegeolokaliseerd",
+      "independent_second_angle": "Onafhankelijke tweede bron",
+      "no_earlier_copy_found": "Gecontroleerd op oudere kopieën",
+      "account_not_new": "Account is niet nieuw"
+    },
+    "sourceTypes": {
+      "news": "Nieuws",
+      "ngo": "Waarnemer",
+      "court": "Rechtbank",
+      "official": "Officieel",
+      "academic": "Onderzoek",
+      "social": "Bericht op sociale media"
+    }
+  },
+  "field": {
+    "title": "Veldmeldingen",
+    "body": "Bij harde repressie is het eerste verslag van wat er gebeurde vaak een openbaar bericht op TikTok, Instagram, X of Threads. Andesite accepteert die als onbevestigde veldmeldingen. Ze worden duidelijk gemarkeerd, alleen gelinkt en nooit gekopieerd, op stadsniveau gehouden en nooit meegeteld in het hoofdgetal. Een veldmelding kan een hoger bewijsniveau krijgen zodra onafhankelijke bronnen haar bevestigen.",
+    "empty": "Er staan nog geen veldmeldingen in het register.",
+    "button": "Veldmelding doen",
+    "safety": "Issues op GitHub zijn openbaar. Lees de veiligheidswaarschuwing op het formulier voordat u iets instuurt."
+  },
+  "lawsIndex": {
+    "title": "Aangehaalde wetsartikelen",
+    "intro": "Elk wetsartikel dat Andesite aanhaalt, met het aantal items dat ernaar verwijst. Kies een artikel om het register te filteren.",
+    "count": "{n} items",
+    "none": "Nog niet aangehaald",
+    "filter": "Items tonen"
+  },
+  "live": {
+    "new": "{n} nieuw item vastgelegd",
+    "newPlural": "{n} nieuwe items vastgelegd",
+    "show": "Tonen",
+    "updated": "Register bijgewerkt"
+  },
+  "footer": {
+    "licences": "Code onder de MIT-licentie. Data en tekst onder CC BY 4.0.",
+    "repo": "Broncode op GitHub",
+    "builtBy": "Gemaakt door Stephen",
+    "lastAdded": "Laatste item toegevoegd",
+    "head": "Verzegelde kophash"
+  },
+  "method": {
+    "title": "Methode",
+    "lead": "Hoe Andesite bepaalt wat in het register komt, hoe het met bewijs omgaat en hoe iedereen kan controleren dat het register niet is aangepast.",
+    "sections": [
+      {
+        "h": "Bewijsniveaus",
+        "p": [
+          "Elk item heeft één bewijsniveau. Dat niveau zegt iets over de kracht van het openbare verslag, niet over de ernst van de gebeurtenis.",
+          "Uitspraak van de rechter: een rechter heeft de handeling onrechtmatig of ongrondwettig verklaard. Alleen deze items zeggen dat een handeling onrechtmatig was.",
+          "Erkend: de verantwoordelijke instantie heeft de handeling publiekelijk erkend, bijvoorbeeld in een aankondiging, een excuus of een verklaring aan Komnas HAM.",
+          "Gedocumenteerd: geloofwaardige onafhankelijke waarnemers (zoals AJI, LBH, Komnas HAM, SAFEnet, CIVICUS, RSF, CPJ, HRW, Amnesty of IFJ) of meerdere geloofwaardige media hebben de handeling gedocumenteerd.",
+          "Vermeend: geloofwaardig gemeld, maar de handeling zelf of wie ervoor verantwoordelijk is, is niet bevestigd.",
+          "Onbevestigde veldmelding: openbare berichten op sociale media die een incident tonen en niet onafhankelijk zijn bevestigd. Ze worden apart geteld en nooit opgeteld bij het hoofdgetal, zodat één onbevestigd bericht niet kan worden gebruikt om het hele register in diskrediet te brengen."
+        ]
+      },
+      {
+        "h": "Toeschrijven, niet beschuldigen",
+        "p": [
+          "Items zeggen \"gedocumenteerd door\", \"gemeld door\" of \"erkend door\". Andesite oordeelt niet over schuld. Functionarissen en instellingen worden genoemd in hun publieke rol. Privépersonen, onder wie demonstranten, omstanders en minderjarigen, worden nooit bij naam genoemd. Mensen die geloofwaardige media al publiekelijk bij naam hebben genoemd in verband met hun eigen zaak, zoals een veroordeelde activist, mogen wel worden genoemd."
+        ]
+      },
+      {
+        "h": "Verificatielijst voor veldmeldingen",
+        "p": [
+          "Bij elke veldmelding staat welke controles ze heeft doorstaan: de datum klopt, de locatie is gegeolokaliseerd, er is een onafhankelijke tweede bron of camerahoek, het beeld is gecontroleerd op oudere kopieën en het account dat het plaatste is niet nieuw aangemaakt."
+        ]
+      },
+      {
+        "h": "Veiligheidsregels voor meldingen van sociale media",
+        "p": [
+          "Alleen links. Andesite kopieert, herpubliceert, embedt of maakt nooit screenshots van video's, afbeeldingen, gebruikersnamen, weergavenamen of gezichten. Het bewaart de link naar het bericht en een neutrale beschrijving van wat het bericht toont.",
+          "Geen archivering van berichten op sociale media. Als iemand een bericht verwijdert om zichzelf te beschermen, heeft Andesite het niet bewaard. Het item toont dan \"Oorspronkelijk bericht niet meer beschikbaar\" en de beschrijving blijft staan.",
+          "Alleen op stadsniveau. Veldmeldingen bevatten nooit details op straatniveau waaruit blijkt waar iemand stond te filmen.",
+          "Geen live scraping van sociale platforms. Veldmeldingen komen binnen via een openbaar formulier op GitHub. Bent u in Indonesië, gebruik dan geen account dat aan uw echte identiteit is gekoppeld en stuur geen beelden in die u zelf hebt gemaakt."
+        ]
+      },
+      {
+        "h": "Automatische monitoring",
+        "p": [
+          "Elke zes uur leest een automatische monitor openbare nieuws- en ngo-feeds op berichten over overheidsoptreden tegen pers, meningsuiting, vergadering en het recht op informatie in Indonesië. Een taalmodel stelt een conceptitem op in vier talen, en de monitor verzegelt het alleen als het voldoet aan harde regels die in code zijn vastgelegd.",
+          "Een automatisch item heeft minstens twee onafhankelijke bronnen nodig uit een lijst van geloofwaardige media en waarnemers, elke bronlink moet werken, de gebeurtenis moet recent zijn en mag geen bestaand item dupliceren. Het bewijsniveau is maximaal Gedocumenteerd, en wordt Vermeend tenzij een erkende waarnemer of twee geloofwaardige media erover berichten. Er worden geen privépersonen genoemd. Automatische items krijgen het label \"Automatisch vastgelegd\" tot een mens ze heeft beoordeeld, en elke fout wordt hersteld met een zichtbare wijziging."
+        ]
+      },
+      {
+        "h": "Het zegel",
+        "p": [
+          "Het register is een hashketen. Elk item wordt omgezet in een vaste, canonieke tekst en gecombineerd met de vingerafdruk (SHA-256-hash) van het vorige item. Verander één teken in een oud item en elke vingerafdruk daarna verandert mee.",
+          "De vingerafdrukken staan in een gepubliceerd lockbestand. Wanneer u deze pagina opent, berekent uw browser de hele keten opnieuw en vergelijkt die met het lockbestand. Op GitHub weigert een automatische controle elke wijziging die een al verzegeld item aanpast of verwijdert. Nieuwe items kunnen alleen aan het einde worden toegevoegd."
+        ]
+      },
+      {
+        "h": "Correcties",
+        "p": [
+          "We verwijderen nooit, we wijzigen. Als iets niet klopt, wordt de correctie gepubliceerd als zichtbare wijziging onder het item, en de oorspronkelijke tekst blijft leesbaar. Een item kan worden ingetrokken, maar een ingetrokken item blijft in het register staan, grijs gemaakt, met de reden erbij."
+        ]
+      },
+      {
+        "h": "Onafhankelijkheid",
+        "p": [
+          "Andesite is niet verbonden aan een partij, regering of organisatie en neemt geen financiering aan die aan de inhoud is gekoppeld. De bronnen, de code en de volledige geschiedenis van elke wijziging zijn openbaar."
+        ]
+      }
+    ]
+  },
+  "about": {
+    "title": "Over Andesite",
+    "sections": [
+      {
+        "h": "Waarom deze naam",
+        "p": [
+          "Andesiet is een vulkanisch gesteente. Borobudur is ervan gebouwd en de vulkanische boog van Indonesië zit er vol mee. Ik koos de naam omdat ik een register wilde dat zich gedraagt als steen: één keer gebeiteld, heel lang leesbaar en moeilijk ongemerkt weg te halen. (Het woord zelf komt van de Andes, maar het gesteente vind je overal in Indonesië.)"
+        ]
+      },
+      {
+        "h": "Waarom dit bestaat",
+        "p": [
+          "Persvrijheid, vrijheid van meningsuiting, vrijheid van vergadering en het recht op informatie staan in de Indonesische wet en in de internationale verdragen die Indonesië heeft geratificeerd. Als die rechten worden geschonden, ligt het verslag daarvan meestal verspreid over nieuwsartikelen, rapporten van ngo's en berichten op sociale media, en een deel ervan verdwijnt. Andesite brengt het samen op één plek, koppelt elke gebeurtenis aan het precieze wetsartikel en verwijdert nooit iets."
+        ]
+      },
+      {
+        "h": "Het probleem dat ik wil oplossen",
+        "p": [
+          "Tijdens de protesten van 28 oktober 2026 zag ik hoe snel het openbare verslag dun kan worden. Lokale media kunnen onder druk worden gezet, journalisten kunnen op afstand worden gehouden, content kan worden verwijderd, en veel van wat mensen in Indonesië te weten komen, komt uit berichten die mensen onderling delen op platforms als TikTok en Instagram. Internationale media verslaan maar een paar gebeurtenissen. Een tracker die alleen herhaalt wat de gevestigde media melden, neemt hun blinde vlekken over. Daarom accepteert Andesite ook openbare meldingen van sociale media, duidelijk gelabeld als onbevestigd, en kunnen die in de loop van de tijd worden versterkt of gecorrigeerd."
+        ]
+      },
+      {
+        "h": "Wat Andesite is",
+        "p": [
+          "Een permanent, open source register waar alleen iets aan kan worden toegevoegd. Elk item heeft een datum, een plaats, de betrokken actor, bronnen die u kunt openen en de specifieke wetsartikelen waarop het betrekking heeft, geciteerd in de oorspronkelijke taal met een vertaling eronder. Items worden verzegeld met een hashketen, zodat iedereen kan controleren dat het register niet is aangepast."
+        ]
+      },
+      {
+        "h": "Wat Andesite niet is",
+        "p": [
+          "Het is geen rechtbank en het bepaalt niet wie schuldig is. Het is geen nieuwsmedium. Het is niet verbonden aan een partij, regering of organisatie. Items zeggen \"gedocumenteerd door\", \"gemeld door\" of \"erkend door\". Alleen items waarover een rechter heeft geoordeeld, zeggen dat een handeling onrechtmatig was."
+        ]
+      },
+      {
+        "h": "Zo leest u een item",
+        "p": [
+          "Elk item heeft een bewijsniveau: uitspraak van de rechter, erkend door de instantie, gedocumenteerd door geloofwaardige waarnemers, vermeend, of onbevestigde veldmelding. Veldmeldingen worden apart geteld en nooit opgeteld bij het hoofdgetal, zodat één onbevestigd bericht niet kan worden gebruikt om het hele register in diskrediet te brengen. Kijk dus naar het bewijsniveau voordat u een item deelt."
+        ]
+      },
+      {
+        "h": "Hoe ik met meldingen van sociale media omga",
+        "p": [
+          "Ik link alleen naar openbare berichten. Ik kopieer, herpubliceer of maak geen screenshots van video's, gezichten of gebruikersnamen, en ik archiveer ze niet, zodat iemand die een bericht verwijdert om zichzelf te beschermen ook beschermd blijft. Locaties houd ik op stadsniveau. Privépersonen worden nooit bij naam genoemd."
+        ]
+      },
+      {
+        "h": "Correcties",
+        "p": [
+          "We verwijderen nooit, we wijzigen. Als iets niet klopt, wordt het hersteld in een zichtbare wijziging onder het item, en de oorspronkelijke tekst blijft leesbaar."
+        ]
+      },
+      {
+        "h": "Wie erachter zit",
+        "p": [
+          "Ik ben Stephen, een onafhankelijke beheerder. Ik heb Andesite in mijn eentje gebouwd als open source project, omdat ik vind dat mensen het volledige verslag moeten kunnen zien van wat er is gebeurd, in hun eigen taal, met de bronnen ernaast. Ik ben niet verbonden aan een partij, regering of organisatie. Iedereen kan bijdragen via GitHub, en u kunt me bereiken via mijn GitHub-profiel: https://github.com/SteveBehren"
+        ]
+      },
+      {
+        "h": "Gebruik het zorgvuldig",
+        "p": [
+          "Lees de bronnen, kijk naar het bewijsniveau en behandel een vermeend of onbevestigd item niet als bewezen."
+        ]
+      }
+    ]
+  }
+}

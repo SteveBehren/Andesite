@@ -1,0 +1,45 @@
+name: Ledger integrity
+
+on:
+  pull_request:
+  push:
+    branches: [main]
+
+permissions:
+  contents: read
+
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+
+      - run: npm ci
+
+      - name: Validate schemas, references and translations
+        run: node scripts/validate.mjs
+
+      - name: Unit tests
+        run: npm test
+
+      - name: Verify the chain and that sealed entries are unchanged (pull request)
+        if: github.event_name == 'pull_request'
+        run: |
+          git fetch origin "${{ github.base_ref }}" --depth=1
+          node scripts/verify.mjs --base "origin/${{ github.base_ref }}"
+
+      - name: Verify the chain and that sealed entries are unchanged (push)
+        if: github.event_name == 'push'
+        run: |
+          if [ "${{ github.event.before }}" != "0000000000000000000000000000000000000000" ] && git cat-file -e "${{ github.event.before }}" 2>/dev/null; then
+            node scripts/verify.mjs --base "${{ github.event.before }}"
+          else
+            node scripts/verify.mjs
+          fi

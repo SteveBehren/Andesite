@@ -1,0 +1,27 @@
+{
+  "name": "andesite",
+  "version": "1.0.0",
+  "description": "A permanent, open source ledger of documented and alleged violations of press freedom and civil liberties by the Indonesian state.",
+  "private": true,
+  "type": "module",
+  "author": "Stephen (https://github.com/SteveBehren)",
+  "license": "MIT",
+  "homepage": "https://github.com/SteveBehren/Andesite",
+  "repository": { "type": "git", "url": "https://github.com/SteveBehren/Andesite.git" },
+  "engines": { "node": ">=20" },
+  "scripts": {
+    "validate": "node scripts/validate.mjs",
+    "seal": "node scripts/seal.mjs",
+    "verify": "node scripts/verify.mjs",
+    "check": "node scripts/validate.mjs && node scripts/verify.mjs",
+    "links": "node scripts/check-links.mjs",
+    "scan": "node scripts/scan.mjs",
+    "test": "node --test scripts/tests/*.test.mjs",
+    "serve": "npx --yes serve@14.2.4 ."
+  },
+  "devDependencies": {
+    "@anthropic-ai/sdk": "^1.3.0",
+    "ajv": "^8.17.1",
+    "ajv-formats": "^3.0.1"
+  }
+}

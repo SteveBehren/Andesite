@@ -1,0 +1,438 @@
+[
+  {
+    "id": "AND-0001",
+    "date": "1994-06-21",
+    "dateEnd": null,
+    "datePrecision": "day",
+    "tier": "acknowledged",
+    "category": ["press"],
+    "location": { "place": "Jakarta", "province": "DKI Jakarta" },
+    "actor": "Ministry of Information (Minister Harmoko)",
+    "title": {
+      "en": "Information Ministry revokes the publishing licences of Tempo, Editor and DeTIK",
+      "id": "Departemen Penerangan mencabut izin terbit Tempo, Editor, dan DeTIK",
+      "nl": "Ministerie van Voorlichting trekt de publicatievergunningen van Tempo, Editor en DeTIK in",
+      "de": "Informationsministerium entzieht Tempo, Editor und DeTIK die Publikationslizenz"
+    },
+    "summary": {
+      "en": "On 21 June 1994 Information Minister Harmoko revoked the publishing licences (SIUPP) of the weekly magazines Tempo and Editor and the tabloid DeTIK, as reported by The Jakarta Post and Human Rights Watch. The 1982 Press Law in force at the time allowed licences to be revoked, so this entry measures the act against international standards on freedom of expression.",
+      "id": "Pada 21 Juni 1994, Menteri Penerangan Harmoko mencabut Surat Izin Usaha Penerbitan Pers (SIUPP) majalah mingguan Tempo dan Editor serta tabloid DeTIK, seperti diberitakan The Jakarta Post dan Human Rights Watch. UU Pers tahun 1982 yang berlaku saat itu memang membolehkan pencabutan izin, jadi entri ini menilai tindakan tersebut dengan standar internasional tentang kebebasan berekspresi.",
+      "nl": "Op 21 juni 1994 trok minister van Voorlichting Harmoko de publicatievergunningen (SIUPP) in van de weekbladen Tempo en Editor en van het tabloid DeTIK, zo berichtten The Jakarta Post en Human Rights Watch. De perswet van 1982 die toen gold stond het intrekken van vergunningen toe, daarom toetst dit item de handeling aan internationale normen voor de vrijheid van meningsuiting.",
+      "de": "Am 21. Juni 1994 entzog Informationsminister Harmoko den Wochenmagazinen Tempo und Editor sowie dem Boulevardblatt DeTIK die Publikationslizenz (SIUPP), wie The Jakarta Post und Human Rights Watch berichteten. Das damals geltende Pressegesetz von 1982 erlaubte den Entzug von Lizenzen, deshalb misst dieser Eintrag die Maßnahme an internationalen Standards der Meinungsfreiheit."
+    },
+    "context": {
+      "en": "On 3 May 1995 the Jakarta Administrative Court ruled that the decree revoking Tempo's licence was legally flawed. Human Rights Watch reported that the minister announced an appeal, with the President's endorsement. After Reformasi, Law No. 40 of 1999, Article 4(2), banned the banning of the press outright.",
+      "id": "Pada 3 Mei 1995, Pengadilan Tata Usaha Negara Jakarta memutuskan bahwa surat keputusan pencabutan izin Tempo cacat hukum. Menurut Human Rights Watch, menteri kemudian mengumumkan banding dengan restu Presiden. Setelah Reformasi, UU Nomor 40 Tahun 1999 Pasal 4 ayat (2) melarang pembredelan pers sepenuhnya.",
+      "nl": "Op 3 mei 1995 oordeelde de bestuursrechter in Jakarta dat het besluit waarmee de vergunning van Tempo was ingetrokken juridisch gebrekkig was. Volgens Human Rights Watch kondigde de minister daarop hoger beroep aan, met steun van de president. Na de Reformasi verbood wet nr. 40 van 1999, artikel 4, lid 2, het verbieden van persorganen volledig.",
+      "de": "Am 3. Mai 1995 entschied das Verwaltungsgericht Jakarta, dass der Erlass zum Lizenzentzug für Tempo rechtlich fehlerhaft war. Laut Human Rights Watch kündigte der Minister daraufhin mit Rückendeckung des Präsidenten Berufung an. Nach der Reformasi verbot Gesetz Nr. 40 von 1999, Artikel 4 Absatz 2, das Verbot von Presseorganen vollständig."
+    },
+    "laws": [{ "law": "udhr-19", "pinpoint": null }],
+    "sources": [
+      { "title": "Twenty years after 'Tempo' banning reflection", "publisher": "The Jakarta Post", "url": "https://www.thejakartapost.com/news/2014/06/26/twenty-years-after-tempo-banning-reflection", "lang": "en", "published": "2014-06-26", "type": "news" },
+      { "title": "Press Closures in Indonesia One Year Later", "publisher": "Human Rights Watch (via Refworld)", "url": "https://www.refworld.org/reference/countryrep/hrw/1995/92590", "lang": "en", "published": "1995-07-01", "type": "ngo" },
+      { "title": "25 Years after Banning of Tempo; Media Resist Against Suppression", "publisher": "Tempo English", "url": "https://en.tempo.co/amp/1217150/25-years-after-banning-of-tempo-media-resist-against-suppression", "lang": "en", "published": "2019-06-22", "type": "news" }
+    ],
+    "intake": "manual",
+    "addedOn": "2026-10-29"
+  },
+  {
+    "id": "AND-0002",
+    "date": "1994-06-27",
+    "dateEnd": null,
+    "datePrecision": "day",
+    "tier": "documented",
+    "category": ["assembly", "expression"],
+    "location": { "place": "Jakarta", "province": "DKI Jakarta" },
+    "actor": "Indonesian security forces",
+    "title": {
+      "en": "Protesters against the press bans detained and beaten in Jakarta",
+      "id": "Pengunjuk rasa penentang pembredelan pers ditangkap dan dipukuli di Jakarta",
+      "nl": "Demonstranten tegen de persverboden opgepakt en geslagen in Jakarta",
+      "de": "Demonstrierende gegen die Presseverbote in Jakarta festgenommen und geschlagen"
+    },
+    "summary": {
+      "en": "Amnesty International reported that more than 50 people were detained or badly beaten by Indonesian security forces during a peaceful protest in Jakarta against the bans on Tempo, Editor and DeTIK. They were among some 300 protesters who had tried to march to the Ministry of Information.",
+      "id": "Amnesty International melaporkan bahwa lebih dari 50 orang ditangkap atau dipukuli dengan parah oleh aparat keamanan Indonesia dalam aksi damai di Jakarta yang menentang pembredelan Tempo, Editor, dan DeTIK. Mereka termasuk dalam sekitar 300 pengunjuk rasa yang berusaha berjalan menuju Departemen Penerangan.",
+      "nl": "Amnesty International meldde dat meer dan 50 mensen door Indonesische veiligheidstroepen werden opgepakt of zwaar mishandeld tijdens een vreedzaam protest in Jakarta tegen het verbod op Tempo, Editor en DeTIK. Zij hoorden bij zo'n 300 demonstranten die naar het ministerie van Voorlichting probeerden te lopen.",
+      "de": "Amnesty International berichtete, dass indonesische Sicherheitskräfte bei einem friedlichen Protest in Jakarta gegen das Verbot von Tempo, Editor und DeTIK mehr als 50 Menschen festnahmen oder schwer verprügelten. Sie gehörten zu etwa 300 Demonstrierenden, die zum Informationsministerium ziehen wollten."
+    },
+    "context": null,
+    "laws": [{ "law": "udhr-19", "pinpoint": null }, { "law": "udhr-20", "pinpoint": null }],
+    "sources": [
+      { "title": "Indonesia: Free speech protesters detained and beaten (ASA 21/027/1994)", "publisher": "Amnesty International", "url": "https://www.amnesty.org/en/documents/asa21/027/1994/en/", "lang": "en", "published": null, "type": "ngo" }
+    ],
+    "intake": "manual",
+    "addedOn": "2026-10-29"
+  },
+  {
+    "id": "AND-0003",
+    "date": "2015-11-10",
+    "dateEnd": null,
+    "datePrecision": "day",
+    "tier": "documented",
+    "category": ["press"],
+    "location": { "place": "Papua and West Papua", "province": "Papua, Papua Barat" },
+    "actor": "Central government and National Police (Polri)",
+    "title": {
+      "en": "Human Rights Watch documents continuing limits on foreign media in Papua",
+      "id": "Human Rights Watch mendokumentasikan pembatasan media asing di Papua yang terus berlanjut",
+      "nl": "Human Rights Watch documenteert aanhoudende beperkingen voor buitenlandse media in Papoea",
+      "de": "Human Rights Watch dokumentiert anhaltende Beschränkungen für ausländische Medien in Papua"
+    },
+    "summary": {
+      "en": "Human Rights Watch's report \"Something to Hide?\" documented that restrictions on foreign journalists and rights monitors in Papua continued despite President Joko Widodo's announcement on 10 May 2015 that they were lifted, including requirements to obtain police permission. A 2017 follow-up by Human Rights Watch found that a government clearing house was still vetting requests from foreign journalists.",
+      "id": "Laporan Human Rights Watch berjudul \"Something to Hide?\" mendokumentasikan bahwa pembatasan terhadap jurnalis asing dan pemantau HAM di Papua tetap berlaku, meskipun Presiden Joko Widodo pada 10 Mei 2015 mengumumkan pembatasan itu dicabut, termasuk kewajiban meminta izin polisi. Laporan lanjutan Human Rights Watch pada 2017 menemukan bahwa sebuah tim lintas instansi pemerintah masih menyaring permohonan dari jurnalis asing.",
+      "nl": "Het rapport \"Something to Hide?\" van Human Rights Watch documenteerde dat de beperkingen voor buitenlandse journalisten en mensenrechtenwaarnemers in Papoea bleven bestaan, ondanks de aankondiging van president Joko Widodo op 10 mei 2015 dat ze waren opgeheven, waaronder de plicht om toestemming van de politie te vragen. Een vervolgonderzoek van Human Rights Watch uit 2017 stelde vast dat een overheidsloket nog steeds aanvragen van buitenlandse journalisten screende.",
+      "de": "Der Bericht \"Something to Hide?\" von Human Rights Watch dokumentierte, dass die Beschränkungen für ausländische Journalisten und Menschenrechtsbeobachter in Papua fortbestanden, obwohl Präsident Joko Widodo am 10. Mai 2015 ihre Aufhebung verkündet hatte, darunter die Pflicht, eine Genehmigung der Polizei einzuholen. Eine Folgeuntersuchung von Human Rights Watch aus dem Jahr 2017 ergab, dass eine staatliche Prüfstelle Anfragen ausländischer Journalisten weiterhin kontrollierte."
+    },
+    "context": {
+      "en": "The entry is dated to the publication of the report. The restrictions it describes began well before 2015.",
+      "id": "Tanggal entri ini mengikuti tanggal terbit laporan. Pembatasan yang digambarkan di dalamnya sudah berlangsung jauh sebelum 2015.",
+      "nl": "Dit item is gedateerd op de publicatie van het rapport. De beschreven beperkingen bestonden al lang voor 2015.",
+      "de": "Der Eintrag ist auf das Erscheinungsdatum des Berichts datiert. Die beschriebenen Beschränkungen bestanden schon lange vor 2015."
+    },
+    "laws": [{ "law": "iccpr-19", "pinpoint": null }, { "law": "udhr-19", "pinpoint": null }],
+    "sources": [
+      { "title": "Something to Hide? Indonesia's Restrictions on Media Freedom and Rights Monitoring in Papua", "publisher": "Human Rights Watch", "url": "https://www.hrw.org/report/2015/11/10/something-hide/indonesias-restrictions-media-freedom-and-rights-monitoring-papua", "lang": "en", "published": "2015-11-10", "type": "ngo" },
+      { "title": "Indonesia: Still Restricting Foreign Media in Papua", "publisher": "Human Rights Watch", "url": "https://www.hrw.org/news/2017/05/08/indonesia-still-restricting-foreign-media-papua", "lang": "en", "published": "2017-05-08", "type": "ngo" }
+    ],
+    "intake": "manual",
+    "addedOn": "2026-10-29"
+  },
+  {
+    "id": "AND-0004",
+    "date": "2019-05-22",
+    "dateEnd": null,
+    "datePrecision": "day",
+    "tier": "acknowledged",
+    "category": ["information"],
+    "location": { "place": "Nationwide, focus on Jakarta", "province": "DKI Jakarta" },
+    "actor": "Coordinating Minister for Political, Legal and Security Affairs Wiranto; Ministry of Communication and Informatics (Kominfo)",
+    "title": {
+      "en": "Government limits photo and video sharing on social media after post-election unrest",
+      "id": "Pemerintah membatasi berbagi foto dan video di media sosial setelah kerusuhan pascapemilu",
+      "nl": "Regering beperkt delen van foto's en video's op sociale media na onrust rond de verkiezingen",
+      "de": "Regierung schränkt das Teilen von Fotos und Videos in sozialen Medien nach Unruhen nach der Wahl ein"
+    },
+    "summary": {
+      "en": "After unrest in Jakarta following the announcement of the 2019 election results, the government limited features of social media and messaging apps, slowing or disabling the sharing of photos and videos on platforms including Facebook, Instagram and WhatsApp. Coordinating Minister Wiranto announced the measure publicly together with Communication Minister Rudiantara, and Global Voices reported that the limits were lifted after about three days.",
+      "id": "Setelah kerusuhan di Jakarta menyusul pengumuman hasil Pemilu 2019, pemerintah membatasi sejumlah fitur media sosial dan aplikasi pesan, sehingga pengiriman foto dan video di platform seperti Facebook, Instagram, dan WhatsApp melambat atau tidak bisa dilakukan. Menko Polhukam Wiranto mengumumkan langkah ini secara terbuka bersama Menteri Kominfo Rudiantara, dan Global Voices melaporkan pembatasan itu dicabut sekitar tiga hari kemudian.",
+      "nl": "Na onrust in Jakarta rond de bekendmaking van de verkiezingsuitslag van 2019 beperkte de regering functies van sociale media en berichtenapps, waardoor het delen van foto's en video's op onder meer Facebook, Instagram en WhatsApp vertraagd of onmogelijk werd. Coördinerend minister Wiranto maakte de maatregel samen met communicatieminister Rudiantara publiekelijk bekend, en Global Voices meldde dat de beperkingen na ongeveer drie dagen werden opgeheven.",
+      "de": "Nach Unruhen in Jakarta im Anschluss an die Bekanntgabe der Wahlergebnisse 2019 schränkte die Regierung Funktionen von sozialen Medien und Messengern ein, sodass das Teilen von Fotos und Videos auf Plattformen wie Facebook, Instagram und WhatsApp verlangsamt oder unmöglich wurde. Koordinierungsminister Wiranto gab die Maßnahme gemeinsam mit Kommunikationsminister Rudiantara öffentlich bekannt, und laut Global Voices wurden die Einschränkungen nach etwa drei Tagen aufgehoben."
+    },
+    "context": null,
+    "laws": [{ "law": "uud-28f", "pinpoint": null }, { "law": "uuham-14", "pinpoint": null }, { "law": "iccpr-19", "pinpoint": null }],
+    "sources": [
+      { "title": "Post-election unrest grips Jakarta", "publisher": "The Jakarta Post", "url": "https://www.thejakartapost.com/news/2019/05/22/post-election-unrest-grips-jakarta", "lang": "en", "published": "2019-05-22", "type": "news" },
+      { "title": "Indonesians Turn to Twitter as Govt Limit Instagram, Facebook Use", "publisher": "Tempo English", "url": "https://en.tempo.co/amp/1208528/indonesians-turn-to-twitter-as-govt-limit-instagram-facebook-use", "lang": "en", "published": "2019-05-23", "type": "news" },
+      { "title": "Indonesia curbs social media, blaming hoaxes for inflaming unrest", "publisher": "Euronews (Reuters)", "url": "https://www.euronews.com/2019/05/22/indonesia-curbs-social-media-blaming-hoaxes-for-inflaming-unrest", "lang": "en", "published": "2019-05-22", "type": "news" },
+      { "title": "Indonesia's post-election riots led to free speech violations", "publisher": "Global Voices Advox", "url": "https://advox.globalvoices.org/2019/06/15/indonesias-post-election-riots-led-to-free-speech-violations/", "lang": "en", "published": "2019-06-15", "type": "ngo" }
+    ],
+    "intake": "manual",
+    "addedOn": "2026-10-29"
+  },
+  {
+    "id": "AND-0005",
+    "date": "2019-08-19",
+    "dateEnd": "2019-09-09",
+    "datePrecision": "day",
+    "tier": "court",
+    "category": ["information", "press"],
+    "location": { "place": "Papua and West Papua", "province": "Papua, Papua Barat" },
+    "actor": "Ministry of Communication and Informatics (Kominfo) and the President",
+    "title": {
+      "en": "Internet throttling and shutdown in Papua, later ruled unlawful by a court",
+      "id": "Pelambatan dan pemutusan internet di Papua, belakangan dinyatakan melanggar hukum oleh pengadilan",
+      "nl": "Vertraging en afsluiting van internet in Papoea, later door de rechter onrechtmatig verklaard",
+      "de": "Drosselung und Abschaltung des Internets in Papua, später gerichtlich für rechtswidrig erklärt"
+    },
+    "summary": {
+      "en": "During anti-racism protests in Papua and West Papua, Kominfo throttled and then shut down internet access in the region. On 3 June 2020 the Jakarta Administrative Court, in case No. 230/G/TF/2019/PTUN-JKT brought by the Alliance of Independent Journalists (AJI) and SAFEnet, ruled the throttling and the shutdown unlawful, and the government withdrew its appeal later that month.",
+      "id": "Saat aksi antirasisme di Papua dan Papua Barat, Kominfo memperlambat lalu memutus akses internet di wilayah tersebut. Pada 3 Juni 2020, Pengadilan Tata Usaha Negara Jakarta dalam perkara Nomor 230/G/TF/2019/PTUN-JKT yang diajukan Aliansi Jurnalis Independen (AJI) dan SAFEnet memutuskan bahwa pelambatan dan pemutusan internet itu melanggar hukum, dan pemerintah mencabut bandingnya pada akhir bulan yang sama.",
+      "nl": "Tijdens protesten tegen racisme in Papoea en West-Papoea vertraagde Kominfo de internettoegang in de regio en sloot die daarna af. Op 3 juni 2020 oordeelde de bestuursrechter in Jakarta in zaak nr. 230/G/TF/2019/PTUN-JKT, aangespannen door de Alliance of Independent Journalists (AJI) en SAFEnet, dat de vertraging en de afsluiting onrechtmatig waren. Later die maand trok de regering haar hoger beroep in.",
+      "de": "Während Protesten gegen Rassismus in Papua und Westpapua drosselte Kominfo den Internetzugang in der Region und schaltete ihn anschließend ab. Am 3. Juni 2020 erklärte das Verwaltungsgericht Jakarta im Verfahren Nr. 230/G/TF/2019/PTUN-JKT, angestrengt von der Alliance of Independent Journalists (AJI) und SAFEnet, die Drosselung und die Abschaltung für rechtswidrig. Später im selben Monat zog die Regierung ihre Berufung zurück."
+    },
+    "context": {
+      "en": "Ruling: Putusan Pengadilan Tata Usaha Negara Jakarta Nomor 230/G/TF/2019/PTUN-JKT, 3 Juni 2020. On 27 October 2021 the Constitutional Court ruled that the government's power to block or throttle internet access during social unrest is constitutional, as reported by IFEX.",
+      "id": "Putusan: Putusan Pengadilan Tata Usaha Negara Jakarta Nomor 230/G/TF/2019/PTUN-JKT, 3 Juni 2020. Pada 27 Oktober 2021, Mahkamah Konstitusi memutuskan bahwa kewenangan pemerintah untuk memblokir atau memperlambat akses internet saat terjadi kerusuhan sosial tidak bertentangan dengan konstitusi, seperti dilaporkan IFEX.",
+      "nl": "Uitspraak: Putusan Pengadilan Tata Usaha Negara Jakarta Nomor 230/G/TF/2019/PTUN-JKT, 3 Juni 2020. Op 27 oktober 2021 oordeelde het Constitutioneel Hof dat de bevoegdheid van de regering om internettoegang bij maatschappelijke onrust te blokkeren of te vertragen grondwettig is, zo meldde IFEX.",
+      "de": "Urteil: Putusan Pengadilan Tata Usaha Negara Jakarta Nomor 230/G/TF/2019/PTUN-JKT, 3 Juni 2020. Am 27. Oktober 2021 entschied das Verfassungsgericht, dass die Befugnis der Regierung, den Internetzugang bei sozialen Unruhen zu sperren oder zu drosseln, verfassungsgemäß ist, wie IFEX berichtete."
+    },
+    "laws": [{ "law": "uud-28f", "pinpoint": null }, { "law": "iccpr-19", "pinpoint": null }, { "law": "uupers-4", "pinpoint": "ayat (3)" }],
+    "sources": [
+      { "title": "Alliance of Independent Journalists v. Minister of Communication", "publisher": "Columbia Global Freedom of Expression", "url": "https://globalfreedomofexpression.columbia.edu/cases/alliance-of-independent-journalists-v-minister-of-communication/", "lang": "en", "published": null, "type": "academic" },
+      { "title": "AJI statement on the internet restriction case", "publisher": "Aliansi Jurnalis Independen (AJI)", "url": "https://aji.or.id/node/7505", "lang": "id", "published": null, "type": "ngo" },
+      { "title": "Internet ban during antiracism unrest in Papua deemed illegal", "publisher": "The Jakarta Post", "url": "https://www.thejakartapost.com/news/2020/06/03/internet-ban-during-antiracism-unrest-in-papua-deemed-illegal", "lang": "en", "published": "2020-06-03", "type": "news" },
+      { "title": "President Widodo drops appeal against Papua internet block court ruling", "publisher": "Indoleft", "url": "https://www.indoleft.org/news/2020-06-20/president-widodo-drops-appeal-against-papua-internet-block-court-ruling.html", "lang": "en", "published": "2020-06-20", "type": "news" },
+      { "title": "Indonesian court allows internet blocking amid social unrest", "publisher": "IFEX", "url": "https://ifex.org/indonesian-court-allows-internet-blocking-amid-social-unrest/", "lang": "en", "published": "2021-11-10", "type": "ngo" }
+    ],
+    "intake": "manual",
+    "addedOn": "2026-10-29"
+  },
+  {
+    "id": "AND-0006",
+    "date": "2020-10-08",
+    "dateEnd": null,
+    "datePrecision": "day",
+    "tier": "documented",
+    "category": ["press"],
+    "location": { "place": "Jakarta and other cities", "province": "DKI Jakarta" },
+    "actor": "Indonesian National Police (Polri)",
+    "title": {
+      "en": "Journalists face violence and arrest while covering Omnibus Law protests",
+      "id": "Jurnalis mengalami kekerasan dan penangkapan saat meliput aksi tolak Omnibus Law",
+      "nl": "Journalisten te maken met geweld en arrestaties bij verslaggeving van protesten tegen de Omnibuswet",
+      "de": "Journalisten erleben Gewalt und Festnahmen bei der Berichterstattung über Proteste gegen das Omnibus-Gesetz"
+    },
+    "summary": {
+      "en": "During protests against the Omnibus Law on Job Creation, the Alliance of Independent Journalists (AJI) recorded 28 journalists who faced violence or intimidation while reporting, most of whom had shown their press identification, as reported by Tempo. The International Federation of Journalists reported that five journalists in Jakarta and several student journalists were arrested on 8 October and released the next day.",
+      "id": "Saat aksi menolak UU Cipta Kerja (Omnibus Law), Aliansi Jurnalis Independen (AJI) mencatat 28 jurnalis mengalami kekerasan atau intimidasi ketika meliput, sebagian besar di antaranya sudah menunjukkan identitas pers, seperti diberitakan Tempo. Federasi Jurnalis Internasional (IFJ) melaporkan lima jurnalis di Jakarta dan sejumlah jurnalis pers mahasiswa ditangkap pada 8 Oktober lalu dibebaskan keesokan harinya.",
+      "nl": "Tijdens protesten tegen de Omnibuswet over het scheppen van banen registreerde de Alliance of Independent Journalists (AJI) 28 journalisten die tijdens hun werk met geweld of intimidatie te maken kregen. De meesten hadden hun perskaart laten zien, meldde Tempo. De International Federation of Journalists meldde dat vijf journalisten in Jakarta en enkele studentjournalisten op 8 oktober werden gearresteerd en de volgende dag werden vrijgelaten.",
+      "de": "Bei Protesten gegen das Omnibus-Gesetz zur Schaffung von Arbeitsplätzen verzeichnete die Alliance of Independent Journalists (AJI) 28 Journalisten, die bei der Berichterstattung Gewalt oder Einschüchterung erlebten. Die meisten hatten ihren Presseausweis gezeigt, berichtete Tempo. Die Internationale Journalisten-Föderation meldete, dass fünf Journalisten in Jakarta und mehrere studentische Journalisten am 8. Oktober festgenommen und am nächsten Tag freigelassen wurden."
+    },
+    "context": {
+      "en": "The protests began on 5 October 2020.",
+      "id": "Gelombang aksi dimulai pada 5 Oktober 2020.",
+      "nl": "De protesten begonnen op 5 oktober 2020.",
+      "de": "Die Proteste begannen am 5. Oktober 2020."
+    },
+    "laws": [{ "law": "uupers-4", "pinpoint": "ayat (3)" }, { "law": "uupers-18", "pinpoint": null }, { "law": "iccpr-19", "pinpoint": null }],
+    "sources": [
+      { "title": "Anti-Omnibus Law Protest; AJI Says 28 Journalists Faced Police Intimidation", "publisher": "Tempo English", "url": "https://en.tempo.co/amp/1394748/anti-omnibus-law-protest-aji-says-28-journalists-faced-police-intimidation", "lang": "en", "published": "2020-10-10", "type": "news" },
+      { "title": "Indonesia: Police attack journalists covering protests across the country", "publisher": "International Federation of Journalists (IFJ)", "url": "https://ifj.org/media-centre/news/detail/category/press-releases/article/indonesia-police-attack-journalists-covering-protests-across-the-country", "lang": "en", "published": null, "type": "ngo" },
+      { "title": "Police violence against journalists so the public don't see their crimes: AJI", "publisher": "Indoleft", "url": "https://indoleft.org/news/2020-10-10/police-violence-against-journalists-so-the-public-dont-see-their-crimes-aji.html", "lang": "en", "published": "2020-10-10", "type": "news" }
+    ],
+    "intake": "manual",
+    "addedOn": "2026-10-29"
+  },
+  {
+    "id": "AND-0007",
+    "date": "2025-08-25",
+    "dateEnd": "2025-08-31",
+    "datePrecision": "day",
+    "tier": "documented",
+    "category": ["press"],
+    "location": { "place": "Jakarta, Jambi and other cities", "province": "DKI Jakarta, Jambi" },
+    "actor": "Indonesian National Police (Polri)",
+    "title": {
+      "en": "At least 16 journalists assaulted or intimidated during nationwide protests",
+      "id": "Sedikitnya 16 jurnalis diserang atau diintimidasi selama gelombang demonstrasi nasional",
+      "nl": "Minstens 16 journalisten aangevallen of geïntimideerd tijdens landelijke protesten",
+      "de": "Mindestens 16 Journalisten bei landesweiten Protesten angegriffen oder eingeschüchtert"
+    },
+    "summary": {
+      "en": "Reporters Without Borders (RSF) and the Committee to Protect Journalists (CPJ) reported that at least 16 journalists were assaulted or intimidated while covering nationwide protests. AJI documented an assault on an Antara photojournalist at the House of Representatives (DPR) on 25 August despite press identification, and the arrest, beating and intimidation of a TV One journalist who was live-streaming on 31 August.",
+      "id": "Reporters Without Borders (RSF) dan Committee to Protect Journalists (CPJ) melaporkan sedikitnya 16 jurnalis diserang atau diintimidasi saat meliput demonstrasi di berbagai daerah. AJI mencatat seorang pewarta foto Antara dianiaya di depan Gedung DPR pada 25 Agustus meski sudah menunjukkan identitas pers, serta seorang jurnalis TV One yang ditangkap, dipukuli, dan diintimidasi saat siaran langsung pada 31 Agustus.",
+      "nl": "Reporters Without Borders (RSF) en het Committee to Protect Journalists (CPJ) meldden dat minstens 16 journalisten werden aangevallen of geïntimideerd tijdens hun verslaggeving van landelijke protesten. AJI documenteerde dat een fotojournalist van Antara op 25 augustus bij het parlement (DPR) werd aangevallen, ondanks zijn perskaart, en dat een journalist van TV One op 31 augustus tijdens een livestream werd opgepakt, geslagen en geïntimideerd.",
+      "de": "Reporter ohne Grenzen (RSF) und das Committee to Protect Journalists (CPJ) berichteten, dass mindestens 16 Journalisten bei der Berichterstattung über landesweite Proteste angegriffen oder eingeschüchtert wurden. AJI dokumentierte einen Angriff auf einen Fotojournalisten von Antara am Parlament (DPR) am 25. August trotz Presseausweis sowie die Festnahme, Misshandlung und Einschüchterung eines Journalisten von TV One während eines Livestreams am 31. August."
+    },
+    "context": null,
+    "laws": [{ "law": "uupers-4", "pinpoint": "ayat (3)" }, { "law": "uupers-18", "pinpoint": null }, { "law": "iccpr-19", "pinpoint": null }],
+    "sources": [
+      { "title": "Indonesia: RSF urges President Prabowo to protect journalists amid nationwide protests", "publisher": "Reporters Without Borders (RSF)", "url": "https://rsf.org/en/indonesia-rsf-urges-president-prabowo-protect-journalists-amid-nationwide-protests", "lang": "en", "published": "2025-09-01", "type": "ngo" },
+      { "title": "AJI documentation of violence against journalists during the August 2025 protests", "publisher": "Aliansi Jurnalis Independen (AJI)", "url": "https://aji.or.id/node/19627", "lang": "id", "published": null, "type": "ngo" },
+      { "title": "Indonesian journalists attacked while covering nationwide protests", "publisher": "Committee to Protect Journalists (CPJ)", "url": "https://cpj.org/2025/09/indonesian-journalists-attacked-while-covering-nationwide-protests/", "lang": "en", "published": null, "type": "ngo" }
+    ],
+    "intake": "manual",
+    "addedOn": "2026-10-29"
+  },
+  {
+    "id": "AND-0008",
+    "date": "2025-08-26",
+    "dateEnd": "2025-08-30",
+    "datePrecision": "day",
+    "tier": "alleged",
+    "category": ["information"],
+    "location": { "place": "Nationwide", "province": "Nationwide" },
+    "actor": "Ministry of Communication and Digital Affairs (Komdigi)",
+    "title": {
+      "en": "Komdigi moves to summon platforms over protest content; TikTok suspends LIVE",
+      "id": "Komdigi hendak memanggil platform terkait konten demonstrasi; TikTok menangguhkan fitur LIVE",
+      "nl": "Komdigi wil platforms ontbieden over protestcontent; TikTok schort LIVE op",
+      "de": "Komdigi will Plattformen wegen Protestinhalten vorladen; TikTok setzt LIVE aus"
+    },
+    "summary": {
+      "en": "On 26 August Komdigi said it intended to summon Meta and TikTok over content it described as defamatory and hateful in connection with the protests, according to RSF. On 30 August TikTok suspended its LIVE feature in Indonesia for several days and described the step as voluntary. RSF raised concern that the authorities were seeking to restrict coverage of the protests; state pressure on the platform has not been confirmed.",
+      "id": "Pada 26 Agustus, Komdigi menyatakan akan memanggil Meta dan TikTok terkait konten yang disebutnya bersifat fitnah dan kebencian terkait demonstrasi, menurut RSF. Pada 30 Agustus, TikTok menangguhkan fitur LIVE di Indonesia selama beberapa hari dan menyebut langkah itu sukarela. RSF menyatakan kekhawatiran bahwa pemerintah berupaya membatasi peliputan demonstrasi; adanya tekanan negara terhadap platform belum terkonfirmasi.",
+      "nl": "Op 26 augustus liet Komdigi weten Meta en TikTok te willen ontbieden over content die het ministerie lasterlijk en haatdragend noemde en die verband hield met de protesten, aldus RSF. Op 30 augustus schortte TikTok zijn LIVE-functie in Indonesië enkele dagen op en noemde die stap vrijwillig. RSF uitte zorgen dat de autoriteiten de verslaggeving over de protesten wilden beperken; druk van de staat op het platform is niet bevestigd.",
+      "de": "Am 26. August erklärte Komdigi laut RSF, Meta und TikTok wegen protestbezogener Inhalte vorladen zu wollen, die das Ministerium als verleumderisch und hasserfüllt bezeichnete. Am 30. August setzte TikTok seine LIVE-Funktion in Indonesien für einige Tage aus und bezeichnete den Schritt als freiwillig. RSF äußerte die Sorge, dass die Behörden die Berichterstattung über die Proteste einschränken wollten; staatlicher Druck auf die Plattform ist nicht bestätigt."
+    },
+    "context": null,
+    "laws": [{ "law": "uud-28f", "pinpoint": null }, { "law": "iccpr-19", "pinpoint": null }],
+    "sources": [
+      { "title": "Indonesia: RSF urges President Prabowo to protect journalists amid nationwide protests", "publisher": "Reporters Without Borders (RSF)", "url": "https://rsf.org/en/indonesia-rsf-urges-president-prabowo-protect-journalists-amid-nationwide-protests", "lang": "en", "published": "2025-09-01", "type": "ngo" },
+      { "title": "TikTok says live feature temporarily suspended in Indonesia over protests", "publisher": "The Jakarta Post (AFP)", "url": "https://www.thejakartapost.com/indonesia/2025/08/31/tiktok-says-live-feature-temporarily-suspended-in-indonesia-over-protests.html", "lang": "en", "published": "2025-08-31", "type": "news" }
+    ],
+    "intake": "manual",
+    "addedOn": "2026-10-29"
+  },
+  {
+    "id": "AND-0009",
+    "date": "2026-08-27",
+    "dateEnd": null,
+    "datePrecision": "day",
+    "tier": "acknowledged",
+    "category": ["information"],
+    "location": { "place": "DPR/MPR building, Senayan, Jakarta", "province": "DKI Jakarta" },
+    "actor": "Ministry of Communication and Digital Affairs (Komdigi)",
+    "title": {
+      "en": "Komdigi acknowledges taking down 486 pieces of content linked to the 27 August protest",
+      "id": "Komdigi mengakui menurunkan 486 konten terkait demonstrasi 27 Agustus",
+      "nl": "Komdigi erkent 486 berichten over het protest van 27 augustus te hebben verwijderd",
+      "de": "Komdigi räumt die Entfernung von 486 Inhalten zum Protest vom 27. August ein"
+    },
+    "summary": {
+      "en": "Komdigi told Komnas HAM that it took down 486 pieces of social media content linked to the protest in front of the DPR/MPR building on 27 August 2026, as reported by Suara.com. Komdigi denied restricting internet access. On 13 October 2026 Komnas HAM said it was examining whether a party other than Komdigi restricted connectivity during the protest.",
+      "id": "Komdigi menyampaikan kepada Komnas HAM bahwa pihaknya menurunkan (takedown) 486 konten media sosial terkait demonstrasi di depan Gedung DPR/MPR pada 27 Agustus 2026, seperti diberitakan Suara.com. Komdigi membantah melakukan pembatasan akses internet. Pada 13 Oktober 2026, Komnas HAM menyatakan sedang mendalami kemungkinan adanya pihak lain selain Komdigi yang membatasi akses internet saat demonstrasi berlangsung.",
+      "nl": "Komdigi vertelde de nationale mensenrechtencommissie Komnas HAM dat het 486 berichten op sociale media had verwijderd die verband hielden met het protest voor het DPR/MPR-gebouw op 27 augustus 2026, meldde Suara.com. Komdigi ontkende de internettoegang te hebben beperkt. Op 13 oktober 2026 zei Komnas HAM te onderzoeken of een andere partij dan Komdigi de verbinding tijdens het protest had beperkt.",
+      "de": "Komdigi teilte der nationalen Menschenrechtskommission Komnas HAM mit, 486 Inhalte in sozialen Medien im Zusammenhang mit dem Protest vor dem DPR/MPR-Gebäude am 27. August 2026 entfernt zu haben, berichtete Suara.com. Komdigi bestritt, den Internetzugang eingeschränkt zu haben. Am 13. Oktober 2026 erklärte Komnas HAM, man prüfe, ob eine andere Stelle als Komdigi die Verbindung während des Protests eingeschränkt habe."
+    },
+    "context": null,
+    "laws": [{ "law": "uud-28f", "pinpoint": null }, { "law": "iccpr-19", "pinpoint": null }],
+    "sources": [
+      { "title": "Komdigi Bantah Batasi Internet Saat Demo 27 Agustus, tapi Akui Takedown 486 Konten Medsos", "publisher": "Suara.com", "url": "https://www.suara.com/news/2026/10/13/145301/komdigi-bantah-batasi-internet-saat-demo-27-agustus-tapi-akui-takedown-486-konten-medsos", "lang": "id", "published": "2026-10-13", "type": "news" },
+      { "title": "Komnas HAM Selidiki Dugaan Pembatasan Internet saat Demo 27 Agustus", "publisher": "Suara.com", "url": "https://www.suara.com/news/2026/10/13/155652/komnas-ham-selidiki-dugaan-pembatasan-internet-saat-demo-27-agustus", "lang": "id", "published": "2026-10-13", "type": "news" }
+    ],
+    "intake": "manual",
+    "addedOn": "2026-10-29"
+  },
+  {
+    "id": "AND-0010",
+    "date": "2026-10",
+    "dateEnd": null,
+    "datePrecision": "month",
+    "tier": "alleged",
+    "category": ["information", "expression"],
+    "location": { "place": "Riau and nationwide", "province": "Riau" },
+    "actor": "Not established (platforms; any state requests unconfirmed)",
+    "title": {
+      "en": "Posts about forest fires and haze reported removed or restricted on social media",
+      "id": "Unggahan soal kebakaran hutan dan kabut asap dilaporkan dihapus atau dibatasi di media sosial",
+      "nl": "Berichten over bosbranden en smog op sociale media verwijderd of beperkt, zo wordt gemeld",
+      "de": "Beiträge über Waldbrände und Smog in sozialen Medien Berichten zufolge entfernt oder eingeschränkt"
+    },
+    "summary": {
+      "en": "Social media users, civil society organisations and public officials reported that posts about the forest fires and haze, including criticism of the government's response, were removed, restricted or made less visible on platforms such as TikTok and Instagram, according to the CIVICUS Monitor. On 20 October TikTok removed a video by the Siak regent showing tree planting on burned land in Riau and restored it after an appeal the same day.",
+      "id": "Pengguna media sosial, organisasi masyarakat sipil, dan pejabat publik melaporkan bahwa unggahan tentang kebakaran hutan dan kabut asap, termasuk kritik atas penanganan pemerintah, dihapus, dibatasi, atau jangkauannya diturunkan di platform seperti TikTok dan Instagram, menurut CIVICUS Monitor. Pada 20 Oktober, TikTok menghapus video Bupati Siak yang menampilkan penanaman pohon di lahan bekas terbakar di Riau, lalu memulihkannya setelah ada banding pada hari yang sama.",
+      "nl": "Gebruikers van sociale media, maatschappelijke organisaties en publieke functionarissen meldden dat berichten over de bosbranden en de smog, waaronder kritiek op de aanpak van de regering, werden verwijderd, beperkt of minder zichtbaar gemaakt op platforms als TikTok en Instagram, aldus de CIVICUS Monitor. Op 20 oktober verwijderde TikTok een video van de regent van Siak over het planten van bomen op afgebrand land in Riau en zette die na een bezwaar dezelfde dag weer terug.",
+      "de": "Nutzer sozialer Medien, zivilgesellschaftliche Organisationen und Amtsträger berichteten laut CIVICUS Monitor, dass Beiträge über die Waldbrände und den Smog, darunter Kritik am Vorgehen der Regierung, auf Plattformen wie TikTok und Instagram entfernt, eingeschränkt oder weniger sichtbar gemacht wurden. Am 20. Oktober entfernte TikTok ein Video des Regenten von Siak, das Baumpflanzungen auf verbrannten Flächen in Riau zeigte, und stellte es nach einem Einspruch noch am selben Tag wieder her."
+    },
+    "context": {
+      "en": "Communication and Digital Affairs Minister Meutya Hafid denied that the ministry had requested the removal or restriction of content about the wildfires, according to the CIVICUS Monitor. Who, if anyone, requested the restrictions is not established.",
+      "id": "Menteri Komunikasi dan Digital Meutya Hafid membantah kementeriannya meminta penghapusan atau pembatasan konten soal kebakaran hutan, menurut CIVICUS Monitor. Siapa yang meminta pembatasan itu, jika memang ada, belum diketahui.",
+      "nl": "Minister van Communicatie en Digitale Zaken Meutya Hafid ontkende volgens de CIVICUS Monitor dat het ministerie had gevraagd om content over de bosbranden te verwijderen of te beperken. Wie eventueel om de beperkingen heeft gevraagd, is niet vastgesteld.",
+      "de": "Kommunikations- und Digitalministerin Meutya Hafid bestritt laut CIVICUS Monitor, dass das Ministerium die Entfernung oder Einschränkung von Inhalten über die Waldbrände verlangt habe. Wer die Einschränkungen gegebenenfalls veranlasst hat, ist nicht geklärt."
+    },
+    "laws": [{ "law": "uud-28f", "pinpoint": null }, { "law": "iccpr-19", "pinpoint": null }],
+    "sources": [
+      { "title": "Indonesia: Activists continue to be targeted, censorship around forest fires and disruption of activism in Papua", "publisher": "CIVICUS Monitor", "url": "https://monitor.civicus.org/explore/indonesia-activists-continue-to-be-targeted-censorship-around-forest-fires-and-disruption-of-activism-in-papua/", "lang": "en", "published": "2026-10-28", "type": "ngo" },
+      { "title": "Activists still targeted over Indonesian forest fires and in West Papua, says rights group", "publisher": "Asia Pacific Report", "url": "https://asiapacificreport.nz/2026/10/29/activists-still-targeted-over-indonesian-forest-fires-and-in-west-papua-says-rights-group/", "lang": "en", "published": "2026-10-29", "type": "news" }
+    ],
+    "intake": "manual",
+    "addedOn": "2026-10-29"
+  },
+  {
+    "id": "AND-0011",
+    "date": "2026-10-07",
+    "dateEnd": null,
+    "datePrecision": "day",
+    "tier": "documented",
+    "category": ["expression"],
+    "location": { "place": "Central Jakarta", "province": "DKI Jakarta" },
+    "actor": "Central Jakarta District Court and the public prosecution",
+    "title": {
+      "en": "Student activist Khariq Anhar sentenced to five months under the ITE Law",
+      "id": "Aktivis mahasiswa Khariq Anhar divonis lima bulan penjara dengan UU ITE",
+      "nl": "Studentenactivist Khariq Anhar veroordeeld tot vijf maanden cel op grond van de ITE-wet",
+      "de": "Studentischer Aktivist Khariq Anhar nach dem ITE-Gesetz zu fünf Monaten Haft verurteilt"
+    },
+    "summary": {
+      "en": "On 7 October 2026 the Central Jakarta District Court sentenced student activist Khariq Anhar to five months in prison under Article 32(1) of the Electronic Information and Transactions (ITE) Law, over an altered screenshot of a news headline shared on social media in connection with the August 2025 demonstrations. The CIVICUS Monitor and other monitors describe ITE prosecutions of activists as criminalisation of expression.",
+      "id": "Pada 7 Oktober 2026, Pengadilan Negeri Jakarta Pusat menjatuhkan vonis lima bulan penjara kepada aktivis mahasiswa Khariq Anhar berdasarkan Pasal 32 ayat (1) UU Informasi dan Transaksi Elektronik (ITE), terkait tangkapan layar judul berita yang diubah dan dibagikan di media sosial sehubungan dengan demonstrasi Agustus 2025. CIVICUS Monitor dan pemantau lain menilai penuntutan aktivis dengan UU ITE sebagai kriminalisasi kebebasan berekspresi.",
+      "nl": "Op 7 oktober 2026 veroordeelde de rechtbank van Centraal-Jakarta studentenactivist Khariq Anhar tot vijf maanden gevangenisstraf op grond van artikel 32, lid 1, van de wet op elektronische informatie en transacties (ITE), vanwege een bewerkte schermafbeelding van een nieuwskop die in verband met de demonstraties van augustus 2025 op sociale media was gedeeld. De CIVICUS Monitor en andere waarnemers bestempelen ITE-vervolgingen van activisten als criminalisering van meningsuiting.",
+      "de": "Am 7. Oktober 2026 verurteilte das Bezirksgericht Zentral-Jakarta den studentischen Aktivisten Khariq Anhar nach Artikel 32 Absatz 1 des Gesetzes über elektronische Informationen und Transaktionen (ITE) zu fünf Monaten Haft, wegen eines veränderten Screenshots einer Schlagzeile, der im Zusammenhang mit den Demonstrationen im August 2025 in sozialen Medien geteilt worden war. Der CIVICUS Monitor und andere Beobachter werten ITE-Verfahren gegen Aktivisten als Kriminalisierung der Meinungsäußerung."
+    },
+    "context": {
+      "en": "According to the CIVICUS Monitor, Amnesty International had called for the prosecution to be discontinued unless prosecutors could present sufficient, credible and admissible evidence of an internationally recognised criminal offence. In an earlier case, the same court acquitted him and other activists of all charges on 6 March 2026.",
+      "id": "Menurut CIVICUS Monitor, Amnesty International sebelumnya meminta penuntutan dihentikan kecuali jaksa dapat menunjukkan bukti yang cukup, kredibel, dan sah atas tindak pidana yang diakui secara internasional. Dalam perkara sebelumnya, pengadilan yang sama membebaskannya bersama sejumlah aktivis lain dari semua dakwaan pada 6 Maret 2026.",
+      "nl": "Volgens de CIVICUS Monitor had Amnesty International opgeroepen de vervolging te staken, tenzij de aanklagers voldoende, geloofwaardig en toelaatbaar bewijs konden leveren van een internationaal erkend strafbaar feit. In een eerdere zaak sprak dezelfde rechtbank hem en andere activisten op 6 maart 2026 van alle aanklachten vrij.",
+      "de": "Laut CIVICUS Monitor hatte Amnesty International gefordert, das Verfahren einzustellen, sofern die Staatsanwaltschaft keine ausreichenden, glaubwürdigen und zulässigen Beweise für eine international anerkannte Straftat vorlegen könne. In einem früheren Verfahren hatte dasselbe Gericht ihn und weitere Aktivisten am 6. März 2026 von allen Anklagepunkten freigesprochen."
+    },
+    "laws": [{ "law": "iccpr-19", "pinpoint": null }, { "law": "uud-28e3", "pinpoint": null }],
+    "sources": [
+      { "title": "Indonesia: Activists continue to be targeted, censorship around forest fires and disruption of activism in Papua", "publisher": "CIVICUS Monitor", "url": "https://monitor.civicus.org/explore/indonesia-activists-continue-to-be-targeted-censorship-around-forest-fires-and-disruption-of-activism-in-papua/", "lang": "en", "published": "2026-10-28", "type": "ngo" },
+      { "title": "Indonesia: Authorities target and vilify activists, block film screenings, crackdown on protests while impunity for violations continues", "publisher": "CIVICUS Monitor", "url": "https://monitor.civicus.org/explore/indonesia-authorities-target-and-vilify-activists-block-film-screenings-crackdown-on-protests-while-impunity-for-violations-continues/", "lang": "en", "published": "2026-08-28", "type": "ngo" }
+    ],
+    "intake": "manual",
+    "addedOn": "2026-10-29"
+  },
+  {
+    "id": "AND-0012",
+    "date": "2026-10-28",
+    "dateEnd": null,
+    "datePrecision": "day",
+    "tier": "acknowledged",
+    "category": ["press"],
+    "location": { "place": "Bundaran HI, Jakarta", "province": "DKI Jakarta" },
+    "actor": "Jakarta Metropolitan Regional Police (Polda Metro Jaya)",
+    "title": {
+      "en": "Police block journalists from covering a protest at Bundaran HI, then apologise",
+      "id": "Polisi menghalangi jurnalis meliput demonstrasi di Bundaran HI, lalu meminta maaf",
+      "nl": "Politie houdt journalisten weg bij protest op Bundaran HI en biedt daarna excuses aan",
+      "de": "Polizei hindert Journalisten an der Berichterstattung über Protest am Bundaran HI und entschuldigt sich"
+    },
+    "summary": {
+      "en": "Police blocked journalists from IDN Times and Jawa Pos from reaching the protest point at the Hotel Indonesia roundabout (Bundaran HI) even after they showed their press cards, IDN Times reported. On 29 October the head of public relations of Polda Metro Jaya, Kombes Budi Hermanto, apologised and said the incident would be evaluated.",
+      "id": "Polisi menghalangi jurnalis IDN Times dan Jawa Pos menuju titik aksi di Bundaran Hotel Indonesia (HI), meskipun mereka sudah menunjukkan kartu pers, seperti diberitakan IDN Times. Pada 29 Oktober, Kabid Humas Polda Metro Jaya Kombes Budi Hermanto meminta maaf dan menyatakan kejadian itu akan menjadi bahan evaluasi.",
+      "nl": "De politie hield journalisten van IDN Times en Jawa Pos tegen op weg naar de protestlocatie bij de rotonde van Hotel Indonesia (Bundaran HI), ook nadat zij hun perskaart hadden getoond, meldde IDN Times. Op 29 oktober bood het hoofd voorlichting van Polda Metro Jaya, Kombes Budi Hermanto, excuses aan en zei dat het incident zou worden geëvalueerd.",
+      "de": "Die Polizei hinderte Journalisten von IDN Times und Jawa Pos daran, zum Protestort am Hotel-Indonesia-Kreisel (Bundaran HI) zu gelangen, obwohl sie ihre Presseausweise vorgezeigt hatten, berichtete IDN Times. Am 29. Oktober entschuldigte sich der Pressesprecher der Polda Metro Jaya, Kombes Budi Hermanto, und erklärte, der Vorfall werde ausgewertet."
+    },
+    "context": null,
+    "laws": [{ "law": "uupers-4", "pinpoint": "ayat (3)" }, { "law": "uupers-18", "pinpoint": null }, { "law": "iccpr-19", "pinpoint": null }],
+    "sources": [
+      { "title": "Polisi Larang Jurnalis Meliput Demo Mahasiswa di Bundaran HI", "publisher": "IDN Times", "url": "https://www.idntimes.com/news/indonesia/polisi-larang-jurnalis-meliput-demo-mahasiswa-di-bundaran-hi-00-481xk-dd25qh", "lang": "id", "published": "2026-10-28", "type": "news" },
+      { "title": "Jurnalis Dihalangi Meliput Demo di Bundaran HI, Polda Metro Minta Maaf", "publisher": "IDN Times", "url": "https://www.idntimes.com/news/indonesia/jurnalis-dihalangi-meliput-demo-di-bundaran-hi-polda-metro-minta-maaf-00-vdzm7-m0fgtv", "lang": "id", "published": "2026-10-29", "type": "news" },
+      { "title": "Viral Jurnalis Dihalangi Liput Demo di Bundaran HI, Polda Metro Minta Maaf", "publisher": "iNews", "url": "https://www.inews.id/news/megapolitan/viral-jurnalis-dihalangi-liput-demo-di-bundaran-hi-polda-metro-minta-maaf", "lang": "id", "published": "2026-10-29", "type": "news" },
+      { "title": "Polisi Akui Sempat Larang Jurnalis Liput Demo Mahasiswa di Bundaran HI, Kini Klarifikasi dan Minta Maaf", "publisher": "AFU.id", "url": "https://afu.id/nasional/polisi-akui-sempat-larang-jurnalis-liput-demo-mahasiswa-di-bundaran-hi-kini-klarifikasi-dan-minta-maaf", "lang": "id", "published": "2026-10-29", "type": "news" }
+    ],
+    "intake": "manual",
+    "addedOn": "2026-10-29"
+  },
+  {
+    "id": "AND-0013",
+    "date": "2026-10-28",
+    "dateEnd": null,
+    "datePrecision": "day",
+    "tier": "documented",
+    "category": ["assembly"],
+    "location": { "place": "Central Jakarta", "province": "DKI Jakarta" },
+    "actor": "Indonesian National Police (Polri), with TNI soldiers deployed",
+    "title": {
+      "en": "Arbitrary sweeps, violence and arrests documented at the \"Indonesia Sadar\" protest",
+      "id": "Sweeping sewenang-wenang, kekerasan, dan penangkapan tercatat dalam aksi \"Indonesia Sadar\"",
+      "nl": "Willekeurige controles, geweld en arrestaties gedocumenteerd bij het protest \"Indonesia Sadar\"",
+      "de": "Willkürliche Kontrollen, Gewalt und Festnahmen beim Protest \"Indonesia Sadar\" dokumentiert"
+    },
+    "summary": {
+      "en": "During the \"Indonesia Sadar\" protest, field monitoring by LBH Jakarta found arbitrary sweeps and searches, violence and restrictions on protesters' movement at the MRT HI station, Gondangdia station, around Bundaran HI, in front of the UOB building and at other security posts. The Advocacy Team for Democracy (TAUD) recorded at least 13 people arrested and taken to Polda Metro Jaya by 23:58 WIB, one of them a child.",
+      "id": "Dalam aksi \"Indonesia Sadar\", pemantauan lapangan LBH Jakarta menemukan sweeping dan penggeledahan sewenang-wenang, kekerasan, serta pembatasan mobilitas massa aksi di kawasan Stasiun MRT HI, Stasiun Gondangdia, sekitar Bundaran HI, depan Gedung UOB, dan berbagai pos penjagaan aparat lainnya. Tim Advokasi untuk Demokrasi (TAUD) mencatat hingga pukul 23.58 WIB sedikitnya 13 orang ditangkap dan dibawa ke Polda Metro Jaya, satu di antaranya anak.",
+      "nl": "Tijdens het protest \"Indonesia Sadar\" stelde LBH Jakarta bij veldmonitoring willekeurige controles en fouilleringen vast, geweld en beperkingen van de bewegingsvrijheid van demonstranten bij het MRT-station HI, het station Gondangdia, rond Bundaran HI, voor het UOB-gebouw en bij andere controleposten. Het Advocacy Team for Democracy (TAUD) telde tot 23.58 uur WIB minstens 13 mensen die waren opgepakt en naar Polda Metro Jaya gebracht, onder wie een kind.",
+      "de": "Beim Protest \"Indonesia Sadar\" stellte LBH Jakarta bei seiner Beobachtung vor Ort willkürliche Kontrollen und Durchsuchungen, Gewalt und Einschränkungen der Bewegungsfreiheit von Demonstrierenden fest, an der MRT-Station HI, am Bahnhof Gondangdia, rund um den Bundaran HI, vor dem UOB-Gebäude und an weiteren Kontrollposten. Das Advocacy Team for Democracy (TAUD) zählte bis 23:58 Uhr WIB mindestens 13 Festgenommene, die zur Polda Metro Jaya gebracht wurden, darunter ein Kind."
+    },
+    "context": {
+      "en": "AFP reported that about 14,000 police officers, along with soldiers, were deployed in Jakarta. LBH Jakarta said the blocking of protest mobilisation contradicted Article 9(2) of Law No. 9 of 1998.",
+      "id": "AFP melaporkan sekitar 14.000 personel polisi bersama tentara dikerahkan di Jakarta. LBH Jakarta menyatakan penghalangan mobilisasi massa aksi bertentangan dengan Pasal 9 ayat (2) UU Nomor 9 Tahun 1998.",
+      "nl": "AFP meldde dat in Jakarta ongeveer 14.000 politieagenten waren ingezet, samen met militairen. LBH Jakarta stelde dat het blokkeren van de toestroom van demonstranten in strijd was met artikel 9, lid 2, van wet nr. 9 van 1998.",
+      "de": "AFP berichtete, dass in Jakarta etwa 14.000 Polizeikräfte zusammen mit Soldaten im Einsatz waren. LBH Jakarta erklärte, die Blockade der Protestmobilisierung widerspreche Artikel 9 Absatz 2 des Gesetzes Nr. 9 von 1998."
+    },
+    "laws": [{ "law": "uud-28e3", "pinpoint": null }, { "law": "uu9-1998-2", "pinpoint": null }, { "law": "uuham-25", "pinpoint": null }, { "law": "iccpr-21", "pinpoint": null }],
+    "sources": [
+      { "title": "LBH Jakarta: Aparat Bertindak Semena-mena di Demo 28 Oktober", "publisher": "Tempo", "url": "https://www.tempo.co/politik/lbh-jakarta-aparat-bertindak-semena-mena-di-demo-28-oktober-2302597", "lang": "id", "published": "2026-10-29", "type": "news" },
+      { "title": "Jakarta Legal Aid: Authorities Acted Arbitrarily at October 28 Protest", "publisher": "Tempo English", "url": "https://en.tempo.co/read/2122603/jakarta-legal-aid-authorities-acted-arbitrarily-at-october-28-protest", "lang": "en", "published": "2026-10-29", "type": "news" },
+      { "title": "LBH Jakarta Soroti Dugaan Penangkapan Massa Aksi Indonesia Sadar", "publisher": "NU Online", "url": "https://www.nu.or.id/jakarta/lbh-jakarta-soroti-dugaan-penangkapan-massa-aksi-indonesia-sadar-nKdXo", "lang": "id", "published": "2026-10-29", "type": "news" },
+      { "title": "'Eat the rich': Indonesians protest against graft, wildfires", "publisher": "Courthouse News Service (AFP)", "url": "https://www.courthousenews.com/eat-the-rich-indonesians-protest-against-graft-wildfires/", "lang": "en", "published": "2026-10-28", "type": "news" }
+    ],
+    "intake": "manual",
+    "addedOn": "2026-10-29"
+  }
+]

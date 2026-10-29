@@ -1,0 +1,8 @@
+blank_issues_enabled: false
+contact_links:
+  - name: Read the method first
+    url: https://github.com/SteveBehren/Andesite/blob/main/METHODOLOGY.md
+    about: How evidence levels, field reports and corrections work.
+  - name: Contact the maintainer privately
+    url: https://github.com/SteveBehren
+    about: If posting publicly could put you at risk, reach out through the maintainer's GitHub profile instead.

@@ -1,0 +1,63 @@
+name: New entry
+description: Propose a documented or alleged event with at least one source.
+title: "[New entry] "
+labels: ["new-entry"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thank you. A maintainer will check the sources, write the four-language text and propose the entry in a pull request.
+        Please attribute, don't accuse: describe what the sources report. GitHub issues are public.
+  - type: input
+    id: date
+    attributes:
+      label: Date of the event
+      description: YYYY-MM-DD, or YYYY-MM if only the month is known. Add an end date for multi-day events.
+    validations:
+      required: true
+  - type: input
+    id: location
+    attributes:
+      label: Location
+      description: City and province.
+    validations:
+      required: true
+  - type: input
+    id: actor
+    attributes:
+      label: State actor
+      description: The institution or official acting in a public role (for example Polda Metro Jaya, Komdigi, a district court).
+    validations:
+      required: true
+  - type: textarea
+    id: what
+    attributes:
+      label: What happened
+      description: A short neutral description. Do not name private individuals.
+    validations:
+      required: true
+  - type: textarea
+    id: sources
+    attributes:
+      label: Sources
+      description: At least one link, one per line. News reports, monitor statements (AJI, LBH, SAFEnet, Komnas HAM, CIVICUS, RSF, CPJ...), court rulings or official statements.
+      placeholder: https://
+    validations:
+      required: true
+  - type: textarea
+    id: laws
+    attributes:
+      label: Suggested laws (optional)
+      description: For example UU 40/1999 Ps. 4(3), UUD 1945 Ps. 28F, ICCPR art. 19(2).
+  - type: dropdown
+    id: tier
+    attributes:
+      label: Suggested evidence level
+      options:
+        - Ruled by a court
+        - Acknowledged by the authority
+        - Documented by credible monitors or several outlets
+        - Alleged
+        - Not sure
+    validations:
+      required: true

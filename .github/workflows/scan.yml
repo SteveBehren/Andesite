@@ -1,0 +1,59 @@
+name: Automated monitor
+
+on:
+  schedule:
+    # Every six hours, off the top of the hour.
+    - cron: '17 */6 * * *'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: andesite-monitor
+  cancel-in-progress: false
+
+jobs:
+  scan:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: main
+          fetch-depth: 0
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+
+      - run: npm ci
+
+      - name: Scan sources and seal new entries
+        env:
+          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+          ANDESITE_MODEL: ${{ vars.ANDESITE_MODEL }}
+        run: node scripts/scan.mjs
+
+      - name: Check the result before publishing
+        run: |
+          node scripts/validate.mjs
+          node scripts/verify.mjs --base HEAD
+
+      - name: Commit and push
+        run: |
+          if git diff --quiet -- data scanner; then
+            echo "Ledger unchanged."
+            exit 0
+          fi
+          git config user.name "andesite-monitor[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add data scanner
+          if git diff --cached --quiet -- data/entries.json; then
+            git commit -m "Monitor: update scan state"
+          else
+            ids=$(node -e "const a=require('./data/ledger.lock.json');const b=JSON.parse(require('child_process').execSync('git show HEAD:data/ledger.lock.json'));console.log(a.slice(b.length).map(x=>x.id).join(', '))")
+            git commit -m "Monitor: seal ${ids}"
+          fi
+          git push origin HEAD:main

@@ -1,0 +1,92 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/SteveBehren/Andesite/schemas/amendment.schema.json",
+  "title": "Andesite amendments",
+  "type": "array",
+  "items": {
+    "type": "object",
+    "additionalProperties": false,
+    "required": [
+      "entry",
+      "date",
+      "type",
+      "note"
+    ],
+    "properties": {
+      "entry": {
+        "type": "string",
+        "pattern": "^AND-[0-9]{4,}$"
+      },
+      "date": {
+        "type": "string",
+        "format": "date"
+      },
+      "type": {
+        "enum": [
+          "correction",
+          "tier_change",
+          "addition",
+          "withdrawn"
+        ]
+      },
+      "fromTier": {
+        "enum": [
+          "court",
+          "acknowledged",
+          "documented",
+          "alleged",
+          "unverified"
+        ]
+      },
+      "toTier": {
+        "enum": [
+          "court",
+          "acknowledged",
+          "documented",
+          "alleged",
+          "unverified"
+        ]
+      },
+      "note": {
+        "$ref": "entry.schema.json#/$defs/i18n"
+      },
+      "sources": {
+        "type": "array",
+        "items": {
+          "$ref": "entry.schema.json#/$defs/source"
+        }
+      },
+      "intake": {
+        "enum": [
+          "manual",
+          "automated"
+        ]
+      },
+      "reviewed": {
+        "type": "boolean",
+        "description": "Marks an automated entry as reviewed by a person."
+      },
+      "postsRemoved": {
+        "type": "boolean",
+        "description": "Field reports only: the linked public posts are no longer available."
+      }
+    },
+    "allOf": [
+      {
+        "if": {
+          "properties": {
+            "type": {
+              "const": "tier_change"
+            }
+          }
+        },
+        "then": {
+          "required": [
+            "fromTier",
+            "toTier"
+          ]
+        }
+      }
+    ]
+  }
+}

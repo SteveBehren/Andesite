@@ -1,0 +1,27 @@
+Andesite data and written content
+Copyright (c) 2026 Andesite contributors
+
+The ledger data (data/entries.json, data/amendments.json, data/ledger.lock.json,
+data/laws.json), the interface text and the About and Method pages (i18n/*.json),
+and the documentation (*.md, docs/) are licensed under the Creative Commons
+Attribution 4.0 International licence (CC BY 4.0).
+
+You are free to share and adapt this material for any purpose, including
+commercially, as long as you give appropriate credit, provide a link to the
+licence, and indicate if changes were made.
+
+Suggested attribution: "Andesite ledger, https://github.com/SteveBehren/Andesite, CC BY 4.0"
+
+Full licence text: https://creativecommons.org/licenses/by/4.0/legalcode
+
+Exceptions:
+- Statutory and treaty texts quoted in data/laws.json are public legal texts and
+  are reproduced as published by their official sources, which are linked in
+  each record. Official UN translations are credited to the United Nations
+  (OHCHR). The CC BY 4.0 licence applies to Andesite's own translations and
+  annotations, not to the underlying legal texts.
+- Linked news articles, reports and social media posts belong to their authors
+  and publishers. Andesite links to them and does not reproduce them.
+
+The software (everything else in this repository) is licensed under the MIT
+licence in LICENSE.

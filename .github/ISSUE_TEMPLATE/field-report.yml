@@ -1,0 +1,73 @@
+name: Field report (social media post)
+description: Report a public social media post that shows an incident. It will be listed as an unverified field report.
+title: "[Field report] "
+labels: ["field-report"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        ## Safety first. Please read before you submit.
+
+        - **GitHub issues are public.** Anyone can read what you write here, including your GitHub username.
+        - If you are inside Indonesia, **do not use an account tied to your real identity**.
+        - **Do not submit footage you filmed yourself.** Submit posts by others that are already public.
+        - Do not paste usernames, faces, screenshots or copies of the video. A link and a neutral description are enough.
+        - Give the **city only**, never a street address or the exact spot someone filmed from.
+        - If posting publicly could put you at risk, contact the maintainer privately through https://github.com/SteveBehren instead.
+
+        Andesite links to public posts only, never archives them and never names private individuals. See METHODOLOGY.md.
+  - type: textarea
+    id: post_urls
+    attributes:
+      label: Post link(s)
+      description: One public URL per line (TikTok, Instagram, X, Threads, Facebook, YouTube).
+      placeholder: https://
+    validations:
+      required: true
+  - type: dropdown
+    id: platform
+    attributes:
+      label: Platform
+      multiple: true
+      options: [TikTok, Instagram, X, Threads, Facebook, YouTube, Other]
+    validations:
+      required: true
+  - type: input
+    id: date_seen
+    attributes:
+      label: Date of the incident (or the date you saw the post)
+      placeholder: YYYY-MM-DD
+    validations:
+      required: true
+  - type: input
+    id: city
+    attributes:
+      label: City
+      description: City level only.
+    validations:
+      required: true
+  - type: textarea
+    id: shows
+    attributes:
+      label: What the post shows
+      description: Describe neutrally what can be seen and heard. Do not name private individuals.
+    validations:
+      required: true
+  - type: textarea
+    id: corroboration
+    attributes:
+      label: Corroborating links (optional)
+      description: Other posts from a different angle, news reports, or monitor statements about the same incident.
+  - type: checkboxes
+    id: not_filmer
+    attributes:
+      label: About you (optional)
+      options:
+        - label: I am not the person who filmed this.
+  - type: checkboxes
+    id: safety
+    attributes:
+      label: Safety notice
+      options:
+        - label: I have read the safety notice above and understand that this issue is public.
+          required: true

@@ -1,0 +1,37 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/SteveBehren/Andesite/schemas/law.schema.json",
+  "title": "Andesite law library",
+  "type": "object",
+  "propertyNames": { "pattern": "^[a-z0-9]+(-[a-z0-9]+)*$" },
+  "additionalProperties": {
+    "type": "object", "additionalProperties": false,
+    "required": ["jurisdiction", "instrument", "article", "citation", "short", "originalLang", "text", "translations", "translationNote", "source"],
+    "properties": {
+      "jurisdiction": { "type": "string", "pattern": "^[A-Z]{2,4}$" },
+      "instrument": {
+        "type": "object", "additionalProperties": false, "required": ["id", "en"],
+        "properties": { "id": { "type": "string" }, "en": { "type": "string" } }
+      },
+      "article": { "type": "string" },
+      "citation": { "type": "string" },
+      "short": { "type": "string" },
+      "originalLang": { "enum": ["id", "en"] },
+      "text": { "type": "string", "minLength": 1 },
+      "translations": {
+        "type": "object", "additionalProperties": false,
+        "patternProperties": { "^(en|id|nl|de)$": { "type": "string", "minLength": 1 } }
+      },
+      "translationNote": {
+        "type": "object", "additionalProperties": false,
+        "patternProperties": { "^(en|id|nl|de)$": { "enum": ["official", "unofficial"] } }
+      },
+      "translationSources": {
+        "type": "object", "additionalProperties": false,
+        "patternProperties": { "^(en|id|nl|de)$": { "type": "string", "format": "uri" } }
+      },
+      "source": { "type": "string", "format": "uri" },
+      "note": { "type": "string" }
+    }
+  }
+}
