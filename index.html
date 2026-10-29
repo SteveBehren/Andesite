@@ -15,19 +15,40 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=IBM+Plex+Sans:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap">
-  <link rel="stylesheet" href="assets/css/style.css">
+  <link rel="stylesheet" href="assets/css/style.css?v=2">
   <script>
     // Runs before first paint: dark theme unless the visitor chose light,
     // and hide the first-visit notice if it was dismissed, so nothing jumps after load.
+    // If the app has not started after 12 seconds (an outdated cached file, a blocked script,
+    // a dropped connection), say so and offer a reload instead of "Loading" forever.
     (function () {
       var root = document.documentElement;
+      var lang = 'en';
       try {
         root.setAttribute('data-theme', localStorage.getItem('andesite.theme') === 'light' ? 'light' : 'dark');
         if (localStorage.getItem('andesite.stripDismissed') === '1') root.classList.add('strip-off');
+        lang = new URLSearchParams(location.search).get('lang') || localStorage.getItem('andesite.lang') || 'en';
       } catch (e) {}
+      var text = {
+        en: ['The ledger did not load.', 'Reload'],
+        id: ['Catatan gagal dimuat.', 'Muat ulang'],
+        nl: ['Het register is niet geladen.', 'Opnieuw laden'],
+        de: ['Das Register wurde nicht geladen.', 'Neu laden']
+      }[lang] || ['The ledger did not load.', 'Reload'];
+      setTimeout(function () {
+        var boot = document.getElementById('boot-text');
+        if (!boot) return;
+        boot.textContent = text[0] + ' ';
+        var button = document.createElement('button');
+        button.type = 'button';
+        button.className = 'btn btn-small';
+        button.textContent = text[1];
+        button.addEventListener('click', function () { location.reload(); });
+        boot.appendChild(button);
+      }, 12000);
     })();
   </script>
-  <script type="module" src="assets/js/app.js"></script>
+  <script type="module" src="assets/js/app.js?v=2"></script>
 </head>
 <body>
   <a class="skip" href="#main" id="skip-link">Skip to content</a>

@@ -385,7 +385,7 @@ kbd { font-size: 0.6875rem; border: 1px solid var(--line-2); border-bottom-width
 
 .boot { display: grid; place-items: center; min-height: 50vh; position: relative; }
 .boot-grid { position: absolute; inset: 20% 30%; background: linear-gradient(90deg, transparent, var(--accent-soft), transparent); background-size: 200% 100%; animation: shimmer 1.4s linear infinite; border-radius: 4px; opacity: 0.6; }
-.boot-text { position: relative; color: var(--text-3); font-size: 0.75rem; letter-spacing: 0.1em; text-transform: uppercase; }
+.boot-text { position: relative; display: flex; align-items: center; gap: 10px; flex-wrap: wrap; justify-content: center; color: var(--text-3); font-size: 0.75rem; letter-spacing: 0.1em; text-transform: uppercase; }
 
 /* Dashboard grid */
 .dash { display: grid; grid-template-columns: repeat(12, minmax(0, 1fr)); gap: 12px; align-items: start; }

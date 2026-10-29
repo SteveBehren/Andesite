@@ -151,4 +151,11 @@ if (!i18nErrors) console.log(`✓ i18n: ${LANGS.length} languages with matching 
   const missing = inline.filter((h) => !csp.includes(h));
   if (missing.length) fail(`vercel.json CSP is missing ${missing.join(', ')} for the inline script in index.html`);
   else console.log(`✓ CSP covers ${inline.length} inline script(s)`);
+
+  // Scripts, styles and UI strings must be revalidated on every visit. A long max-age once let browsers
+  // pair a new index.html with an old app.js, which crashed and left the page on "Loading ledger".
+  const cacheOf = (source) => vercel.headers.find((h) => h.source === source)?.headers.find((h) => h.key === 'Cache-Control')?.value || '';
+  for (const source of ['/assets/(.*)', '/i18n/(.*)']) {
+    if (!/max-age=0\b/.test(cacheOf(source)) || /stale-while-revalidate/.test(cacheOf(source))) fail(`vercel.json: ${source} must use "max-age=0, must-revalidate" so a deploy never mixes old and new files`);
+  }
 }
